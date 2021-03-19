@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "L Black";
+    src: url("../fonts/Lato-Black.ttf");
+}
+
+@font-face {
+    font-family: "L Black Italic";
+    src: url("../fonts/Lato-BlackItalic.ttf");
+}
+
+@font-face {
+    font-family: "L Bold";
+    src: url("../fonts/Lato-Bold.ttf");
+}
+
+@font-face {
+    font-family: "L Bold Italic";
+    src: url("../fonts/Lato-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "L Italic";
+    src: url("../fonts/Lato-Italic.ttf");
+}
+
+@font-face {
+    font-family: "L Light";
+    src: url("../fonts/Lato-Light.ttf");
+}
+
+@font-face {
+    font-family: "L Light Italic";
+    src: url("../fonts/Lato-LightItalic.ttf");
+}
+
+@font-face {
+    font-family: "L Regular";
+    src: url("../fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "L Thin";
+    src: url("../fonts/Lato-Thin.ttf");
+}
+
+@font-face {
+    font-family: "L Thin Italic";
+    src: url("../fonts/Lato-ThinItalic.ttf");
+}
+
+@font-face {
+    font-family: "League Bold";
+    src: url("../fonts/LeagueSpartan-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Didot";
+    src: url("../fonts/Didot-01.ttf");
+}
+
+@font-face {
+    font-family: "Didot Bold";
+    src: url("../fonts/Didot-Bold-03.ttf");
+}
+
+@font-face {
+    font-family: "Didot Italic";
+    src: url("../fonts/Didot-Italic-02.ttf");
+}
