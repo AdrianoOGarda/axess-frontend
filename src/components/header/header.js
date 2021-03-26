@@ -8,6 +8,8 @@ import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import CartIcon from "../../icons/shopping-cart.svg"
 import "../../css/typography.css"
 import MenuItem from "antd/lib/menu/MenuItem";
+import {Link} from "react-router-dom"
+
 const { SubMenu } = Menu;
 
 const DesktopHeader = styled.header`
@@ -49,7 +51,7 @@ transition: color 300ms;
 const menu = (
     <Menu style={{width: '25vw', marginTop: '2vw', marginRight: '-20vw', backgroundColor: '#8C857E'}}>
         <SubMenu title="Recámara">
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Camas</a></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/beds">Camas</Link></Menu.Item>
             <Menu.Item className="antd-submenu-item-axess"><a href="/">Burós</a></Menu.Item>
             <MenuItem className="antd-submenu-item-axess"><a href="/">Mubles de TV</a></MenuItem>
         </SubMenu>
@@ -183,7 +185,7 @@ return (windowSize > 480) ? (
         <AutoComplete placeholder={<SearchOutlined style={{fontSize: '1.8vw', position: 'absolute', top: '25%', left: '1.5%', color: 'black'}} />} className="antd-header-autocomplete"/>
     </div>
     <div className="header-cart-icon-div">
-        <img src={CartIcon} alt="cart-icon"/>
+        <Link to="/cart"><img src={CartIcon} alt="cart-icon"/></Link>
     </div>
 </DesktopHeader>
 
