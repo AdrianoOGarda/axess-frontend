@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import {Home, Login, Signup, Beds, Cart, Nightstands, CreateFurniture} from "./pages"
+import {Home, Login, Signup, Beds, Cart, Nightstands, CreateFurniture, EditFurniture} from "./pages"
 
 import NotFound from './components/404/NotFound.js';
 import Layout from "./components/layout"
@@ -16,6 +16,7 @@ const Router = () => (
         <Route exact path="/nightstands" component={Nightstands}/>
         <Route exact path="/cart" component={Cart}/>
         <Route exact path="/create-furniture" component={CreateFurniture}/>
+        <Route exact path="/furniture/:furnitureid" component={EditFurniture}/>
         <Route component={NotFound} />
       </Switch>
     </Layout>

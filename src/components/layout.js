@@ -1,6 +1,7 @@
 import React from 'react'
 import {createGlobalStyle} from "styled-components"
 import Header from "../components/header/header"
+import Footer from "../components/footer/footer"
 import 'antd/dist/antd.css'
 
 const Global = createGlobalStyle`
@@ -17,6 +18,7 @@ function Layout({ children }) {
         <Global />
         <Header />
         <main>{children}</main>
+        <Footer />
         </>
     )
 }

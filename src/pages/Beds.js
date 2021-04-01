@@ -31,9 +31,17 @@ function Beds() {
         <>
             <p>Aquí van las camas</p>
             {furnitures?.filter(furniture => furniture?.category?.en === "BEDS").map(filteredFurniture => (
-        <ProductCard name={filteredFurniture.name.en} key={filteredFurniture._id}/>
-      ))}
-      <p>{cart.length}</p>
+                <ProductCard 
+                name={filteredFurniture.name.en} 
+                key={filteredFurniture._id} 
+                price={filteredFurniture.price} 
+                image={filteredFurniture.image}
+                description={filteredFurniture.description.es}
+                material={filteredFurniture.material.es}
+                size={filteredFurniture.size.es}
+                id={filteredFurniture}
+                />
+            ))}
         </>
     )
 }
