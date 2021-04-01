@@ -1,6 +1,6 @@
-import React, {createContext, useState, useEffect} from 'react'
-import { getProfile } from './services'
-export const MyContext = createContext()
+import React, {createContext, useState, useEffect} from 'react';
+import { getProfile } from './services';
+export const MyContext = createContext();
 
 function Provider({children}) {
     const [user, setUser] = useState(null)
@@ -35,4 +35,5 @@ function Provider({children}) {
     )
 }
 
-export default Provider
+export default Provider;
+

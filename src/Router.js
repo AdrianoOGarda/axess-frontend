@@ -16,7 +16,7 @@ const Router = () => (
         <Route exact path="/nightstands" component={Nightstands}/>
         <Route exact path="/cart" component={Cart}/>
         <Route exact path="/create-furniture" component={CreateFurniture}/>
-        <Route exact path="/furniture/:furnitureid" component={EditFurniture}/>
+        <Route exact path="/:furnitureId" component={EditFurniture}/>
         <Route component={NotFound} />
       </Switch>
     </Layout>

@@ -20,7 +20,7 @@ function Login({history}) {
                 delete user.salt
                 setCtxUser(user)
 
-                console.log(user)
+                console.log(`a ver si jala esta madre: ${user}`)
                 history.push("/")
 }
 

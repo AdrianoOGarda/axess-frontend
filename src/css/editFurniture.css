@@ -1,0 +1,33 @@
+.edit-fur-for {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.edit-fur-for input,
+.edit-fur-for label {
+    font-family: 'L Regular';
+    color: black;
+}
+
+.edit-fur-for input {
+    margin-bottom: 2%;
+    width: 70vw;
+    border: 2px solid #8c857e;
+}
+
+.edit-fur-for select {
+    width: 70vw;
+    margin-bottom: 2%;
+    border: 2px solid #8c857e;
+}
+
+.edit-fur-image-input {
+    border: none !important;
+}
+
+.edit-fur-ant-button {
+    font-family: 'L Regular';
+    font-size: 140%;
+    margin-top: 3%;
+    cursor: pointer;
+}

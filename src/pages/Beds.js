@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState }  from 'react'
 import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
-
 import {CartContext} from "../CartContext"
 
 
@@ -39,7 +38,7 @@ function Beds() {
                 description={filteredFurniture.description.es}
                 material={filteredFurniture.material.es}
                 size={filteredFurniture.size.es}
-                id={filteredFurniture}
+                id={filteredFurniture._id}
                 />
             ))}
         </>

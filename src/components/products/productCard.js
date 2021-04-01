@@ -1,14 +1,15 @@
 import React, {useContext, useState} from 'react'
 import {CartContext} from '../../CartContext';
-import MyContext from "../../context"
+import {MyContext} from "../../context"
 import Info from '../../icons/info.svg'
 import { Modal } from 'antd';
-import './productCard.css'
+import './productCard.css';
+import {Link} from "react-router-dom"
 
 const ProductCard = (props) => {
     const [cart, setCart] = useContext(CartContext);
     const [isModalVisible, setIsModalVisible] = useState(false);
-    // const { clearCtxUser, user } = useContext(MyContext);
+    const { clearCtxUser, user } = useContext(MyContext);
 
     const addToCart = () => {
         const product = {name: props.name}
@@ -47,9 +48,6 @@ const ProductCard = (props) => {
             </div>
             <p className='price-tag'>${props.price}</p>
             <button onClick={addToCart}><span>+</span>Agregar al carrito</button>
-            {/* {user && (
-                <p>CARAJO</p>
-            )} */}
 
         <Modal 
         title={props.name} 
@@ -66,6 +64,9 @@ const ProductCard = (props) => {
                     <p>{props.size}</p>
                     <h4>Material</h4>
                     <p>{props.material}</p>
+                    {user && (
+                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular'}}>EDITAR</Link>
+            )}
                 </div>
             </div>
         </Modal>
