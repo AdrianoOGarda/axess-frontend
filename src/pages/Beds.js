@@ -26,8 +26,7 @@ function Beds() {
     console.log(`WAT: ${furnitures}`)
 
     return (
-        <>
-            <p>Aquí van las camas</p>
+        <div style={{display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
             {furnitures?.filter(furniture => furniture?.category?.en === "BEDS").map(filteredFurniture => (
                 <ProductCard 
                 name={filteredFurniture.name.en} 
@@ -41,7 +40,7 @@ function Beds() {
                 id={filteredFurniture._id}
                 />
             ))}
-        </>
+        </div>
     )
 }
 

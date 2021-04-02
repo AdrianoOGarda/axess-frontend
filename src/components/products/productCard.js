@@ -5,8 +5,10 @@ import Info from '../../icons/info.svg'
 import { Modal } from 'antd';
 import './productCard.css';
 import {Link} from "react-router-dom"
+import useWindowSize from "../../hooks/useWindowSize"
 
 const ProductCard = (props) => {
+    const windowSize = useWindowSize();
     const [cart, setCart] = useContext(CartContext);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { clearCtxUser, user } = useContext(MyContext);
@@ -39,7 +41,7 @@ const ProductCard = (props) => {
     
 
 
-    return (
+    return (windowSize > 480) ? (
         <div className='product-card-div'>
             <img src={props.image} alt="imagen-tarjeta"/>
             <div className='product-card-name-div'>
@@ -54,6 +56,40 @@ const ProductCard = (props) => {
         visible={isModalVisible} 
         onCancel={handleCancel} 
         width='70vw'
+        bodyStyle={{padding: '1.5vw'}}>
+            <div className="product-modal-div">
+                <img src={props.image} alt="modal-product-img"/>
+                <div className='modal-info-div'>
+                    <h4>Descripción</h4>
+                    <p>{props.description}</p>
+                    <h4>Tamaño</h4>
+                    <p>{props.size}</p>
+                    <h4>Material</h4>
+                    <p>{props.material}</p>
+                    {user && (
+                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular'}}>EDITAR</Link>
+            )}
+                </div>
+            </div>
+        </Modal>
+
+        </div>
+    ) : (
+        
+        <div className='product-card-div'>
+            <img src={props.image} alt="imagen-tarjeta"/>
+            <div className='product-card-name-div'>
+                <h4>{props.name}</h4>
+                <img src={Info} alt="info-icon" onClick={showModal}/>
+            </div>
+            <p className='price-tag'>${props.price}</p>
+            <button onClick={addToCart}><span>+</span>Agregar al carrito</button>
+
+        <Modal 
+        title={props.name} 
+        visible={isModalVisible} 
+        onCancel={handleCancel} 
+        width='85vw'
         bodyStyle={{padding: '1.5vw'}}>
             <div className="product-modal-div">
                 <img src={props.image} alt="modal-product-img"/>
