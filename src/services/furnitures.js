@@ -22,6 +22,6 @@ export const getFurnitures = async furnitureInfo => {
     return await service.get("/")
 }
 
-export const updateFurniture = async furnitureId => {
-    return await service.put(`/${furnitureId}`)
+export const updateFurniture = async(furnitureId, furnitureInfo) => {
+    return await service.put(`/${furnitureId}`, furnitureInfo)
 }

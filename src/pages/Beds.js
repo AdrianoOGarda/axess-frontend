@@ -15,7 +15,6 @@ function Beds() {
                 data: {furniture}
             } = await getFurnitures()
         setFurnitures(furniture)
-        console.log(furniture)
         }
         fetchBeds()
     }, [])
@@ -35,6 +34,7 @@ function Beds() {
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
+                category={filteredFurniture.category.en}
                 description={filteredFurniture.description.es}
                 material={filteredFurniture.material.es}
                 size={filteredFurniture.size.es}

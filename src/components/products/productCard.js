@@ -12,7 +12,7 @@ const ProductCard = (props) => {
     const { clearCtxUser, user } = useContext(MyContext);
 
     const addToCart = () => {
-        const product = {name: props.name}
+        const product = {name: props.name, image: props.image, category: props.category}
         let newCart = [...cart];
         let itemInCart = newCart.find(
             (item) => product.name === item.name
