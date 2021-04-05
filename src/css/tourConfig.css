@@ -22,3 +22,11 @@
     align-self: center;
     margin-top: -.7vw;
 }
+
+.tour-config-project-select {
+    width: 8vw;
+}
+
+.tour-config-bedrooms-select {
+    width: 8vw !important;
+}
