@@ -1,0 +1,24 @@
+.tour-config-main-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-config-title-div {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 27vw;
+}
+
+.tour-config-title-div h1 {
+    font-family: 'L Regular';
+    color: #8c857e;
+    font-size: 2.5vw;
+}
+
+.tour-config-divider {
+    border-top: .19vw solid #8c857e;
+    width: 3vw;
+    align-self: center;
+    margin-top: -.7vw;
+}
