@@ -4,14 +4,16 @@ import {MyContext} from "../../context"
 import Info from '../../icons/info.svg'
 import { Modal } from 'antd';
 import './productCard.css';
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import useWindowSize from "../../hooks/useWindowSize"
+import { deleteFurniture } from "../../services/furnitures"
 
 const ProductCard = (props) => {
     const windowSize = useWindowSize();
     const [cart, setCart] = useContext(CartContext);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { clearCtxUser, user } = useContext(MyContext);
+    let history = useHistory();
 
     const addToCart = () => {
         const product = {name: props.name, image: props.image, category: props.category}
@@ -38,6 +40,11 @@ const ProductCard = (props) => {
     const handleCancel = () => {
         setIsModalVisible(false);
     };
+
+    async function eliminateFurniture(furnId) { 
+        await deleteFurniture(furnId);
+        history.push('/')
+    }
     
 
 
@@ -67,7 +74,13 @@ const ProductCard = (props) => {
                     <h4>Material</h4>
                     <p>{props.material}</p>
                     {user && (
-                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular'}}>EDITAR</Link>
+                <>
+                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular', fontSize: '.8vw'}}>EDITAR</Link>
+                <p className='delete-button-product-card' onClick={() => {
+                    eliminateFurniture(props.id);
+                    setIsModalVisible(false);
+                }}>BORRAR</p>
+                </>
             )}
                 </div>
             </div>
@@ -101,7 +114,13 @@ const ProductCard = (props) => {
                     <h4>Material</h4>
                     <p>{props.material}</p>
                     {user && (
-                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular'}}>EDITAR</Link>
+                <>
+                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular', fontSize: '4vw'}}>EDITAR</Link>
+                <p className='delete-button-product-card' onClick={() => {
+                    eliminateFurniture(props.id);
+                    setIsModalVisible(false);
+                }}>BORRAR</p>
+                </>
             )}
                 </div>
             </div>
