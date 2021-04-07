@@ -1,4 +1,4 @@
-.tour-card-div {
+.first-bed-card-div {
     width: 17vw;
     /* border: 5px solid black; */
     display: flex;
@@ -6,24 +6,24 @@
     align-items: flex-start;
 }
 
-.tour-card-div img:nth-child(1) {
+.first-bed-card-div img:nth-child(1) {
     width: 16.3vw;
     margin-bottom: .5vw;
     cursor: pointer;
 }
 
-.tour-card-name-div {
+.first-bed-card-name-div {
     display: flex;
 }
 
-.tour-card-name-div img {
+.first-bed-card-name-div img {
     width: 2vw;
     margin-left: 1vw;
     cursor: pointer;
     align-self: flex-start;
 }
 
-.tour-card-div button {
+.first-bed-card-div button {
     align-self: center;
     background-color: transparent;
     border: .2vw solid #8c857e;
@@ -34,12 +34,12 @@
     cursor: pointer;
 }
 
-.tour-card-div button span {
+.first-bed-card-div button span {
     font-size: 1.6vw;
     margin-right: .5vw;
 }
 
-.tour-card-div h4 {
+.first-bed-card-div h4 {
     font-family: 'L Regular';
     color: #8c857e;
     font-size: 1.5vw;
@@ -61,30 +61,30 @@
 
 /* MODAL */
 
-.tour-modal-div {
+.first-bed-modal-div {
     display: flex;
     justify-content: space-evenly;
     padding-bottom: 3vw;
 }
 
-.tour-modal-div img {
+.first-bed-modal-div img {
     width: 29vw;
 }
 
-.tour-modal-info-div {
+.first-bed-modal-info-div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.tour-modal-info-div h4 {
+.first-bed-modal-info-div h4 {
     font-family: 'L Bold';
     color: #8c857e;
     font-size: 1.8vw;
     margin-bottom: -.5vw;
 }
 
-.tour-modal-info-div p {
+.first-bed-modal-info-div p {
     font-family: 'L Regular';
     font-size: 1.6vw;
     color: #8c857e;
@@ -107,26 +107,26 @@
 /* Phones */
 
 @media only screen and (max-width: 480px) {
-    .tour-card-div {
+    .first-bed-card-div {
         width: 40vw;
         /* border: 5px solid black; */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
-    .tour-card-div img:nth-child(1) {
+    .first-bed-card-div img:nth-child(1) {
         width: 40vw;
         margin-bottom: .5vw;
     }
-    .tour-card-name-div {
+    .first-bed-card-name-div {
         display: flex;
     }
-    .tour-card-name-div img {
+    .first-bed-card-name-div img {
         width: 5vw;
         margin-left: 1.5vw;
         cursor: pointer;
     }
-    .tour-card-div button {
+    .first-bed-card-div button {
         align-self: center;
         background-color: transparent;
         border: .2vw solid #8c857e;
@@ -136,11 +136,11 @@
         margin-top: -.7vw;
         cursor: pointer;
     }
-    .tour-card-div button span {
+    .first-bed-card-div button span {
         font-size: 3.5vw;
         margin-right: .5vw;
     }
-    .tour-card-div h4 {
+    .first-bed-card-div h4 {
         font-family: 'L Regular';
         color: #8c857e;
         font-size: 3.5vw;
@@ -152,12 +152,12 @@
     .ant-modal-footer {
         display: none;
     }
-    .tour-modal-div {
+    .first-bed-modal-div {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .tour-modal-div img {
+    .first-bed-modal-div img {
         width: 70vw;
         margin-bottom: 3vw;
     }
@@ -166,13 +166,13 @@
         flex-direction: column;
         justify-content: flex-start;
     }
-    .tour-modal-info-div h4 {
+    .first-bed-modal-info-div h4 {
         font-family: 'L Bold';
         color: #8c857e;
         font-size: 4.5vw;
         margin-bottom: -.5vw;
     }
-    .tour-modal-info-div p {
+    .first-bed-modal-info-div p {
         font-family: 'L Regular';
         font-size: 4vw;
         color: #8c857e;
