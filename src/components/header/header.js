@@ -79,9 +79,10 @@ const menu = (
 
 const MobileHeader = styled.header`
 background: #8C857E;
-height: 13vh;
 width: 100vw;
 box-shadow: ${({nav}) => (nav ? "0" : "0 0 5px 0 gray")};
+overflow: hidden;
+height: 30vw;
 `
 
 const MenuIcon = styled.button`

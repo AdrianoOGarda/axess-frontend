@@ -28,7 +28,7 @@ const Cart = () => {
     //     console.log(`valueeee: ${value}`)
     // }
 
-    console.log(`aaaaaarghhhh: ${cart}`)
+    console.log(`aaaaaarghhhh: ${JSON.stringify(cart)}`)
 
     return (
         <div className='main-cart-div'>

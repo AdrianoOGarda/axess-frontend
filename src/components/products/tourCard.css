@@ -1,4 +1,4 @@
-.product-card-div {
+.tour-card-div {
     width: 17vw;
     /* border: 5px solid black; */
     display: flex;
@@ -6,23 +6,24 @@
     align-items: flex-start;
 }
 
-.product-card-div img:nth-child(1) {
+.tour-card-div img:nth-child(1) {
     width: 16.3vw;
     margin-bottom: .5vw;
-}
-
-.product-card-name-div {
-    display: flex;
-}
-
-.product-card-name-div img {
-    width: 2vw;
-    margin-left: 1vw;
-    align-self: flex-start;
     cursor: pointer;
 }
 
-.product-card-div button {
+.tour-card-name-div {
+    display: flex;
+}
+
+.tour-card-name-div img {
+    width: 2vw;
+    margin-left: 1vw;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.tour-card-div button {
     align-self: center;
     background-color: transparent;
     border: .2vw solid #8c857e;
@@ -33,23 +34,16 @@
     cursor: pointer;
 }
 
-.product-card-div button span {
+.tour-card-div button span {
     font-size: 1.6vw;
     margin-right: .5vw;
 }
 
-.product-card-div h4 {
+.tour-card-div h4 {
     font-family: 'L Regular';
     color: #8c857e;
     font-size: 1.5vw;
     text-align: start;
-}
-
-.price-tag {
-    font-family: 'L Black';
-    color: #8c857e;
-    font-size: 1.2vw;
-    margin-top: -.8vw;
 }
 
 .ant-modal-header {
@@ -60,33 +54,37 @@
     display: none;
 }
 
+.selected-product {
+    display: none;
+}
+
 
 /* MODAL */
 
-.product-modal-div {
+.tour-modal-div {
     display: flex;
     justify-content: space-evenly;
     padding-bottom: 3vw;
 }
 
-.product-modal-div img {
+.tour-modal-div img {
     width: 29vw;
 }
 
-.modal-info-div {
+.tour-modal-info-div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.modal-info-div h4 {
+.tour-modal-info-div h4 {
     font-family: 'L Bold';
     color: #8c857e;
     font-size: 1.8vw;
     margin-bottom: -.5vw;
 }
 
-.modal-info-div p {
+.tour-modal-info-div p {
     font-family: 'L Regular';
     font-size: 1.6vw;
     color: #8c857e;
@@ -101,35 +99,34 @@
     margin-top: 1.5vw !important;
 }
 
-.delete-button-product-card {
-    font-family: 'L Regular';
-    color: #1890FF !important;
-    font-size: .8vw !important;
-    cursor: pointer;
-    margin-top: .5vw;
+.ant-modal-content {
+    border: .35vw solid #eae0c8 !important;
 }
 
+
+/* Phones */
+
 @media only screen and (max-width: 480px) {
-    .product-card-div {
+    .tour-card-div {
         width: 40vw;
         /* border: 5px solid black; */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
-    .product-card-div img:nth-child(1) {
+    .tour-card-div img:nth-child(1) {
         width: 40vw;
         margin-bottom: .5vw;
     }
-    .product-card-name-div {
+    .tour-card-name-div {
         display: flex;
     }
-    .product-card-name-div img {
+    .tour-card-name-div img {
         width: 5vw;
         margin-left: 1.5vw;
         cursor: pointer;
     }
-    .product-card-div button {
+    .tour-card-div button {
         align-self: center;
         background-color: transparent;
         border: .2vw solid #8c857e;
@@ -139,21 +136,15 @@
         margin-top: -.7vw;
         cursor: pointer;
     }
-    .product-card-div button span {
+    .tour-card-div button span {
         font-size: 3.5vw;
         margin-right: .5vw;
     }
-    .product-card-div h4 {
+    .tour-card-div h4 {
         font-family: 'L Regular';
         color: #8c857e;
         font-size: 3.5vw;
         text-align: start;
-    }
-    .price-tag {
-        font-family: 'L Black';
-        color: #8c857e;
-        font-size: 2.8vw;
-        margin-top: -.8vw;
     }
     .ant-modal-header {
         border: none !important;
@@ -161,12 +152,12 @@
     .ant-modal-footer {
         display: none;
     }
-    .product-modal-div {
+    .tour-modal-div {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .product-modal-div img {
+    .tour-modal-div img {
         width: 70vw;
         margin-bottom: 3vw;
     }
@@ -175,13 +166,13 @@
         flex-direction: column;
         justify-content: flex-start;
     }
-    .modal-info-div h4 {
+    .tour-modal-info-div h4 {
         font-family: 'L Bold';
         color: #8c857e;
         font-size: 4.5vw;
         margin-bottom: -.5vw;
     }
-    .modal-info-div p {
+    .tour-modal-info-div p {
         font-family: 'L Regular';
         font-size: 4vw;
         color: #8c857e;
@@ -194,11 +185,14 @@
         color: #8c857e !important;
         margin-top: 2vw !important;
     }
-    .delete-button-product-card {
+    .delete-button-tour-card {
         font-family: 'L Regular';
         color: #1890FF !important;
         font-size: 4vw !important;
         cursor: pointer;
         margin-top: 1vw;
+    }
+    .ant-modal-content {
+        border: 1vw solid #eae0c8 !important;
     }
 }
