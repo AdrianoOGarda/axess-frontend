@@ -11,6 +11,10 @@ const Cart = () => {
         setCart([]);
     }
 
+    const clearStorage = () => {
+        localStorage.clear()
+    }
+
     const removeFromCart = (productToRemove) => {
         setCart(cart.filter((product) => product !== productToRemove ))
     };
@@ -55,6 +59,7 @@ const Cart = () => {
             ))}
 
         <button onClick={clearLocalCart}>Clear Cart</button>
+        <button onClick={clearStorage}>Clear Storage</button>
         </div>
     )
 }
