@@ -11,7 +11,7 @@ import "../css/oneBedroom.css"
 import '../css/typography.css'
 
 
-function TourOneB() {
+function TourTwoBOne() {
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
     const [firstBed, setFirstBed] = useContext(FirstBedContext);
@@ -38,7 +38,7 @@ function TourOneB() {
     const addF = () => {
         setFirstBed(bedOne)
         setFirstNightstand(nightstandOne)
-        history.push('/tour-cart')
+        history.push('/two-bedrooms-second')
     }
 
     const goBack = () => {
@@ -119,4 +119,4 @@ function TourOneB() {
     )
 }
 
-export default TourOneB
+export default TourTwoBOne

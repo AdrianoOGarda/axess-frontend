@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 10vw;
+    min-height: 73vh;
 }
 
 .tour-config-title-main-div {
@@ -15,7 +16,7 @@
     justify-content: space-between;
     width: 27vw;
     margin-bottom: 3vw;
-    margin-top: 3vw;
+    margin-top: 5vw;
 }
 
 .tour-config-title-div h1 {
@@ -32,10 +33,13 @@
 }
 
 .tour-config-bedrooms-select {
-    width: 3vw !important;
+    width: 6vw !important;
+    height: 3vw !important;
+    display: flex !important;
+    align-items: center !important;
     color: #8c857e !important;
     font-family: 'L Bold';
-    font-size: 1.3vw !important;
+    font-size: 1.5vw !important;
     border: .1vw solid #8c857e !important;
 }
 
@@ -49,14 +53,18 @@
 }
 
 .tour-config-project-select {
-    width: 6vw;
-    height: 2.2vw;
+    width: 7.5vw;
+    height: 3vw;
     display: flex !important;
-    align-items: bottom !important;
+    align-items: center !important;
     font-family: 'L Regular';
     color: #8c857e !important;
     font-size: 1.5vw !important;
     border: .1vw solid #8c857e !important;
+}
+
+.ant-select-arrow {
+    font-size: 1vw !important;
 }
 
 .tour-config-paragraph {
@@ -102,4 +110,109 @@
     font-weight: 500;
     font-size: 1.9vw;
     width: 10.4vw;
+}
+
+@media only screen and (max-width: 480px) {
+    .tour-config-main-div {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        min-height: 65vh;
+    }
+    .tour-config-title-main-div {
+        display: flex;
+        justify-content: center;
+    }
+    .tour-config-title-div {
+        align-self: center;
+        display: flex;
+        justify-content: space-between;
+        width: 80vw;
+        margin-bottom: 3vw;
+        margin-top: 10vw;
+    }
+    .tour-config-title-div h1 {
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 7vw;
+    }
+    .tour-config-divider {
+        border-top: .65vw solid #8c857e;
+        width: 8vw;
+        align-self: center;
+        margin-top: -2vw;
+    }
+    .tour-config-bedrooms-select {
+        width: 10vw !important;
+        height: 7vw !important;
+        display: flex !important;
+        align-items: center !important;
+        color: #8c857e !important;
+        font-family: 'L Bold';
+        font-size: 4vw !important;
+        border: .1vw solid #8c857e !important;
+    }
+    .tour-config-project-select>div {
+        border: none !important;
+        height: 2vw !important;
+    }
+    .tour-config-project-select>div span:nth-child(2) {
+        align-self: center !important;
+    }
+    .tour-config-project-select {
+        width: 25vw;
+        height: 6vw;
+        display: flex !important;
+        align-items: center !important;
+        font-family: 'L Regular';
+        color: #8c857e !important;
+        font-size: 4vw !important;
+        border: .1vw solid #8c857e !important;
+        margin-bottom: 5vw !important;
+    }
+    .ant-select-arrow {
+        font-size: 3vw !important;
+    }
+    .tour-config-paragraph {
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 4.5vw;
+        text-align: start;
+    }
+    .tour-config-paragraph-div {
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 4vw;
+    }
+    .tour-config-buttons-div {
+        align-self: flex-start;
+        display: flex;
+        justify-content: space-between;
+        width: 78.5vw;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
+    }
+    .tour-config-cancel-button {
+        border: .7vw solid #8c857e;
+        background-color: transparent;
+        font-family: 'L Regular';
+        font-weight: 500;
+        color: #8c857e;
+        font-size: 5vw;
+        padding: .1vw;
+        width: 25vw;
+        cursor: pointer;
+    }
+    .tour-config-continue-button {
+        border: .7vw solid #8c857e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'L Regular';
+        font-weight: 500;
+        font-size: 5vw;
+        width: 25vw;
+    }
 }

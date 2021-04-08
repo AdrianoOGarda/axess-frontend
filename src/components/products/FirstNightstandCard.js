@@ -12,7 +12,6 @@ function FirstNightstandCard(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selected, setSelected] = useState(false);
     const [firstNightstand, setFirstNightstand] = useContext(FirstNightstandContext);
-    const [nightstandOne, setNightstandOne] = useState(null)
 
 
     const showModal = () => {
@@ -23,22 +22,14 @@ function FirstNightstandCard(props) {
         setIsModalVisible(false);
     };
 
-    const addToCart = () => {
-        setNightstandOne({name: props.name, image: props.image, category: props.category, quantity: 1})
-    }
-
-    const addF = () => {
-        setFirstNightstand(nightstandOne)
-    }
-
-    const clearLocalBed = () => {
-        setFirstNightstand({});
-    }
+    // const clearLocalBed = () => {
+    //     setFirstNightstand({});
+    // }
 
 
     return (windowSize > 480) ? (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta" onClick={addToCart} className={selected}/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} className={selected}/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>
@@ -64,10 +55,6 @@ function FirstNightstandCard(props) {
                 </div>
             </div>
         </Modal>
-
-        <button onClick={clearLocalBed}>Clear Cart</button>
-        <button onClick={addF}>CONTINUE</button>
-        
 
         </div>
     ) : (

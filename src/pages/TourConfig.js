@@ -34,7 +34,7 @@ function TourConfig() {
 
             <div className='tour-config-paragraph-div'>
                 <p className='tour-config-paragraph'>Selecciona el proyecto al que pertenece tu departamento</p>
-                <Select defaultValue="AWA" onChange={handleChangeProject} className='tour-config-project-select'>
+                <Select bordered={false} defaultValue="AWA" onChange={handleChangeProject} className='tour-config-project-select'>
                     <Option value="AWA">AWA</Option>
                 </Select>
             </div>
@@ -53,7 +53,7 @@ function TourConfig() {
                 )}
                 {bedrooms === 2 && (
                     <div className='tour-config-continue-button'>
-                        <Link to="/one-bedroom" style={{color: '#8c857e'}}>Continuar</Link>
+                        <Link to="/two-bedrooms-first" style={{color: '#8c857e'}}>Continuar</Link>
                     </div>                )}
                 {bedrooms === 3 && (
                     <div className='tour-config-continue-button'>

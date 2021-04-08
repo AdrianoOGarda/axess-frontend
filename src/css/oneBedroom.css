@@ -1,0 +1,81 @@
+.one-b-main-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-b-main-div p {
+    align-self: flex-start;
+    text-align: start;
+    margin-left: 10vw;
+    font-family: 'L Bold';
+    color: #8c857e;
+    font-size: 2vw;
+}
+
+.one-b-beds-div {
+    width: 80vw;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5vw;
+}
+
+.one-bedroom-title-inside-div {
+    display: flex;
+    margin-top: 3%;
+}
+
+.one-bedroom-title-inside-div h1 {
+    font-family: 'L Regular';
+    font-size: 2.5vw;
+    color: #8c857e;
+    margin: 0 1.5vw 0 1.5vw;
+}
+
+.one-bedroom-title-divider {
+    border-top: .2vw solid #8c857e;
+    width: 2.5vw;
+    margin-top: 2vw;
+}
+
+.one-bedroom-title-div {
+    display: flex;
+    justify-content: center;
+}
+
+.one-bedroom-buttons-div {
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    align-self: center;
+}
+
+.one-bedroom-cancel-button {
+    border: .18vw solid #8c857e;
+    background-color: transparent;
+    font-family: 'L Regular';
+    font-weight: 500;
+    color: #8c857e;
+    font-size: 1.9vw;
+    padding: .1vw;
+    width: 8.5vw;
+    cursor: pointer;
+}
+
+.one-bedroom-continue-button {
+    border: .18vw solid #8c857e;
+    display: flex;
+    color: #8c857e;
+    background-color: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-family: 'L Regular';
+    font-weight: 500;
+    font-size: 1.9vw;
+    width: 10.5vw;
+}
