@@ -38,7 +38,7 @@ function ThirdBedCard(props) {
 
     return (windowSize > 480) ? (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta" onClick={addToCart} className={selected}/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} className={selected}/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>
@@ -64,15 +64,12 @@ function ThirdBedCard(props) {
                 </div>
             </div>
         </Modal>
-
-        <button onClick={clearLocalBed}>Clear Cart</button>
-        <button onClick={addF}>CONTINUE</button>
         
 
         </div>
     ) : (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta"/>
+            <img src={props.image} onClick={props.onSelectImage}  alt="imagen-tarjeta"/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>

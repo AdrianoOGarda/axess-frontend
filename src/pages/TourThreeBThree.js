@@ -1,35 +1,35 @@
 import React, { useContext, useEffect, useState } from 'react'
-import SecondBedCard from "../components/products/secondBedCard"
-import SecondNightstandCard from "../components/products/secondNightstandCard"
+import ThirdBedCard from "../components/products/thirdBedCard"
+import ThirdNightstandCard from "../components/products/thirdNightstandCard"
 import { getFurnitures } from "../services/furnitures"
 import {CartContext} from "../CartContext"
-import {SecondBedContext} from "../productsContext/SecondBedContext"
-import {SecondNightstandContext} from "../productsContext/SecondNightstandContext"
+import {ThirdBedContext} from "../productsContext/ThirdBedContext"
+import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
 import {useHistory} from "react-router-dom"
 
 
-function TourTwoB() {
+function TourThreeB() {
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
-    const [secondBed, setSecondBed] = useContext(SecondBedContext);
-    const [secondNightstand, setSecondNightstand] = useContext(SecondNightstandContext);
-    const [bedTwo, setBedTwo] = useState(null)
-    const [nightstandTwo, setNightstandTwo] = useState(null)
+    const [thirdBed, setThirdBed] = useContext(ThirdBedContext);
+    const [thirdNightstand, setThirdNightstand] = useContext(ThirdNightstandContext);
+    const [bedThree, setBedThree] = useState(null)
+    const [nightstandThree, setNightstandThree] = useState(null)
 
     let history = useHistory();
 
     const addToCartBed = (fName, fImage, fCategory) => {
-        setBedTwo({name: fName, image: fImage, category: fCategory, quantity: 1})
+        setBedThree({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
 
     const addToCartNight = (fName, fImage, fCategory) => {
-        setNightstandTwo({name: fName, image: fImage, category: fCategory, quantity: 1})
+        setNightstandThree({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
 
     const addF = async () => {
-        await setSecondBed(bedTwo)
-        await setSecondNightstand(nightstandTwo)
-        history.push('/three-bedrooms-third')
+        await setThirdBed(bedThree)
+        await setThirdNightstand(nightstandThree)
+        history.push('/tour-cart')
     }
 
     const goBack = () => {
@@ -52,27 +52,27 @@ function TourTwoB() {
 
 
     useEffect(() => {
-        localStorage.setItem("secondBed", JSON.stringify(secondBed));
-    }, [secondBed]);
+        localStorage.setItem("thirdBed", JSON.stringify(thirdBed));
+    }, [thirdBed]);
 
 
     useEffect(() => {
-        localStorage.setItem("secondNightstand", JSON.stringify(secondNightstand));
-    }, [secondNightstand]);
+        localStorage.setItem("thirdNightstand", JSON.stringify(thirdNightstand));
+    }, [thirdNightstand]);
 
 
     useEffect(() => {
-        console.log('settingBedOne', bedTwo)
-    }, [bedTwo])
+        console.log('settingBedOne', bedThree)
+    }, [bedThree])
     useEffect(() => {
-        console.log('settingFirstBed', secondBed)
+        console.log('settingFirstBed', thirdBed)
     }, [addF])
 
     useEffect(() => {
-        console.log('settingNightstandOne', nightstandTwo)
-    }, [nightstandTwo])
+        console.log('settingNightstandOne', nightstandThree)
+    }, [nightstandThree])
     useEffect(() => {
-        console.log('settingFirstNightstand', secondNightstand)
+        console.log('settingFirstNightstand', thirdNightstand)
     }, [addF])
 
 
@@ -91,7 +91,7 @@ function TourTwoB() {
         <p>Selecciona las camas:</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map(filteredFurniture => (
-                <SecondBedCard 
+                <ThirdBedCard 
                 name={filteredFurniture.name.es} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
@@ -108,7 +108,7 @@ function TourTwoB() {
         <p>Selecciona los burós:</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map(filteredFurniture => (
-                <SecondNightstandCard 
+                <ThirdNightstandCard 
                 name={filteredFurniture.name.es} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
@@ -134,4 +134,4 @@ function TourTwoB() {
     )
 }
 
-export default TourTwoB
+export default TourThreeB
