@@ -40,6 +40,12 @@
     width: 50%;
 }
 
+.header-cart-badge {
+    position: relative;
+    top: -1vw;
+    right: -4.5vw;
+}
+
 .header-searchbar-div {
     margin-right: -19%;
 }

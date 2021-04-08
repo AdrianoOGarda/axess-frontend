@@ -1,14 +1,15 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import styled from "styled-components"
 import "./header.css"
 import useWindowSize from "../../hooks/useWindowSize";
 import AxessIcon from "../../images/logo-axess-app.jpg"
-import { AutoComplete, Menu, Dropdown } from 'antd';
+import { AutoComplete, Menu, Dropdown, Badge } from 'antd';
 import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import CartIcon from "../../icons/shopping-cart.svg"
 import "../../css/typography.css"
 import MenuItem from "antd/lib/menu/MenuItem";
 import {Link} from "react-router-dom"
+import {CartContext} from "../../CartContext"
 
 const { SubMenu } = Menu;
 
@@ -157,6 +158,7 @@ const [roomNav, setRoomNav] = useState(false)
 const [kitchenNav, setKitchenNav] = useState(false)
 const [livingNav, setLivingNav] = useState(false)
 const [exteriorNav, setExteriorNav] = useState(false)
+const [cart, setCart] = useContext(CartContext)
 
 return (windowSize > 480) ? (
 
@@ -186,6 +188,9 @@ return (windowSize > 480) ? (
         <AutoComplete placeholder={<SearchOutlined style={{fontSize: '1.8vw', position: 'absolute', top: '25%', left: '1.5%', color: 'black'}} />} className="antd-header-autocomplete"/>
     </div>
     <div className="header-cart-icon-div">
+        <Badge count={cart.length} className='header-cart-badge' size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}>
+            <a href="#" className="head-example" />
+        </Badge>
         <Link to="/cart"><img src={CartIcon} alt="cart-icon"/></Link>
     </div>
 </DesktopHeader>
