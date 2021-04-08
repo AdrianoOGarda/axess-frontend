@@ -10,6 +10,6 @@ export { default as TourConfig } from "./TourConfig"
 export { default as TourOneB } from "./TourOneB"
 export { default as TourTwoBOne } from "./TourTwoBOne"
 export { default as TourTwoBTwo } from "./TourTwoBTwo"
+export { default as TourThreeBOne} from "./tourThreeBOne"
+export { default as TourThreeBTwo} from "./TourThreeBTwo"
 export { default as TourCart } from "./TourCart"
-
-export { default as ReplicaOne } from "./oneReplica"

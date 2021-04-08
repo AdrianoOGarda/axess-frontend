@@ -57,7 +57,7 @@ function TourConfig() {
                     </div>                )}
                 {bedrooms === 3 && (
                     <div className='tour-config-continue-button'>
-                        <Link to="/one-bedroom" style={{color: '#8c857e'}}>Continuar</Link>
+                        <Link to="/three-bedrooms-first" style={{color: '#8c857e'}}>Continuar</Link>
                     </div>                )}       
             </div>
 
