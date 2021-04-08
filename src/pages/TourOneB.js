@@ -38,7 +38,6 @@ function TourOneB() {
     const addF = () => {
         setFirstBed(bedOne)
         setFirstNightstand(nightstandOne)
-        history.push('/tour-cart')
     }
 
     const goBack = () => {
@@ -53,6 +52,7 @@ function TourOneB() {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
+
     useEffect(() => {
         localStorage.setItem("firstBed", JSON.stringify(firstBed));
     }, [firstBed]);
@@ -61,6 +61,19 @@ function TourOneB() {
     useEffect(() => {
         localStorage.setItem("firstNightstand", JSON.stringify(firstNightstand));
     }, [firstNightstand]);
+
+    useEffect(() => {
+        console.log('settingBedOne', bedOne)
+    }, [bedOne])
+    useEffect(() => {
+        console.log('settingFirstBed', firstBed)
+    }, [addF])
+    useEffect(() => {
+        console.log('settingNightstandOne', nightstandOne)
+    }, [nightstandOne])
+    useEffect(() => {
+        console.log('settingFirstNightstand', firstNightstand)
+    }, [addF])
     
 
     return (
@@ -86,7 +99,7 @@ function TourOneB() {
                 material={filteredFurniture.material.es}
                 category={filteredFurniture.category.en}
                 size={filteredFurniture.size.es}
-                onSelectImage={() => addToCart(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en)}
+                onSelectImage={async () => await addToCart(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en)}
                 />
             ))}
         </div>  

@@ -35,9 +35,9 @@ function TourTwoBOne() {
         setBedOne({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
 
-    const addF = () => {
-        setFirstBed(bedOne)
-        setFirstNightstand(nightstandOne)
+    const addF = async () => {
+        await setFirstBed(bedOne)
+        await setFirstNightstand(nightstandOne)
         history.push('/two-bedrooms-second')
     }
 
@@ -61,6 +61,20 @@ function TourTwoBOne() {
     useEffect(() => {
         localStorage.setItem("firstNightstand", JSON.stringify(firstNightstand));
     }, [firstNightstand]);
+
+    useEffect(() => {
+        console.log('settingBedOne', bedOne)
+    }, [bedOne])
+    useEffect(() => {
+        console.log('settingFirstBed', firstBed)
+    }, [addF])
+    useEffect(() => {
+        console.log('settingNightstandOne', nightstandOne)
+    }, [nightstandOne])
+    useEffect(() => {
+        console.log('settingFirstNightstand', firstNightstand)
+    }, [addF])
+    
     
 
     return (

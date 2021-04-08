@@ -12,7 +12,15 @@ function FirstBedCard(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selected, setSelected] = useState(false);
     const [firstBed, setFirstBed] = useContext(FirstBedContext);
+    const [bedThree, setBedThree] = useState(null);
 
+    const addToCart = () => {
+        setBedThree({name: props.name, image: props.image, category: props.category, quantity: 1})
+    }
+
+    const addF = () => {
+        setFirstBed(bedThree)
+    }
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -54,12 +62,14 @@ function FirstBedCard(props) {
                     <p>{props.material}</p>
                 </div>
             </div>
-        </Modal>        
+        </Modal>   
+
+        {/* <button onClick={addF}>CONTINUE</button>      */}
 
         </div>
     ) : (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta"/>
+            <img src={props.image} onClick={props.onSelectImage} alt="imagen-tarjeta"/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>

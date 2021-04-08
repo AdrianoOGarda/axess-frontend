@@ -12,7 +12,6 @@ function SecondBedCard(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selected, setSelected] = useState(false);
     const [secondBed, setSecondBed] = useContext(SecondBedContext);
-    const [bedTwo, setBedTwo] = useState(null)
 
 
     const showModal = () => {
@@ -23,22 +22,15 @@ function SecondBedCard(props) {
         setIsModalVisible(false);
     };
 
-    const addToCart = () => {
-        setBedTwo({name: props.name, image: props.image, category: props.category, quantity: 1})
-    }
 
-    const addF = () => {
-        setSecondBed(bedTwo)
-    }
-
-    const clearLocalBed = () => {
-        setSecondBed({});
-    }
+    // const clearLocalBed = () => {
+    //     setSecondBed({});
+    // }
 
 
     return (windowSize > 480) ? (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta" onClick={addToCart} className={selected}/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} className={selected}/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>
@@ -65,14 +57,10 @@ function SecondBedCard(props) {
             </div>
         </Modal>
 
-        <button onClick={clearLocalBed}>Clear Cart</button>
-        <button onClick={addF}>CONTINUE</button>
-        
-
         </div>
     ) : (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta"/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage}/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>

@@ -11,3 +11,5 @@ export { default as TourOneB } from "./TourOneB"
 export { default as TourTwoBOne } from "./TourTwoBOne"
 export { default as TourTwoBTwo } from "./TourTwoBTwo"
 export { default as TourCart } from "./TourCart"
+
+export { default as ReplicaOne } from "./oneReplica"
