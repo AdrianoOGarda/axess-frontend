@@ -18,6 +18,11 @@ function TourOneB() {
     const [firstNightstand, setFirstNightstand] = useContext(FirstNightstandContext);
     const [bedOne, setBedOne] = useState(null)
     const [nightstandOne, setNightstandOne] = useState(null)
+    const [selectedTVStand, setSelectedTVStand] = useState(null);
+    const [selected, setSelected] = useState(false);
+    const [selectedNight, setSelectedNight] = useState(false);
+    const [selectedNormal, setSelectedNormal] = useState(false);
+
     let history = useHistory();
 
 
@@ -31,6 +36,10 @@ function TourOneB() {
         fetchBeds()
     }, [])
 
+    const normalAdd = (fName, fImage, fCategory) => {
+        setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1})
+    }
+
     const addToCart = (fName, fImage, fCategory) => {
         setBedOne({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
@@ -38,6 +47,21 @@ function TourOneB() {
     const addF = () => {
         setFirstBed(bedOne)
         setFirstNightstand(nightstandOne)
+
+        let newCart = [...cart];
+        let itemInCart = newCart.find(
+            (item) => selectedTVStand.name === item.name
+        );
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            itemInCart = {
+                ...selectedTVStand, 
+                quantity: 1,
+            };
+            newCart.push(itemInCart);
+        };
+        setCart(newCart);
     }
 
     const goBack = () => {
@@ -89,34 +113,66 @@ function TourOneB() {
 
         <p>Selecciona las camas:</p>
         <div className='one-b-beds-div'>
-        {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map(filteredFurniture => (
+        {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <FirstBedCard 
                 name={filteredFurniture.name.en} 
-                key={filteredFurniture._id} 
+                key={filteredFurniture._id}
+                idx={i}  
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 description={filteredFurniture.description.es}
                 material={filteredFurniture.material.es}
                 category={filteredFurniture.category.en}
                 size={filteredFurniture.size.es}
-                onSelectImage={async () => await addToCart(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en)}
+                selectedProduct={selected}
+                onSelectImage={() => {
+                    addToCart(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    setSelected(i)
+                }}
                 />
             ))}
         </div>  
 
         <p>Selecciona los burós:</p>
         <div className='one-b-beds-div'>
-        {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map(filteredFurniture => (
+        {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <FirstNightstandCard 
                 name={filteredFurniture.name.en} 
-                key={filteredFurniture._id} 
+                key={filteredFurniture._id}
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
+                idx={i}
                 description={filteredFurniture.description.es}
                 material={filteredFurniture.material.es}
                 category={filteredFurniture.category.en}
                 size={filteredFurniture.size.es}
-                onSelectImage={() => addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en)}
+                selectedProduct={selectedNight}
+                onSelectImage={() => {
+                    addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    setSelectedNight(i)
+                }}
+                />
+            ))}
+        </div>
+
+        <p>Selecciona los muebles de TV:</p>
+        <div className='one-b-beds-div'>
+        {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
+                <TourCard
+                name={filteredFurniture.name.en} 
+                key={filteredFurniture._id} 
+                price={filteredFurniture.price} 
+                image={filteredFurniture.image}
+                idx={i}
+                description={filteredFurniture.description.es}
+                material={filteredFurniture.material.es}
+                category={filteredFurniture.category.en}
+                size={filteredFurniture.size.es}
+                selectedProduct={selectedNormal}
+                normalProductAdd={() => {
+                    normalAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    setSelectedNormal(i)
+                }}
                 />
             ))}
         </div>

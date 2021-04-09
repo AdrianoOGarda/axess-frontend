@@ -38,7 +38,9 @@ function ThirdBedCard(props) {
 
     return (windowSize > 480) ? (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} className={selected}/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} 
+            className={props.selectedProduct === props.idx ? "selected-product": ""}
+            />
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>
@@ -69,7 +71,9 @@ function ThirdBedCard(props) {
         </div>
     ) : (
         <div className='first-bed-card-div'>
-            <img src={props.image} onClick={props.onSelectImage}  alt="imagen-tarjeta"/>
+            <img src={props.image} onClick={props.onSelectImage}  alt="imagen-tarjeta"
+            className={props.selectedProduct === props.idx ? "selected-product": ""}
+            />
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>

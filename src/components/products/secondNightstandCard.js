@@ -10,7 +10,6 @@ import useWindowSize from "../../hooks/useWindowSize"
 function SecondNightstandCard(props) {
     const windowSize = useWindowSize();
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [selected, setSelected] = useState(false);
     const [secondNightstand, setSecondNightstand] = useContext(SecondNightstandContext);
     const [nightstandTwo, setNightstandTwo] = useState(null)
 
@@ -38,7 +37,9 @@ function SecondNightstandCard(props) {
 
     return (windowSize > 480) ? (
         <div className='first-bed-card-div'>
-            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} className={selected}/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.onSelectImage} 
+            className={props.selectedProduct === props.idx ? "selected-product": ""}
+            />
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>
@@ -72,7 +73,9 @@ function SecondNightstandCard(props) {
         </div>
     ) : (
         <div className='first-bed-card-div'>
-            <img src={props.image} onClick={props.onSelectImage} alt="imagen-tarjeta"/>
+            <img src={props.image} onClick={props.onSelectImage}             
+            className={props.selectedProduct === props.idx ? "selected-product": ""}
+            alt="imagen-tarjeta"/>
             <div className='first-bed-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import TourCard from '../components/products/tourCard'
 import SecondBedCard from "../components/products/secondBedCard"
 import SecondNightstandCard from "../components/products/secondNightstandCard"
 import { getFurnitures } from "../services/furnitures"
@@ -13,8 +14,13 @@ function TourTwoB() {
     const [cart, setCart] = useContext(CartContext);
     const [secondBed, setSecondBed] = useContext(SecondBedContext);
     const [secondNightstand, setSecondNightstand] = useContext(SecondNightstandContext);
-    const [bedTwo, setBedTwo] = useState(null)
-    const [nightstandTwo, setNightstandTwo] = useState(null)
+    const [bedTwo, setBedTwo] = useState(null);
+    const [nightstandTwo, setNightstandTwo] = useState(null);
+    const [selectedNight, setSelectedNight] = useState(false);
+    const [selectedTVStand, setSelectedTVStand] = useState(null);
+    const [selected, setSelected] = useState(false);
+    const [selectedNormal, setSelectedNormal] = useState(false);
+
 
     let history = useHistory();
 
@@ -26,7 +32,27 @@ function TourTwoB() {
         setNightstandTwo({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
 
+    const normalAdd = (fName, fImage, fCategory) => {
+        setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1})
+    }
+
     const addF = async () => {
+
+        let newCart = [...cart];
+        let itemInCart = newCart.find(
+            (item) => selectedTVStand.name === item.name
+        );
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            itemInCart = {
+                ...selectedTVStand, 
+                quantity: 1,
+            };
+            newCart.push(itemInCart);
+        };
+        setCart(newCart);
+
         await setSecondBed(bedTwo)
         await setSecondNightstand(nightstandTwo)
         history.push('/three-bedrooms-third')
@@ -90,34 +116,66 @@ function TourTwoB() {
 
         <p>Selecciona las camas:</p>
         <div className='one-b-beds-div'>
-        {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map(filteredFurniture => (
+        {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <SecondBedCard 
                 name={filteredFurniture.name.es} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
+                idx={i}
                 description={filteredFurniture.description.es}
                 material={filteredFurniture.material.es}
                 category={filteredFurniture.category.en}
                 size={filteredFurniture.size.es}
-                onSelectImage={() => addToCartBed(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en)}
+                selectedProduct={selected}
+                onSelectImage={() => {
+                    addToCartBed(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    setSelected(i)
+                }}
                 />
             ))}
         </div>
 
         <p>Selecciona los burós:</p>
         <div className='one-b-beds-div'>
-        {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map(filteredFurniture => (
+        {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <SecondNightstandCard 
                 name={filteredFurniture.name.es} 
                 key={filteredFurniture._id} 
-                price={filteredFurniture.price} 
+                price={filteredFurniture.price}
+                idx={i}
                 image={filteredFurniture.image}
                 description={filteredFurniture.description.es}
                 material={filteredFurniture.material.es}
                 category={filteredFurniture.category.en}
                 size={filteredFurniture.size.es}
-                onSelectImage={() => addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en)}
+                selectedProduct={selectedNight}
+                onSelectImage={() => {
+                    addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    setSelectedNight(i)
+                }}
+                />
+            ))}
+        </div>
+
+        <p>Selecciona los muebles de TV:</p>
+        <div className='one-b-beds-div'>
+        {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
+                <TourCard
+                name={filteredFurniture.name.en} 
+                key={filteredFurniture._id} 
+                price={filteredFurniture.price} 
+                image={filteredFurniture.image}
+                idx={i}
+                description={filteredFurniture.description.es}
+                material={filteredFurniture.material.es}
+                category={filteredFurniture.category.en}
+                size={filteredFurniture.size.es}
+                selectedProduct={selectedNormal}
+                normalProductAdd={() => {
+                    normalAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    setSelectedNormal(i)
+                }}
                 />
             ))}
         </div>

@@ -53,8 +53,8 @@ const menu = (
     <Menu style={{width: '25vw', marginTop: '2vw', marginRight: '-20vw', backgroundColor: '#8C857E'}}>
         <SubMenu title="Recámara">
             <Menu.Item className="antd-submenu-item-axess"><Link to="/beds">Camas</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Burós</a></Menu.Item>
-            <MenuItem className="antd-submenu-item-axess"><a href="/">Mubles de TV</a></MenuItem>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/">Burós</Link></Menu.Item>
+            <MenuItem className="antd-submenu-item-axess"><a href="/tv-stands">Mubles de TV</a></MenuItem>
         </SubMenu>
         <SubMenu title="Cocina & Comedor">
             <Menu.Item className="antd-submenu-item-axess"><a href="/">Comedores</a></Menu.Item>

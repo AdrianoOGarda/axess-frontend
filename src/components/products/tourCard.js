@@ -10,9 +10,7 @@ import useWindowSize from "../../hooks/useWindowSize"
 function TourCard(props) {
     const windowSize = useWindowSize();
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [selected, setSelected] = useState(false);
     const [cart, setCart] = useContext(CartContext);
-    const [bedOne, setBedOne] = useState(null)
 
 
     const showModal = () => {
@@ -28,58 +26,37 @@ function TourCard(props) {
         // setSelected('selected-product');
     }
 
-    const addToCart = () => {
-        setBedOne({name: props.name, image: props.image, category: props.category, quantity: 1})
-    }
-
-    const addF = () => {
-        setCart([...cart, bedOne])
-    }
-
     const clearLocalCart = () => {
         setCart([]);
     }
 
-    // useEffect(() => {
-
-    //     if(bedOne !== null) {
-    //         setCart(...cart, bedOne);
-    //     }
-
-    //     console.log('hhhhh', bedOne)
-    // }, [bedOne])
 
     // const removeFromCart = (productToRemove) => {
     //     setCart(cart.filter((product) => product !== productToRemove ))
     // };
 
-    // const addToCart = () => {
-    //     const product = {name: props.name, image: props.image, category: props.category}
-    //     let newCart = [...cart];
-    //     let itemInCart = newCart.find(
-    //         (item) => product.name === item.name
-    //     );
-    //     if (itemInCart) {
-    //         itemInCart.quantity++;
-    //     } else {
-    //         itemInCart = {
-    //             ...product, 
-    //             quantity: 1,
-    //         };
-    //         newCart.push(itemInCart);
-    //     };
-    //     setCart(newCart);
-    // }
-
-    // const setBed = () => {
-    //     setBedOne({name: props.name, image: props.image, category: props.category})
-    // }
-
-console.log('pppp', bedOne)
+    const addToCart = () => {
+        const product = {name: props.name, image: props.image, category: props.category}
+        let newCart = [...cart];
+        let itemInCart = newCart.find(
+            (item) => product.name === item.name
+        );
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            itemInCart = {
+                ...product, 
+                quantity: 1,
+            };
+            newCart.push(itemInCart);
+        };
+        setCart(newCart);
+    }
 
     return (windowSize > 480) ? (
         <div className='tour-card-div'>
-            <img src={props.image} alt="imagen-tarjeta" onClick={addToCart} className={selected}/>
+            <img src={props.image} alt="imagen-tarjeta" onClick={props.normalProductAdd}             
+            className={props.selectedProduct === props.idx ? "selected-product": ""} />
             <div className='tour-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>
@@ -104,16 +81,14 @@ console.log('pppp', bedOne)
                     <p>{props.material}</p>
                 </div>
             </div>
-        </Modal>
-
-        <button onClick={clearLocalCart}>Clear Cart</button>
-        <button onClick={addF}>CONTINUE</button>
-        
+        </Modal>        
 
         </div>
     ) : (
         <div className='tour-card-div'>
-            <img src={props.image} alt="imagen-tarjeta"/>
+            <img src={props.image} onClick={props.normalProductAdd}             
+            className={props.selectedProduct === props.idx ? "selected-product": ""} 
+            alt="imagen-tarjeta"/>
             <div className='tour-card-name-div'>
                 <h4>{props.name}</h4>
                 <img src={Info} alt="info-icon" onClick={showModal}/>

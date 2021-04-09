@@ -41,6 +41,19 @@ const TourCart = () => {
         localStorage.clear()
     }
 
+    const removeFromCart = (productToRemove) => {
+        setCart(cart.filter((product) => product !== productToRemove ))
+    };
+    
+    function setQuantity(product, value) {
+        const newCart = [...cart];
+        console.log(`valueeee: ${value}`)
+        newCart.find(
+            (item) => item.name === product.name
+        ).quantity = value;
+        setCart(newCart);
+    }
+
     const removeFirstBed = (productToRemove) => {
         localStorage.removeItem('firstBed')
         localStorage.removeItem('secondBed')
@@ -361,7 +374,19 @@ const TourCart = () => {
                 <button onClick={() => removeFirstNightstand(thirdNightstand)}>Remove from Cart</button>
                 <p>{thirdNightstand?.quantity}</p>
             </div>
-    }  
+    }
+
+    {cart?.map( (cartItem, idx) => (
+                <div key={idx} className='tour-cart-product-div'>
+                    <img src={cartItem.image} alt="item-image"/>
+                    <p>{cartItem.name}</p>
+                    <input type="number" min="1" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                    <button onClick={() => removeFromCart(cartItem)}>Remove from Cart</button>
+                    {cartItem.category === "BEDS" && (
+                        <p>Esta es una cama</p>
+                    )}
+                </div>
+            ))}  
             
 
         <button onClick={clearLocalCart}>Clear Cart</button>

@@ -55,7 +55,8 @@
 }
 
 .selected-product {
-    display: none;
+    filter: brightness(40%);
+    box-shadow: 0 0 0 4px #5a4837;
 }
 
 
