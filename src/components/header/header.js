@@ -4,10 +4,12 @@ import "./header.css"
 import useWindowSize from "../../hooks/useWindowSize";
 import AxessIcon from "../../images/logo-axess-app.jpg"
 import { AutoComplete, Menu, Dropdown, Badge } from 'antd';
+import Searchbar from "../searchbar"
 import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import CartIcon from "../../icons/shopping-cart.svg"
 import "../../css/typography.css"
 import MenuItem from "antd/lib/menu/MenuItem";
+import {useHistory} from 'react-router-dom'
 import {Link} from "react-router-dom"
 import {CartContext} from "../../CartContext"
 
@@ -53,27 +55,27 @@ const menu = (
     <Menu style={{width: '25vw', marginTop: '2vw', marginRight: '-20vw', backgroundColor: '#8C857E'}}>
         <SubMenu title="Recámara">
             <Menu.Item className="antd-submenu-item-axess"><Link to="/beds">Camas</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/">Burós</Link></Menu.Item>
-            <MenuItem className="antd-submenu-item-axess"><a href="/tv-stands">Mubles de TV</a></MenuItem>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/nightstands">Burós</Link></Menu.Item>
+            <MenuItem className="antd-submenu-item-axess"><Link to="/tv-stands">Mubles de TV</Link></MenuItem>
         </SubMenu>
         <SubMenu title="Cocina & Comedor">
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Comedores</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Sillas para Comedor</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Bancos de Cocina</a></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-tables">Comedores</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/">Sillas para Comedor</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/">Bancos de Cocina</Link></Menu.Item>
         </SubMenu>
         <SubMenu title="Sala">
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Sofás</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Sillas Laterales</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Mesas de Centro</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Credenzas</a></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/sofas">Sofás</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/side-chairs">Sillas Laterales</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/coffee-tables">Mesas de Centro</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/credenzas">Credenzas</Link></Menu.Item>
         </SubMenu>
         <SubMenu title="Exterior">
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Mesas Laterales de Exterior</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Sillas de Exterior</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Comedores de Exterior</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Sillas Lounge</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Camastros</a></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><a href="/">Salas de Exterior</a></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-side-tables">Mesas Laterales de Exterior</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-chairs">Sillas de Exterior</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-dining-tables">Comedores de Exterior</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/lounge-chairs">Sillas Lounge</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/sunbeds">Camastros</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-sofas">Salas de Exterior</Link></Menu.Item>
         </SubMenu>
     </Menu>
 );
@@ -160,6 +162,8 @@ const [livingNav, setLivingNav] = useState(false)
 const [exteriorNav, setExteriorNav] = useState(false)
 const [cart, setCart] = useContext(CartContext)
 
+let history = useHistory();
+
 return (windowSize > 480) ? (
 
 <DesktopHeader className="desktop-header">
@@ -185,7 +189,7 @@ return (windowSize > 480) ? (
         </ul>
     </MenuLinks>
     <div className="header-searchbar-div">
-        <AutoComplete placeholder={<SearchOutlined style={{fontSize: '1.8vw', position: 'absolute', top: '25%', left: '1.5%', color: 'black'}} />} className="antd-header-autocomplete"/>
+        <Searchbar/>
     </div>
     <div className="header-cart-icon-div">
         <Badge count={cart.length} className='header-cart-badge' size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}>
@@ -217,7 +221,7 @@ return (windowSize > 480) ? (
     </div>
 
     <div className="header-searchbar-div-mobile">
-        <AutoComplete placeholder={<SearchOutlined style={{fontSize: '5vw', position: 'absolute', top: '20%', left: '1.5%', color: 'black'}} />} className="antd-header-autocomplete-mobile"/>
+        <Searchbar />
     </div>
 
 </MobileHeader>
@@ -236,9 +240,18 @@ return (windowSize > 480) ? (
                         {roomNav ? 
                             <nav roomNav={roomNav} className="room-nav-links">
                                 <ul>
-                                    <li>Camas</li>
-                                    <li>Burós</li>
-                                    <li>Muebles de TV</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/beds')
+                                    }}>Camas</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/nightstands')
+                                    }}>Burós</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/tv-stands')
+                                    }}>Muebles de TV</li>
                                 </ul>
                             </nav>
                         : null}
@@ -246,9 +259,18 @@ return (windowSize > 480) ? (
                         {kitchenNav ? 
                             <nav kitchenNav={kitchenNav} className="kitchen-nav-links">
                                 <ul>
-                                    <li>Comedores</li>
-                                    <li>Sillas para Comedor</li>
-                                    <li>Bancos de Cocina</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/dining-tables')
+                                    }}>Comedores</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/dining-chairs')
+                                    }}>Sillas para Comedor</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/high-chairs')
+                                    }}>Bancos de Cocina</li>
                                 </ul>
                             </nav>
                         : null}
@@ -256,10 +278,22 @@ return (windowSize > 480) ? (
                         {livingNav ? 
                             <nav livingNav={livingNav} className="living-nav-links">
                                 <ul>
-                                    <li>Sofás</li>
-                                    <li>Sillas Laterales</li>
-                                    <li>Mesas de Centro</li>
-                                    <li>Credenzas</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/sofas')
+                                    }}>Sofás</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/side-chairs')
+                                    }}>Sillas Laterales</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/coffee-tables')
+                                    }}>Mesas de Centro</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/credenzas')
+                                    }}>Credenzas</li>
                                 </ul>
                             </nav>
                         : null}
@@ -267,10 +301,30 @@ return (windowSize > 480) ? (
                         {exteriorNav ? 
                             <nav exteriorNav={exteriorNav} className="exterior-nav-links">
                                 <ul>
-                                    <li>Sofás</li>
-                                    <li>Sillas Laterales</li>
-                                    <li>Mesas de Centro</li>
-                                    <li>Credenzas</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/outdoor-side-tables')
+                                    }}>Mesas Laterales de Exterior</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/outdoor-chairs')
+                                    }}>Sillas de Exterior</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/outdoor-dining-tables')
+                                    }}>Comedores de Exterior</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/lounge-chairs')
+                                    }}>Sillas Lounge</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/sunbeds')
+                                    }}>Camastros</li>
+                                    <li onClick={() => {
+                                        setNav(!nav);
+                                        history.push('/outdoor-sofas')
+                                    }}>Salas de Exterior</li>
                                 </ul>
                             </nav>
                         : null}

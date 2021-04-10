@@ -6,6 +6,9 @@ import {ThirdBedContext} from "../productsContext/ThirdBedContext"
 import {FirstNightstandContext} from "../productsContext/FirstNightstandContext"
 import {SecondNightstandContext} from "../productsContext/SecondNightstandContext"
 import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
+import {EquipContext} from "../productsContext/EquipContext"
+import {DecoContext} from "../productsContext/DecContext"
+import {HotContext} from "../productsContext/HotContext"
 import "../css/tourCart.css"
 import "../css/typography.css"
 import { Select } from 'antd';
@@ -23,6 +26,10 @@ const TourCart = () => {
     const [firstNightstand, setFirstNightstand] = useContext(FirstNightstandContext);
     const [secondNightstand, setSecondNightstand] = useContext(SecondNightstandContext);
     const [thirdNightstand, setThirdNightstand] = useContext(ThirdNightstandContext);
+    
+    const [equip, setEquip] = useContext(EquipContext)
+    const [deco, setDeco] = useContext(DecoContext)
+    const [hot, setHot] = useContext(HotContext)
 
     const [depto, setDepto] = useState(null);
     const [bedSize, setBedSize] = useState('King');
@@ -230,6 +237,9 @@ const TourCart = () => {
     // console.log('putaaaa', firstBed)
     // console.log(`aaaaaarghhhh: ${JSON.stringify(cart)}`)
     // console.log('jjjjjjj', bedSize)
+    // console.log('jjjjjjj', equip)
+    console.log('jjjjjjj', secondBed)
+
 
     return (
         <div className='tour-main-cart-div'>
@@ -274,7 +284,7 @@ const TourCart = () => {
                 </div>
             ))} */}
 
-            {JSON.stringify(firstBed) === '{}' ? 
+            {firstBed.category === undefined ? 
             <div>
 
             </div>
@@ -294,7 +304,7 @@ const TourCart = () => {
             </div>
         }
 
-        {JSON.stringify(secondBed) === '{}' ? 
+        {secondBed.category === undefined ? 
             <div>
 
             </div>
@@ -314,7 +324,7 @@ const TourCart = () => {
             </div>
         }   
 
-        {JSON.stringify(thirdBed) === '{}' ? 
+        {thirdBed.category === undefined ? 
             <div>
 
             </div>
@@ -334,7 +344,7 @@ const TourCart = () => {
             </div>
         } 
 
-        {JSON.stringify(firstNightstand) === '{}' ? 
+        {firstNightstand.category === undefined ? 
             <div>
 
             </div>
@@ -348,7 +358,7 @@ const TourCart = () => {
             </div>
         }  
 
-    {JSON.stringify(secondNightstand) === '{}' ? 
+    {secondNightstand.category === undefined ? 
             <div>
 
             </div>
@@ -362,7 +372,7 @@ const TourCart = () => {
             </div>
     } 
 
-    {JSON.stringify(thirdNightstand) === '{}' ? 
+    {thirdNightstand.category === undefined ? 
             <div>
 
             </div>
@@ -376,7 +386,7 @@ const TourCart = () => {
             </div>
     }
 
-    {cart?.map( (cartItem, idx) => (
+    {cart?.filter(product => product.category  !== undefined).map( (cartItem, idx) => (
                 <div key={idx} className='tour-cart-product-div'>
                     <img src={cartItem.image} alt="item-image"/>
                     <p>{cartItem.name}</p>
@@ -391,6 +401,12 @@ const TourCart = () => {
 
         <button onClick={clearLocalCart}>Clear Cart</button>
         <button onClick={clearLocalBed}>Clear Bed</button>
+        
+        {hot === true ? (
+            <p>True</p>
+        ) : (
+            <p>False</p>
+        )}
         {/* <p>Aver: {firstBed?.firstBedSize}</p> */}
         </div>
     )

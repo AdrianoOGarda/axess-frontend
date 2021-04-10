@@ -79,3 +79,80 @@
     font-size: 1.9vw;
     width: 10.5vw;
 }
+
+@media only screen and (max-width: 480px) {
+    .one-b-main-div {
+        display: flex;
+        flex-direction: column;
+    }
+    .one-b-main-div p {
+        align-self: flex-start;
+        text-align: start;
+        margin-left: 7.5vw;
+        font-family: 'L Bold';
+        color: #8c857e;
+        font-size: 5vw;
+    }
+    .one-b-beds-div {
+        width: 85vw;
+        align-self: center;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 5vw;
+    }
+    .one-bedroom-title-inside-div {
+        display: flex;
+        margin-top: 5vw;
+        margin-bottom: 5vw;
+    }
+    .one-bedroom-title-inside-div h1 {
+        font-family: 'L Regular';
+        font-size: 7vw;
+        color: #8c857e;
+        margin: 0 3.5vw 0 3.5vw;
+    }
+    .one-bedroom-title-divider {
+        border-top: .6vw solid #8c857e;
+        width: 8vw;
+        align-self: center;
+        margin-top: -.0005px;
+    }
+    .one-bedroom-title-div {
+        display: flex;
+        justify-content: center;
+    }
+    .one-bedroom-buttons-div {
+        align-self: flex-start;
+        display: flex;
+        justify-content: space-between;
+        width: 80vw;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
+        align-self: center;
+    }
+    .one-bedroom-cancel-button {
+        border: .18vw solid #8c857e;
+        background-color: transparent;
+        font-family: 'L Regular';
+        font-weight: 500;
+        color: #8c857e;
+        font-size: 5vw;
+        padding: .1vw;
+        width: 15vw;
+        cursor: pointer;
+    }
+    .one-bedroom-continue-button {
+        border: .18vw solid #8c857e;
+        display: flex;
+        color: #8c857e;
+        background-color: transparent;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        font-family: 'L Regular';
+        font-weight: 500;
+        font-size: 5vw;
+        width: 25vw;
+    }
+}

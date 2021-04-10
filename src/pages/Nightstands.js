@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState }  from 'react'
 import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
+import "../css/oneBedroom.css"
 
 function Nightstands() {
 
@@ -26,13 +27,33 @@ function Nightstands() {
     console.log(`WAT: ${furnitures}`)
 
     return (
-        <>
-            <p>Aquí van las camas</p>
+        <div className='one-b-main-div'>
+
+        <div className='one-bedroom-title-div'>
+            <div className='one-bedroom-title-inside-div'>
+                <div className='one-bedroom-title-divider'></div>
+                <h1>Burós</h1>
+                <div className='one-bedroom-title-divider'></div>
+            </div> 
+        </div>
+
+        <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '80vw', alignSelf: 'center', marginTop: '5vw'}}>
             {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS").map(filteredFurniture => (
-        <ProductCard name={filteredFurniture.name.en} key={filteredFurniture._id}/>
-      ))}
-      <p>{cart.length}</p>
-        </>
+                <ProductCard 
+                name={filteredFurniture.name.en} 
+                key={filteredFurniture._id} 
+                price={filteredFurniture.price} 
+                image={filteredFurniture.image}
+                category={filteredFurniture.category.en}
+                description={filteredFurniture.description.es}
+                material={filteredFurniture.material.es}
+                size={filteredFurniture.size.es}
+                id={filteredFurniture._id}
+                />
+            ))}
+        </div>
+
+        </div>
     )
 }
 

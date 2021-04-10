@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import {Home, Login, Signup, Beds, Cart, Nightstands, CreateFurniture, EditFurniture, TourConfig, TourOneB, TourCart, TourTwoBTwo, TourTwoBOne, TourThreeBOne, TourThreeBTwo, TourThreeBThree, TVStands  } from "./pages"
+import {Home, Login, Signup, Beds, Cart, Nightstands, CreateFurniture, EditFurniture, TourConfig, TourOneB, TourCart, TourTwoBTwo, TourTwoBOne, TourThreeBOne, TourThreeBTwo, TourThreeBThree, TVStands, TourKitchen, TourLiving, TourExterior, CartList } from "./pages"
 
 import NotFound from './components/404/NotFound.js';
 import Layout from "./components/layout"
@@ -24,6 +24,10 @@ const Router = () => (
         <Route exact path="/three-bedrooms-first" component={TourThreeBOne}/>
         <Route exact path="/three-bedrooms-second" component={TourThreeBTwo}/>
         <Route exact path="/three-bedrooms-third" component={TourThreeBThree}/>
+        <Route exact path="/tour-kitchen" component={TourKitchen}/>
+        <Route exact path="/tour-living" component={TourLiving}/>
+        <Route exact path="/tour-exterior" component={TourExterior}/>
+        <Route exact path="/cart-list" component={CartList}/>
         <Route exact path="/tour-cart" component={TourCart}/>
         <Route exact path="/:furnitureId" component={EditFurniture}/>
         <Route component={NotFound} />

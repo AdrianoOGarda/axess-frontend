@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState }  from 'react'
 import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
+import "../css/oneBedroom.css"
 
 
 function Beds() {
@@ -26,7 +27,17 @@ function Beds() {
     console.log(`WAT: ${furnitures}`)
 
     return (
-        <div style={{display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+        <div className='one-b-main-div'>
+
+        <div className='one-bedroom-title-div'>
+            <div className='one-bedroom-title-inside-div'>
+                <div className='one-bedroom-title-divider'></div>
+                <h1>Camas</h1>
+                <div className='one-bedroom-title-divider'></div>
+            </div> 
+        </div>
+
+        <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '80vw', alignSelf: 'center', marginTop: '5vw'}}>
             {furnitures?.filter(furniture => furniture?.category?.en === "BEDS").map(filteredFurniture => (
                 <ProductCard 
                 name={filteredFurniture.name.en} 
@@ -40,6 +51,8 @@ function Beds() {
                 id={filteredFurniture._id}
                 />
             ))}
+        </div>
+
         </div>
     )
 }

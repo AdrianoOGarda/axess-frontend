@@ -111,14 +111,14 @@
 
 @media only screen and (max-width: 480px) {
     .product-card-div {
-        width: 40vw;
+        width: 35vw;
         /* border: 5px solid black; */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
     .product-card-div img:nth-child(1) {
-        width: 40vw;
+        width: 35vw;
         margin-bottom: .5vw;
     }
     .product-card-name-div {
@@ -126,13 +126,14 @@
     }
     .product-card-name-div img {
         width: 5vw;
-        margin-left: 1.5vw;
+        margin-left: 1vw;
         cursor: pointer;
     }
     .product-card-div button {
         align-self: center;
+        height: 9vw;
         background-color: transparent;
-        border: .2vw solid #8c857e;
+        border: .7vw solid #8c857e;
         font-family: 'L Regular';
         font-size: 3.5vw;
         color: #8c857e;
@@ -152,7 +153,8 @@
     .price-tag {
         font-family: 'L Black';
         color: #8c857e;
-        font-size: 2.8vw;
+        margin-left: -.05vw !important;
+        font-size: 3.5vw !important;
         margin-top: -.8vw;
     }
     .ant-modal-header {

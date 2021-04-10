@@ -84,6 +84,41 @@
     color: white !important;
 }
 
+.ant-select-selection-search {
+    display: flex !important;
+}
+
+.ant-select-selection-search input {
+    align-self: center;
+    margin-left: 2vw !important;
+    color: #8C857E !important;
+    font-family: 'L Regular' !important;
+    font-size: 1vw !important;
+}
+
+@media only screen and (max-width: 480px) {
+    .ant-select-selection-search {
+        display: flex !important;
+    }
+    .ant-select-selection-search input {
+        align-self: center;
+        margin-left: 2vw !important;
+        color: #8C857E !important;
+        font-family: 'L Regular' !important;
+        font-size: 4vw !important;
+    }
+    .antd-header-autocomplete {
+        width: 90vw;
+    }
+}
+
+
+/* .searchbar-dropdown p {
+    font-family: 'L Regular' !important;
+    font-size: 3vw !important;
+    color: white !important;
+} */
+
 
 /* MOBILE */
 
@@ -102,10 +137,6 @@
 
 .mobile-menu-image-div img {
     width: 18vw;
-}
-
-.antd-header-autocomplete-mobile {
-    width: 90vw;
 }
 
 .header-searchbar-div-mobile {
@@ -166,10 +197,10 @@
     padding-left: 20% !important;
 }
 
-.room-nav-links ul li {
-    font-family: "L Regular";
+.room-nav-links {
+    font-family: "L Regular" !important;
     color: #8C857E;
-    font-size: 4vw;
+    font-size: 4vw !important;
 }
 
 .kitchen-nav-links ul {

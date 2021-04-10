@@ -44,13 +44,10 @@ function TourOneB() {
         setBedOne({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
 
-    const addF = () => {
-        setFirstBed(bedOne)
-        setFirstNightstand(nightstandOne)
-
+    const addF = async () => {
         let newCart = [...cart];
         let itemInCart = newCart.find(
-            (item) => selectedTVStand.name === item.name
+            (item) => selectedTVStand?.name === item.name
         );
         if (itemInCart) {
             itemInCart.quantity++;
@@ -62,6 +59,10 @@ function TourOneB() {
             newCart.push(itemInCart);
         };
         setCart(newCart);
+
+        await setFirstBed(bedOne)
+        await setFirstNightstand(nightstandOne)
+        history.push('/tour-kitchen')
     }
 
     const goBack = () => {

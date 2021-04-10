@@ -57,3 +57,57 @@
 .tour-main-cart-div {
     min-height: 90vh;
 }
+
+@media only screen and (max-width: 480px) {
+    .tour-cart-title-inside-div {
+        display: flex;
+        margin-top: 4%;
+    }
+    .tour-cart-title-inside-div h1 {
+        font-family: 'L Regular';
+        font-size: 7vw;
+        color: #8c857e;
+        margin: 0 3.5vw 0 3.5vw;
+    }
+    .tour-cart-title-divider {
+        border-top: .6vw solid #8c857e;
+        width: 8vw;
+        align-self: center;
+        margin-top: -.01vw;
+    }
+    .tour-cart-title-div {
+        display: flex;
+        justify-content: center;
+    }
+    .tour-cart-product-div {
+        display: flex;
+        border-bottom: .1vw solid #8c857e;
+        margin: 0 10vw 5vw 10vw;
+        justify-content: space-between;
+        padding-bottom: 2%;
+    }
+    .tour-cart-product-div img {
+        width: 13vw;
+    }
+    .tour-cart-product-div input,
+    .tour-cart-product-div button {
+        height: 2.5vw;
+        align-self: center;
+        margin-top: -1.5vw;
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 1.5vw;
+    }
+    .tour-cart-product-div input {
+        width: 4vw;
+    }
+    .tour-cart-product-div p {
+        align-self: center;
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 1.5vw;
+    }
+    .tour-main-cart-div {
+        min-height: 90vh;
+    }
+}

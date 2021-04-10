@@ -11,6 +11,10 @@ import {ThirdBedProvider} from "./productsContext/ThirdBedContext"
 import {FirstNightstandProvider} from "./productsContext/FirstNightstandContext"
 import {SecondNightstandProvider} from "./productsContext/SecondNightstandContext"
 import {ThirdNightstandProvider} from "./productsContext/ThirdNightstandContext"
+import {EquipProvider } from "./productsContext/EquipContext"
+import {DecoProvider} from "./productsContext/DecContext"
+import {HotProvider} from "./productsContext/HotContext"
+
 
 ReactDOM.render(
     <Provider>
@@ -21,7 +25,13 @@ ReactDOM.render(
     <FirstNightstandProvider>
     <SecondNightstandProvider>
     <ThirdNightstandProvider>
+    <EquipProvider>
+    <DecoProvider>
+    <HotProvider>
         <Router />
+    </HotProvider>
+    </DecoProvider>
+    </EquipProvider>    
     </ThirdNightstandProvider>
     </SecondNightstandProvider>
     </FirstNightstandProvider>
