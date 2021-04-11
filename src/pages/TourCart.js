@@ -105,9 +105,21 @@ const TourCart = () => {
     }
 
     function onChange(value) {
-        console.log(`selected ${value}`);
-        setDepto(value)
+        console.log(`selected antdf ${value}`);
+        setDepto(value);
+
+        const newCart = [...cart];
+        const highInCart = newCart.find((item) => item.category === "HIGH CHAIRS (KITCHEN)");
+        const chairInCart = newCart.find((item) => item.category === "DINING CHAIRS");
+        if(highInCart) {
+            newCart.find((item) => item.category === "HIGH CHAIRS (KITCHEN)").quantity = 3;
+        }
+        if(chairInCart) {
+            newCart.find((item) => item.category === "DINING CHAIRS").quantity = 6;
+        }
+        setCart(newCart);
     }
+
 
     function onChangeBedSize(e) {
         console.log(`selectedBSIZE ${e.target.value}`);
@@ -129,6 +141,11 @@ const TourCart = () => {
         console.log('search:', val);
     }
 
+    console.log('aiydiyabsidbaihsbxs', cart.find((item) => item.category === "SUNBEDS"))
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
 
     useEffect(() => {
         if(depto === '1'){
@@ -152,13 +169,36 @@ const TourCart = () => {
             setFirstNightstand({...firstNightstand, quantity: 2})
             setSecondNightstand({...secondNightstand, quantity: 2})
             setThirdNightstand({...thirdNightstand, quantity: 2})
+
+            const newCart = [...cart];
+            const sunInCart = newCart.find((item) => item.category === "SUNBEDS");
+            const outdoorSofaInCart = newCart.find((item) => item.category === "SUNBEDS");
+            if(sunInCart) {
+                newCart.find((item) => item.category === "SUNBEDS").quantity = 2;
+            }
+            if(outdoorSofaInCart) {
+                newCart.find((item) => item.category === "OUTDOOR SOFAS").quantity = 2;
+            }
+            setCart(newCart);
+
         } else if(depto === '2A'){
             setBedSize('King')
             setBedSizeTwo('King')
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 2})
-            setSecondNightstand({...secondNightstand, quantity: 2})
+            setSecondNightstand({...secondNightstand, quantity: 2});
+
+            const newCart = [...cart];
+            const sunInCart = newCart.find((item) => item.category === "SUNBEDS");
+            const outdoorSofaInCart = newCart.find((item) => item.category === "SUNBEDS");
+            if(sunInCart) {
+                newCart.find((item) => item.category === "SUNBEDS").quantity = 2;
+            }
+            if(outdoorSofaInCart) {
+                newCart.find((item) => item.category === "OUTDOOR SOFAS").quantity = 2;
+            }
+            setCart(newCart);
         } else if(depto === '2B'){
             setBedSize('King')
             setBedSizeTwo('King')
@@ -166,6 +206,17 @@ const TourCart = () => {
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 2})
             setSecondNightstand({...secondNightstand, quantity: 2})
+
+            const newCart = [...cart];
+            const sunInCart = newCart.find((item) => item.category === "SUNBEDS");
+            const loungeInCart = newCart.find((item) => item.category === "LOUNGE CHAIRS");
+            if(sunInCart) {
+                newCart.find((item) => item.category === "SUNBEDS").quantity = 2;
+            }
+            if(loungeInCart) {
+                newCart.find((item) => item.category === "LOUNGE CHAIRS").quantity = 2;
+            }
+            setCart(newCart);
         } else if(depto === '3'){
             setBedSize('Matrimonial')
             setBedSizeTwo('King')
@@ -221,6 +272,17 @@ const TourCart = () => {
             setFirstNightstand({...firstNightstand, quantity: 2})
             setSecondNightstand({...secondNightstand, quantity: 2})
             setThirdNightstand({...thirdNightstand, quantity: 2})
+
+            const newCart = [...cart];
+            const sunInCart = newCart.find((item) => item.category === "SUNBEDS");
+            const loungeInCart = newCart.find((item) => item.category === "LOUNGE CHAIRS");
+            if(sunInCart) {
+                newCart.find((item) => item.category === "SUNBEDS").quantity = 2;
+            }
+            if(loungeInCart) {
+                newCart.find((item) => item.category === "LOUNGE CHAIRS").quantity = 2;
+            }
+            setCart(newCart);
         } else if(depto === '8'){
             setBedSize('Matrimonial')
             setBedSizeTwo('King')
@@ -231,6 +293,17 @@ const TourCart = () => {
             setFirstNightstand({...firstNightstand, quantity: 1})
             setSecondNightstand({...secondNightstand, quantity: 2})
             setThirdNightstand({...thirdNightstand, quantity: 2})
+
+            const newCart = [...cart];
+            const sunInCart = newCart.find((item) => item.category === "SUNBEDS");
+            const loungeInCart = newCart.find((item) => item.category === "LOUNGE CHAIRS");
+            if(sunInCart) {
+                newCart.find((item) => item.category === "SUNBEDS").quantity = 2;
+            }
+            if(loungeInCart) {
+                newCart.find((item) => item.category === "LOUNGE CHAIRS").quantity = 2;
+            }
+            setCart(newCart);
         }
     }, [depto]);
 
@@ -240,6 +313,12 @@ const TourCart = () => {
     // console.log('jjjjjjj', equip)
     console.log('jjjjjjj', secondBed)
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     return (
         <div className='tour-main-cart-div'>
@@ -284,7 +363,7 @@ const TourCart = () => {
                 </div>
             ))} */}
 
-            {firstBed.category === undefined ? 
+            {firstBed?.category === undefined || firstBed === null? 
             <div>
 
             </div>
@@ -304,7 +383,7 @@ const TourCart = () => {
             </div>
         }
 
-        {secondBed.category === undefined ? 
+        {secondBed?.category === undefined || secondBed === null ? 
             <div>
 
             </div>
@@ -324,7 +403,7 @@ const TourCart = () => {
             </div>
         }   
 
-        {thirdBed.category === undefined ? 
+        {thirdBed?.category === undefined || thirdBed === null ? 
             <div>
 
             </div>
@@ -344,7 +423,7 @@ const TourCart = () => {
             </div>
         } 
 
-        {firstNightstand.category === undefined ? 
+        {firstNightstand?.category === undefined || firstNightstand === null ? 
             <div>
 
             </div>
@@ -358,7 +437,7 @@ const TourCart = () => {
             </div>
         }  
 
-    {secondNightstand.category === undefined ? 
+    {secondNightstand?.category === undefined || secondNightstand === null ? 
             <div>
 
             </div>
@@ -372,7 +451,7 @@ const TourCart = () => {
             </div>
     } 
 
-    {thirdNightstand.category === undefined ? 
+    {thirdNightstand?.category === undefined || thirdNightstand === null ? 
             <div>
 
             </div>

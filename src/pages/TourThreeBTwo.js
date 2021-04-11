@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import TourCard from '../components/products/tourCard'
 import SecondBedCard from "../components/products/secondBedCard"
 import SecondNightstandCard from "../components/products/secondNightstandCard"
@@ -21,6 +21,9 @@ function TourTwoB() {
     const [selected, setSelected] = useState(false);
     const [selectedNormal, setSelectedNormal] = useState(false);
 
+    const goToNightstandRef = useRef(null);
+    const goToTVRef = useRef(null);
+    const continueRef = useRef(null);
 
     let history = useHistory();
 
@@ -36,22 +39,24 @@ function TourTwoB() {
         setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1})
     }
 
-    const addF = async () => {
+    console.log('kkk', selectedTVStand)
 
-        let newCart = [...cart];
-        let itemInCart = newCart.find(
-            (item) => selectedTVStand.name === item.name
-        );
-        if (itemInCart) {
-            itemInCart.quantity++;
-        } else {
-            itemInCart = {
-                ...selectedTVStand, 
-                quantity: 1,
+    const addF = async () => {
+        
+            let newCart = [...cart];
+            let itemInCart = newCart.find(
+                (item) => selectedTVStand?.name === item.name
+            );
+            if (itemInCart) {
+                itemInCart.quantity++;
+            } else {
+                itemInCart = {
+                    ...selectedTVStand, 
+                    quantity: 1,
+                };
+                newCart.push(itemInCart);
             };
-            newCart.push(itemInCart);
-        };
-        setCart(newCart);
+            setCart(newCart);
 
         await setSecondBed(bedTwo)
         await setSecondNightstand(nightstandTwo)
@@ -71,6 +76,12 @@ function TourTwoB() {
         }
         fetchBeds()
     }, [])
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -101,6 +112,15 @@ function TourTwoB() {
         console.log('settingFirstNightstand', secondNightstand)
     }, [addF])
 
+    const goToNightstand= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToTV= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToContinue= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
 
     return (
         <div className='one-b-main-div'>
@@ -130,7 +150,8 @@ function TourTwoB() {
                 selectedProduct={selected}
                 onSelectImage={() => {
                     addToCartBed(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelected(i)
+                    setSelected(i);
+                    goToNightstand(goToNightstandRef);
                 }}
                 />
             ))}
@@ -152,10 +173,12 @@ function TourTwoB() {
                 selectedProduct={selectedNight}
                 onSelectImage={() => {
                     addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNight(i)
+                    setSelectedNight(i);
+                    goToTV(goToTVRef);
                 }}
                 />
             ))}
+            <div ref={goToNightstandRef}></div>
         </div>
 
         <p>Selecciona los muebles de TV:</p>
@@ -174,10 +197,12 @@ function TourTwoB() {
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
                     normalAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormal(i)
+                    setSelectedNormal(i);
+                    goToContinue(continueRef);
                 }}
                 />
             ))}
+            <div ref={goToTVRef}></div>
         </div>
 
 
@@ -186,6 +211,7 @@ function TourTwoB() {
                 <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
         </div>
 
+            <div ref={continueRef}></div>
         </div>
 
         

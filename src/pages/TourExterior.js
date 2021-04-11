@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import TourCard from '../components/products/tourCard'
 import { getFurnitures } from "../services/furnitures"
 import {CartContext} from "../CartContext"
@@ -22,6 +22,14 @@ function TourExterior() {
     const [selectedNormalTable, setSelectedNormalTable] = useState(null);
     const [selectedNormalLounge, setSelectedNormalLounge] = useState(null);
     const [selectedNormalSunbed, setSelectedNormalSunbed] = useState(null);
+
+    const goToChairRef = useRef(null);
+    const goToSofaRef = useRef(null);
+    const goToTableRef = useRef(null);
+    const goToLoungeRef = useRef(null);
+    const goToSunbedRef = useRef(null);
+    const continueRef = useRef(null);
+
 
 
 
@@ -151,7 +159,33 @@ function TourExterior() {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
+
+    const goToChair= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToSofa= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToTable= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToLounge= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToSunbed= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToContinue= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    
 
     
 
@@ -187,7 +221,8 @@ function TourExterior() {
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
                     diningAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormal(i)
+                    setSelectedNormal(i);
+                    goToChair(goToChairRef);
                 }}
                 />
             ))}
@@ -214,10 +249,12 @@ function TourExterior() {
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
                     chairAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalChair(i)
+                    setSelectedNormalChair(i);
+                    goToSofa(goToSofaRef);
                 }}
                 />
             ))}
+            <div ref={goToChairRef}></div>
         </div>
 
 
@@ -241,10 +278,12 @@ function TourExterior() {
                 selectedProduct={selectedNormalSofa}
                 normalProductAdd={() => {
                     sofaAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalSofa(i)
+                    setSelectedNormalSofa(i);
+                    goToTable(goToTableRef)
                 }}
                 />
             ))}
+            <div ref={goToSofaRef}></div>
         </div>
 
 
@@ -268,10 +307,12 @@ function TourExterior() {
                 selectedProduct={selectedNormalTable}
                 normalProductAdd={() => {
                     tableAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalTable(i)
+                    setSelectedNormalTable(i);
+                    goToLounge(goToLoungeRef)
                 }}
                 />
             ))}
+            <div ref={goToTableRef}></div>
         </div>
 
 
@@ -295,10 +336,12 @@ function TourExterior() {
                 selectedProduct={selectedNormalLounge}
                 normalProductAdd={() => {
                     loungeAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalLounge(i)
+                    setSelectedNormalLounge(i);
+                    goToSunbed(goToSunbedRef);
                 }}
                 />
             ))}
+            <div ref={goToLoungeRef}></div>
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "SUNBEDS" && furniture?.project === "AWA").length > 0 ? (
@@ -321,10 +364,12 @@ function TourExterior() {
                 selectedProduct={selectedNormalSunbed}
                 normalProductAdd={() => {
                     sunbedAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalSunbed(i)
+                    setSelectedNormalSunbed(i);
+                    goToContinue(continueRef);
                 }}
                 />
             ))}
+            <div ref={goToSunbedRef}></div>
         </div>
         
 
@@ -332,7 +377,8 @@ function TourExterior() {
                 <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
                 <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
         </div>
-
+            
+            <div ref={continueRef}></div>
         </div>
 
         

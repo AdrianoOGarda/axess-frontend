@@ -85,6 +85,12 @@ const CartList = () => {
     useEffect(() => {
         localStorage.setItem("hoteleria", hot);
     }, [hot]);
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
     
 
 
@@ -102,7 +108,7 @@ const CartList = () => {
         <div className='cart-list-div'>    
 
         
-            {firstBed.category === undefined ? 
+            {firstBed?.category === undefined || firstBed === null ? 
             <></>
             :
             <div className='cart-list-product-div'>
@@ -111,7 +117,7 @@ const CartList = () => {
             </div>
         }
 
-        {secondBed.category === undefined ? 
+        {secondBed?.category === undefined || secondBed === null ? 
             <></>
             :
             <div className='cart-list-product-div'>
@@ -120,7 +126,7 @@ const CartList = () => {
             </div>
         }
 
-        {thirdBed.category === undefined ? 
+        {thirdBed?.category === undefined || thirdBed === null ? 
             <></>
             :
             <div className='cart-list-product-div'>
@@ -129,7 +135,7 @@ const CartList = () => {
             </div>
         }
 
-        {firstNightstand.category === undefined ? 
+        {firstNightstand?.category === undefined || firstNightstand === null ? 
             <></>
             :
             <div className='cart-list-product-div'>
@@ -138,7 +144,7 @@ const CartList = () => {
             </div>
         }
 
-        {secondNightstand.category === undefined ? 
+        {secondNightstand?.category === undefined || secondNightstand === null ? 
             <></>
             :
             <div className='cart-list-product-div'>
@@ -147,7 +153,7 @@ const CartList = () => {
             </div>
         }
 
-        {thirdNightstand.category === undefined ? 
+        {thirdNightstand?.category === undefined || thirdNightstand === null ? 
             <></>
             :
             <div className='cart-list-product-div'>

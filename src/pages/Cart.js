@@ -46,7 +46,7 @@ const Cart = () => {
         </div>
 
             
-            {cart?.map( (cartItem, idx) => (
+            {cart?.filter(product => product.category  !== undefined).map( (cartItem, idx) => (
                 <div key={idx} className='cart-product-div'>
                     <img src={cartItem.image} alt="item-image"/>
                     <p>{cartItem.name}</p>

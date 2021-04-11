@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import TourCard from '../components/products/tourCard'
 import { getFurnitures } from "../services/furnitures"
 import {CartContext} from "../CartContext"
@@ -15,8 +15,11 @@ function TourKitchen() {
     const [selectedHigh, setSelectedHigh] = useState(null)
     const [selectedNormal, setSelectedNormal] = useState(false);
     const [selectedNormalChair, setSelectedNormalChair] = useState(null);
-    const [selectedNormalHigh, setSelectedNormalHigh] = useState(null)
+    const [selectedNormalHigh, setSelectedNormalHigh] = useState(null);
 
+    const goToChairRef = useRef(null);
+    const goToHighRef = useRef(null);
+    const continueRef = useRef(null);
 
     let history = useHistory();
 
@@ -29,6 +32,12 @@ function TourKitchen() {
         }
         fetchBeds()
     }, [])
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     const diningAdd = (fName, fImage, fCategory) => {
         setSelectedDiningTable({name: fName, image: fImage, category: fCategory, quantity: 1})
@@ -100,6 +109,15 @@ function TourKitchen() {
     }, [cart]);
 
 
+    const goToChair= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToHigh= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const goToContinue= (id) =>{
+        id.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
     
 
     return (
@@ -133,7 +151,8 @@ function TourKitchen() {
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
                     diningAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormal(i)
+                    setSelectedNormal(i);
+                    goToChair(goToChairRef);
                 }}
                 />
             ))}
@@ -159,10 +178,12 @@ function TourKitchen() {
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
                     chairAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalChair(i)
+                    setSelectedNormalChair(i);
+                    goToHigh(goToHighRef);
                 }}
                 />
             ))}
+            <div ref={goToChairRef}></div>
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "HIGH CHAIRS (KITCHEN)" && furniture?.project === "AWA").length > 0 ? (
@@ -185,10 +206,12 @@ function TourKitchen() {
                 selectedProduct={selectedNormalHigh}
                 normalProductAdd={() => {
                     highAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
-                    setSelectedNormalHigh(i)
+                    setSelectedNormalHigh(i);
+                    goToContinue(continueRef);
                 }}
                 />
             ))}
+            <div ref={goToHighRef}></div>
         </div>
         
 
@@ -197,6 +220,7 @@ function TourKitchen() {
                 <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
         </div>
 
+            <div ref={continueRef}></div>
         </div>
 
         
