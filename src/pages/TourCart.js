@@ -55,10 +55,15 @@ const TourCart = () => {
     function setQuantity(product, value) {
         const newCart = [...cart];
         console.log(`valueeee: ${value}`)
-        newCart.find(
-            (item) => item.name === product.name
-        ).quantity = value;
-        setCart(newCart);
+
+        if(value == 0) {
+        setCart(newCart.filter((item) => item.name !== product.name))
+        } else {
+            newCart.find(
+                (item) => item.name === product.name
+            ).quantity = value;
+            setCart(newCart);
+        }
     }
 
     const removeFirstBed = (productToRemove) => {
@@ -74,34 +79,64 @@ const TourCart = () => {
 
     function setBedQuantity(product, value) {
         const newFirstBed = {...firstBed};
-        newFirstBed.quantity = value;
-        setFirstBed(newFirstBed);
+        if(value == 0) {
+            localStorage.removeItem('firstBed');
+            setFirstBed({});
+        } else {
+                newFirstBed.quantity = value;
+                setFirstBed(newFirstBed);
+        }
     };
     function setBedQuantityTwo(product, value) {
         const newSecondBed = {...secondBed};
-        newSecondBed.quantity = value;
-        setSecondBed(newSecondBed);
+        if(value == 0) {
+            localStorage.removeItem('secondBed');
+            setSecondBed({});
+        } else {
+            newSecondBed.quantity = value;
+            setSecondBed(newSecondBed);
+        }
     }
     function setBedQuantityThree(product, value) {
         const newThirdBed = {...thirdBed};
-        newThirdBed.quantity = value;
-        setThirdBed(newThirdBed);
+        if(value == 0) {
+            localStorage.removeItem('thirdBed');
+            setThirdBed({});
+        } else {
+            newThirdBed.quantity = value;
+            setThirdBed(newThirdBed);
+        }
     }
 
     function setNightstandQuantity(product, value) {
         const newFirstNightstand = {...firstNightstand};
-        newFirstNightstand.quantity = value;
-        setFirstNightstand(newFirstNightstand);
+        if(value == 0) {
+            localStorage.removeItem('firstNightstand');
+            setFirstNightstand({});
+        } else {
+            newFirstNightstand.quantity = value;
+            setFirstNightstand(newFirstNightstand);
+        } 
     }
     function setNightstandQuantityTwo(product, value) {
         const newSecondNightstand = {...secondNightstand};
-        newSecondNightstand.quantity = value;
-        setSecondNightstand(newSecondNightstand);
+        if(value == 0) {
+            localStorage.removeItem('secondNightstand');
+            setSecondNightstand({});
+        } else {
+            newSecondNightstand.quantity = value;
+            setSecondNightstand(newSecondNightstand);
+        }         
     }
     function setNightstandQuantityThree(product, value) {
         const newThirdNightstand = {...thirdNightstand};
-        newThirdNightstand.quantity = value;
-        setThirdNightstand(newThirdNightstand);
+        if(value == 0) {
+            localStorage.removeItem('thirdNightstand');
+            setThirdNightstand({});
+        } else {
+            newThirdNightstand.quantity = value;
+            setThirdNightstand(newThirdNightstand);
+        }       
     }
 
     function onChange(value) {
@@ -146,6 +181,25 @@ const TourCart = () => {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
+    useEffect(() => {
+        console.log(firstBed);
+    }, [firstBed]);
+    useEffect(() => {
+        console.log(secondBed);
+    }, [secondBed]);
+    useEffect(() => {
+        console.log(thirdBed);
+    }, [thirdBed]);
+    useEffect(() => {
+        console.log(firstNightstand);
+    }, [firstNightstand]);
+    useEffect(() => {
+        console.log(secondNightstand);
+    }, [secondNightstand]);
+    useEffect(() => {
+        console.log(thirdNightstand);
+    }, [thirdNightstand]);
+    
 
     useEffect(() => {
         if(depto === '1'){
@@ -371,7 +425,7 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={firstBed?.image} alt="item-image"/>
                 <p>{firstBed?.name}</p>
-                <input type="number" min="1" value={firstBed?.quantity} onChange={(e) => setBedQuantity(firstBed, e.target.value)} />
+                <input type="number" min="0" value={firstBed?.quantity} onChange={(e) => setBedQuantity(firstBed, e.target.value)} />
                 <button onClick={() => removeFirstBed(firstBed)}>Remove from Cart</button>
                 {firstBed?.category === "BEDS" && (
                     <select onChange={onChangeBedSize} value={bedSize}>
@@ -391,7 +445,7 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={secondBed?.image} alt="item-image"/>
                 <p>{secondBed?.name}</p>
-                <input type="number" min="1" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} />
+                <input type="number" min="0" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} />
                 <button onClick={() => removeFirstBed(secondBed)}>Remove from Cart</button>
                 {secondBed?.category === "BEDS" && (
                     <select onChange={onChangeBedSizeTwo} value={bedSizeTwo}>
@@ -411,7 +465,7 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={thirdBed?.image} alt="item-image"/>
                 <p>{thirdBed?.name}</p>
-                <input type="number" min="1" value={thirdBed?.quantity} onChange={(e) => setBedQuantityThree(thirdBed, e.target.value)} />
+                <input type="number" min="0" value={thirdBed?.quantity} onChange={(e) => setBedQuantityThree(thirdBed, e.target.value)} />
                 <button onClick={() => removeFirstBed(thirdBed)}>Remove from Cart</button>
                 {thirdBed?.category === "BEDS" && (
                     <select onChange={onChangeBedSizeThree} value={bedSizeThree}>
@@ -431,7 +485,7 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={firstNightstand?.image} alt="item-image"/>
                 <p>{firstNightstand?.name}</p>
-                <input type="number" min="1" value={firstNightstand?.quantity} onChange={(e) => setNightstandQuantity(firstNightstand, e.target.value)} />
+                <input type="number" min="0" value={firstNightstand?.quantity} onChange={(e) => setNightstandQuantity(firstNightstand, e.target.value)} />
                 <button onClick={() => removeFirstNightstand(firstNightstand)}>Remove from Cart</button>
                 <p>{firstNightstand?.quantity}</p>
             </div>
@@ -445,7 +499,7 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={secondNightstand?.image} alt="item-image"/>
                 <p>{secondNightstand?.name}</p>
-                <input type="number" min="1" value={secondNightstand?.quantity} onChange={(e) => setNightstandQuantityTwo(secondNightstand, e.target.value)} />
+                <input type="number" min="0" value={secondNightstand?.quantity} onChange={(e) => setNightstandQuantityTwo(secondNightstand, e.target.value)} />
                 <button onClick={() => removeFirstNightstand(secondNightstand)}>Remove from Cart</button>
                 <p>{secondNightstand?.quantity}</p>
             </div>
@@ -459,7 +513,7 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={thirdNightstand?.image} alt="item-image"/>
                 <p>{thirdNightstand?.name}</p>
-                <input type="number" min="1" value={thirdNightstand?.quantity} onChange={(e) => setNightstandQuantityThree(thirdNightstand, e.target.value)} />
+                <input type="number" min="0" value={thirdNightstand?.quantity} onChange={(e) => setNightstandQuantityThree(thirdNightstand, e.target.value)} />
                 <button onClick={() => removeFirstNightstand(thirdNightstand)}>Remove from Cart</button>
                 <p>{thirdNightstand?.quantity}</p>
             </div>
@@ -469,7 +523,7 @@ const TourCart = () => {
                 <div key={idx} className='tour-cart-product-div'>
                     <img src={cartItem.image} alt="item-image"/>
                     <p>{cartItem.name}</p>
-                    <input type="number" min="1" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                    <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
                     <button onClick={() => removeFromCart(cartItem)}>Remove from Cart</button>
                     {cartItem.category === "BEDS" && (
                         <p>Esta es una cama</p>
