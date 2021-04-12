@@ -29,8 +29,8 @@ function Login({history}) {
 
 
     return (
-        <div>
-            <Form layout='vertical' name="basic" form={form} onFinish={loginProcess}>
+        <div style={{padding: '2vw', minHeight: '90vh', display: 'flex', justifyContent: 'center'}}>
+            <Form layout='vertical' name="basic" form={form} onFinish={loginProcess} style={{width: '70vw', marginTop: '10vw'}}>
                 <Form.Item
                     label="email"
                     name="email"

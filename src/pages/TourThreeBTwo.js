@@ -155,6 +155,7 @@ function TourTwoB() {
                 }}
                 />
             ))}
+            <div></div>
         </div>
 
         <p>Selecciona los burós:</p>

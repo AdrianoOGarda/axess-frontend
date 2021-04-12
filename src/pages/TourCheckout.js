@@ -9,6 +9,7 @@ import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
 import {EquipContext} from "../productsContext/EquipContext"
 import {DecoContext} from "../productsContext/DecContext"
 import {HotContext} from "../productsContext/HotContext"
+import {DeptoContext} from "../deptoContext"
 import emailjs, { init, sendForm } from 'emailjs-com';
 import { useHistory } from 'react-router-dom'
 import { Modal } from 'antd';
@@ -35,12 +36,17 @@ const TourCheckout = () => {
     const [equip, setEquip] = useContext(EquipContext);
     const [deco, setDeco] = useContext(DecoContext);
     const [hot, setHot] = useContext(HotContext);
+    const [deptoCon, setDeptoCon] = useContext(DeptoContext)
 
-    const [contactNumber, setContactNumber] = useState("000000");
 
     const handleCancel = () => {
         setIsModalVisible(false);
     };
+
+    const goWayBack = async () => {
+        await localStorage.clear();
+        history.push('tour-select')
+    }
 
 
     function sendEmail(e) {
@@ -55,8 +61,6 @@ const TourCheckout = () => {
 
         setIsModalVisible(true);
     }
-
-    console.log('ppooo', equip)
 
     return (
         <div className="tour-checkout-main-div">
@@ -90,6 +94,11 @@ const TourCheckout = () => {
                 <input type="hidden" name="secondnight_quantity" value={secondNightstand?.quantity}/>
                 <input type="hidden" name="thirdnight_name" value={thirdNightstand?.name}/>
                 <input type="hidden" name="thirdnight_quantity" value={thirdNightstand?.quantity}/>
+                {deptoCon ==! "" ? (
+                    <input type="hidden" name="depto_type" value={deptoCon}/>
+                ) : (
+                    <></>
+                )}
                 {equip === false ? (
                     <></>
                 ) : (
@@ -110,7 +119,7 @@ const TourCheckout = () => {
                 ))}
 
                 <div className='tour-checkout-buttons-div'>
-                    <button className='tour-checkout-cancel-button'>Atrás</button>
+                    <button className='tour-checkout-cancel-button' onClick={goWayBack}>Atrás</button>
                     <input type="submit" value="Enviar" className='tour-checkout-continue-button' />
                 </div>
     

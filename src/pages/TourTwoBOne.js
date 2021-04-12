@@ -153,6 +153,7 @@ function TourTwoBOne() {
                 }}                
                 />
             ))}
+            <div></div>
         </div>  
 
         <p>Selecciona los burós:</p>

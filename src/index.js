@@ -5,6 +5,7 @@ import Router from './Router';
 import * as serviceWorker from './serviceWorker';
 import Provider from "./context"
 import {CartProvider} from "./CartContext"
+import { DeptoProvider} from './deptoContext'
 import {FirstBedProvider} from "./productsContext/FirstBedContext"
 import {SecondBedProvider} from "./productsContext/SecondBedContext"
 import {ThirdBedProvider} from "./productsContext/ThirdBedContext"
@@ -28,7 +29,9 @@ ReactDOM.render(
     <EquipProvider>
     <DecoProvider>
     <HotProvider>
+    <DeptoProvider>
         <Router />
+    </DeptoProvider>
     </HotProvider>
     </DecoProvider>
     </EquipProvider>    

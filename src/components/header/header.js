@@ -12,6 +12,7 @@ import MenuItem from "antd/lib/menu/MenuItem";
 import {useHistory} from 'react-router-dom'
 import {Link} from "react-router-dom"
 import {CartContext} from "../../CartContext"
+import {MyContext} from "../../context"
 
 const { SubMenu } = Menu;
 
@@ -145,6 +146,13 @@ color: #8C857E;
 font-family: 'L Bold';
 font-size: 5vw;
 }
+
+li p {
+    text-decoration: none;
+color: #8C857E;
+font-family: 'L Bold';
+font-size: 5vw;
+}
 `
 
 
@@ -156,7 +164,8 @@ const [roomNav, setRoomNav] = useState(false)
 const [kitchenNav, setKitchenNav] = useState(false)
 const [livingNav, setLivingNav] = useState(false)
 const [exteriorNav, setExteriorNav] = useState(false)
-const [cart, setCart] = useContext(CartContext)
+const [cart, setCart] = useContext(CartContext);
+const { clearCtxUser, user } = useContext(MyContext);
 
 let history = useHistory();
 
@@ -164,12 +173,12 @@ return (windowSize > 480) ? (
 
 <DesktopHeader className="desktop-header">
     <div className="logo-header-link">
-        <a href="/"><img src={AxessIcon} alt='Logo' className="header-axess-icon-desktop"/></a>
+        <Link to="/"><img src={AxessIcon} alt='Logo' className="header-axess-icon-desktop"/></Link>
     </div>
     <MenuLinks>
         <ul className="menu-list">
             <li>
-                <a href="#">Inicio</a>
+                <Link to="/">Inicio</Link>
             </li>
             <li>
             <Dropdown overlay={menu} placement="bottomRight">
@@ -180,17 +189,21 @@ return (windowSize > 480) ? (
             </Dropdown>
             </li>
             <li>
-                <a href="#">Contacto</a>
+                <Link to="/contact">Contacto</Link>
             </li>
         </ul>
     </MenuLinks>
     <div className="header-searchbar-div">
         <Searchbar/>
     </div>
+    {/* {user && (
+                <div>
+                    <Link to="/create-furniture-asygy66516fyffasduy6hfasgflodfiihc725">Añade un mueble</Link>
+                </div>
+            )} */}
     <div className="header-cart-icon-div">
-        <Badge count={cart.length} className='header-cart-badge' size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}>
-            <a href="#" className="head-example" />
-        </Badge>
+        {/* <Badge count={cart.length} className='header-cart-badge' size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}>
+        </Badge> */}
         <Link to="/cart"><img src={CartIcon} alt="cart-icon"/></Link>
     </div>
 </DesktopHeader>
@@ -208,11 +221,11 @@ return (windowSize > 480) ? (
         </div>
 
         <div className="mobile-menu-image-div">
-            <img src={AxessIcon} alt='Logo'/>
+            <Link to='/'><img src={AxessIcon} alt='Logo'/></Link>
         </div>
 
         <div className="header-cart-icon-div-mobile">
-            <img src={CartIcon} alt="cart-icon-mobile"/>
+            <img src={CartIcon} alt="cart-icon-mobile" onClick={() => history.push('/cart')}/>
         </div>
     </div>
 
@@ -227,7 +240,11 @@ return (windowSize > 480) ? (
     <nav style={{backgroundColor: 'white', width: '80vw'}}>
         <ul>
             <li>
-                <a href="#">Inicio</a>
+                <p onClick={() => {
+                    setNav(!nav);
+                    history.push('/')
+                }}
+                >Inicio</p>
             </li>
             <li>
                 <a href="#" className="mobile-header-products-anchor">Productos</a>
@@ -300,7 +317,7 @@ return (windowSize > 480) ? (
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/outdoor-side-tables')
-                                    }}>Mesas Laterales de Exterior</li>
+                                    }}>Mesas Laterales</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/outdoor-chairs')
@@ -327,15 +344,18 @@ return (windowSize > 480) ? (
                 </div>
             </li>
             <li>
-                <a href="#">Contacto</a>
+                <p onClick={() => {
+                    setNav(!nav);
+                    history.push('/contact')
+                    }}>Contacto</p>
             </li>
         </ul>
     </nav>
 
     <div style={{backgroundColor: "rgba(1,1,1,0.3)", width: '20vw'}}>
-        <p nav={nav} onClick={() => {
+        <p nav={nav} style={{color: 'white', fontFamily: 'L Bold', fontSize: '7vw'}} onClick={() => {
             setNav(!nav);
-            }}>TACHE</p>
+            }}>X</p>
     </div>
     
 </MobileMenuLinks>

@@ -33,6 +33,7 @@ const CartList = () => {
     const [hot, setHot] = useContext(HotContext);
 
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isEquipVisible, setIsEquipVisible] = useState(false);
     const [isSecondModalVisible, setIsSecondModalVisible] = useState(false);
     const [isThirdModalVisible, setIsThirdModalVisible] = useState(false);
 
@@ -44,6 +45,9 @@ const CartList = () => {
     const showModal = () => {
         setIsModalVisible(true);
     };
+    const showEquipModal = () => {
+        setIsEquipVisible(true);
+    };
     const showSecondModal = () => {
         setIsSecondModalVisible(true);
     };
@@ -51,7 +55,7 @@ const CartList = () => {
         setIsThirdModalVisible(true);
     };
     const handleCancel = () => {
-        setIsModalVisible(false);
+        setIsEquipVisible(false);
         setIsSecondModalVisible(false);
         setIsThirdModalVisible(false);
     };
@@ -68,7 +72,8 @@ const CartList = () => {
         setHot(e.target.checked);
     }
 
-    const goBack = () => {
+    const goBack = async () => {
+        await localStorage.clear();
         history.push('/tour-select')
     }
     const addF = () => {
@@ -177,7 +182,7 @@ const CartList = () => {
                 <p>Accesorios</p>
                 <div className="packages-select-inside-div">
                     <p>¿Quieres agregar un paquete de equipamiento?</p>
-                    <img onClick={showModal} src={Info} alt="info-icon"/>
+                    <img onClick={showEquipModal} src={Info} alt="info-icon"/>
                     <Checkbox onChange={onChangeEq} className='package-checkbox'></Checkbox>
                 </div>
                 <div className="packages-select-inside-div">
@@ -202,7 +207,7 @@ const CartList = () => {
                 <p>(Te contactaremos para determinar las cantidades de colchones y televisores)</p>
             </div>
         </Modal>
-        <Modal title="Paquete de equipamiento" visible={isModalVisible} onCancel={handleCancel}>
+        <Modal visible={isEquipVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
                 <p>Centro de lavado</p>
@@ -215,13 +220,13 @@ const CartList = () => {
         <Modal title="Paquete decorativo" visible={isSecondModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
-                <p>Quién sabe caray</p>
+                <p></p>
             </div>
         </Modal>
         <Modal title="Paquete de hotelería" visible={isThirdModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
-                <p>Quién sabe caray</p>
+                <p></p>
             </div>
         </Modal>
 

@@ -155,4 +155,12 @@
         font-size: 5vw;
         width: 25vw;
     }
+    .out-side-tables-title-div {}
+    .out-tables-title-inside-div {}
+    .out-tables-title-divider {
+        width: 6vw;
+    }
+    .out-tables-title-inside-div h1 {
+        font-size: 6vw;
+    }
 }

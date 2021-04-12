@@ -156,6 +156,7 @@ function TourOneB() {
                 }}
                 />
             ))}
+            <div></div>
         </div>  
 
         <p>Selecciona los burós:</p>

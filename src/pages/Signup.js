@@ -13,7 +13,7 @@ const Signup = ({ history }) => {
 
 
     return (
-        <div style={{marginTop: '20%'}}>
+        <div style={{marginTop: '5vw', padding: '2vw', minHeight: '90vh'}}>
             <Form layout='vertical' name="basic" form={form} initialValues={{ remember: true }} onFinish={signupProcess}>
                 <Form.Item
                     label="email"

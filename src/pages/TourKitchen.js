@@ -156,6 +156,7 @@ function TourKitchen() {
                 }}
                 />
             ))}
+            <div></div>
         </div>
         
         {furnitures?.filter(furniture => furniture?.category?.en === "DINING CHAIRS" && furniture?.project === "AWA").length > 0 ? (

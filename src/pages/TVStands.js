@@ -32,13 +32,13 @@ function TVStands() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Burós</h1>
+                <h1>Muebles de TV</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>
 
         <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '80vw', alignSelf: 'center', marginTop: '5vw'}}>
-            {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS").map((filteredFurniture, idx) => (
+            {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS").map((filteredFurniture, idx) => (
                 <div style={{marginBottom: '5vw'}} key={idx}>
                 <ProductCard 
                 name={filteredFurniture.name.en} 

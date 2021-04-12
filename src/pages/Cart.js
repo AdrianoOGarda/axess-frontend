@@ -78,8 +78,8 @@ const Cart = () => {
                 </div>
             ))}
             
-            <div style={{marginTop: '20vw'}}>
-                <Link to='/' style={{color: '#8c857e'}} className='cart-continue-button'>Continuar</Link>
+            <div style={{marginTop: '10vw', marginBottom: '10vw'}}>
+                <Link to='/cart-checkout' style={{color: '#8c857e'}} className='cart-continue-button'>Continuar</Link>
             </div>
         </div>
     ) : (

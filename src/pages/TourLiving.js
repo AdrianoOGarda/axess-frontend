@@ -149,8 +149,11 @@ function TourKitchen() {
             </div> 
         </div>
 
-
-        <p>Selecciona el sillón:</p>
+        {furnitures?.filter(furniture => furniture?.category?.en === "SOFAS" && furniture?.project === "AWA").length > 0 ? (
+            <p>Selecciona el sillón:</p>
+        ): (
+            <></>
+        )}
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "SOFAS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
@@ -171,9 +174,14 @@ function TourKitchen() {
                 }}
                 />
             ))}
+            <div></div>
         </div>
 
-        <p>Selecciona las sillas de comedor:</p>
+        {furnitures?.filter(furniture => furniture?.category?.en === "SIDE CHAIRS" && furniture?.project === "AWA").length > 0 ? (
+            <p>Selecciona las sillas laterales:</p>
+        ): (
+            <></>
+        )}
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "SIDE CHAIRS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
@@ -197,7 +205,12 @@ function TourKitchen() {
             <div ref={goToChairRef}></div>
         </div>
 
-        <p>Selecciona las mesas laterales:</p>
+
+        {furnitures?.filter(furniture => furniture?.category?.en === "COFFEE TABLES" && furniture?.project === "AWA").length > 0 ? (
+            <p>Selecciona las mesas laterales:</p>
+        ): (
+            <></>
+        )}
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "COFFEE TABLES" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard

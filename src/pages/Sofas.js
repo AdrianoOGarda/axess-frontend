@@ -32,7 +32,7 @@ function Sofas() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Sillones</h1>
+                <h1>Sofás</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>

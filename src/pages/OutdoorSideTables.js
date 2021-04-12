@@ -29,11 +29,11 @@ function OutdoorSideTables() {
     return (
         <div className='one-b-main-div' style={{minHeight: '90vh'}}>
 
-        <div className='one-bedroom-title-div'>
-            <div className='one-bedroom-title-inside-div'>
-                <div className='one-bedroom-title-divider'></div>
+        <div className='one-bedroom-title-div out-side-tables-title-div'>
+            <div className='one-bedroom-title-inside-div out-tables-title-inside-div'>
+                <div className='one-bedroom-title-divider out-tables-title-divider'></div>
                 <h1>Mesas laterales de exterior</h1>
-                <div className='one-bedroom-title-divider'></div>
+                <div className='one-bedroom-title-divider out-tables-title-divider'></div>
             </div> 
         </div>
 

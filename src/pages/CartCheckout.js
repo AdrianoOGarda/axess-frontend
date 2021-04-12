@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {CartContext} from "../CartContext";
 import emailjs, { init, sendForm } from 'emailjs-com';
 import { useHistory } from 'react-router-dom'
@@ -22,7 +22,7 @@ const CartChekout = () => {
     function sendEmail(e) {
         e.preventDefault();
     
-        emailjs.sendForm('contact_form', 'template_dg5kczt', e.target, 'user_9nJB02h6LGqHX2fbUhkuP')
+        emailjs.sendForm('contact_form', 'template_y4izvbt', e.target, 'user_9nJB02h6LGqHX2fbUhkuP')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
@@ -31,6 +31,13 @@ const CartChekout = () => {
 
         setIsModalVisible(true);
     }
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     return (
         <div className="cart-checkout-main-div">

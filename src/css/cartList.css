@@ -230,4 +230,20 @@
         margin-left: 4vw !important;
         margin-top: -.1vw !important;
     }
+    .equipamiento-modal {
+        display: flex;
+        flex-direction: column;
+    }
+    .equipamiento-modal h2 {
+        font-family: 'L Black';
+        color: #8c857e;
+        font-size: 4.5vw;
+    }
+    .equipamiento-modal p {
+        font-family: 'L Regular';
+        color: #8c857e;
+        align-self: flex-start;
+        font-size: 3.5vw;
+        text-align: start;
+    }
 }

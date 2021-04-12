@@ -16,8 +16,8 @@ const Router = () => (
   <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={Signup}/>
-        <Route exact path="/login" component={Login}/>
+        <Route exact path="/signupxdsg4h8" component={Signup}/>
+        <Route exact path="/loginzxv3v" component={Login}/>
         <Route exact path="/beds" component={Beds}/>
         <Route exact path="/tv-stands" component={TVStands}/>
         <Route exact path="/nightstands" component={Nightstands}/>
@@ -35,7 +35,7 @@ const Router = () => (
         <Route exact path="/sunbeds" component={Sunbeds}/>
         <Route exact path="/outdoor-sofas" component={OutdoorSofas}/>
         <Route exact path="/cart" component={Cart}/>
-        <Route exact path="/create-furniture" component={CreateFurniture}/>
+        <Route exact path="/create-furniture-hhvc3an28yu21okq32wzs" component={CreateFurniture}/>
         <Route exact path="/tour-select" component={TourConfig}/>
         <Route exact path="/one-bedroom" component={TourOneB}/>
         <Route exact path="/two-bedrooms-first" component={TourTwoBOne}/>
@@ -51,7 +51,7 @@ const Router = () => (
         <Route exact path="/tour-checkout" component={TourCheckout}/>
         <Route exact path="/cart-checkout" component={CartCheckout}/>
         <Route exact path="/contact" component={Contact}/>
-        <Route exact path="/:furnitureId" component={EditFurniture}/>
+        <Route exact path="/edit/:furnitureId" component={EditFurniture}/>
         <Route component={NotFound} />
       </Switch>
     </Layout>

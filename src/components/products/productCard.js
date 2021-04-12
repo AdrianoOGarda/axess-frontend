@@ -79,7 +79,7 @@ const ProductCard = (props) => {
                     <p>{props.material}</p>
                     {user && (
                 <>
-                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular', fontSize: '.8vw'}}>EDITAR</Link>
+                <Link to={`edit/${props.id}`} style={{fontFamily: 'L Regular', fontSize: '.8vw'}}>EDITAR</Link>
                 <p className='delete-button-product-card' onClick={() => {
                     eliminateFurniture(props.id);
                     setIsModalVisible(false);
@@ -94,7 +94,7 @@ const ProductCard = (props) => {
         visible={isAddedVisible} 
         onCancel={handleCancel} 
         >
-            <p style={{fontFamily: 'L Bold'}}>El producto fue agregado al carrito</p>
+            <p style={{fontFamily: 'L Bold', color: '#8c857e', fontSize: '1.5vw', marginTop: '2vw'}}>El producto fue agregado al carrito</p>
         </Modal>
 
         </div>
@@ -126,7 +126,7 @@ const ProductCard = (props) => {
                     <p>{props.material}</p>
                     {user && (
                 <>
-                <Link to={`/${props.id}`} style={{fontFamily: 'L Regular', fontSize: '4vw'}}>EDITAR</Link>
+                <Link to={`/edit${props.id}`} style={{fontFamily: 'L Regular', fontSize: '4vw'}}>EDITAR</Link>
                 <p className='delete-button-product-card' onClick={() => {
                     eliminateFurniture(props.id);
                     setIsModalVisible(false);
@@ -141,7 +141,7 @@ const ProductCard = (props) => {
         visible={isAddedVisible} 
         onCancel={handleCancel} 
         >
-            <p style={{fontFamily: 'L Bold'}}>El producto fue agregado al carrito</p>
+            <p style={{fontFamily: 'L Bold', color: '#8c857e', fontSize: '4vw'}}>El producto fue agregado al carrito</p>
         </Modal>
 
         </div>

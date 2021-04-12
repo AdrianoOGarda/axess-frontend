@@ -9,6 +9,7 @@ import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
 import {EquipContext} from "../productsContext/EquipContext"
 import {DecoContext} from "../productsContext/DecContext"
 import {HotContext} from "../productsContext/HotContext"
+import {DeptoContext} from "../deptoContext"
 import {useHistory} from 'react-router-dom'
 import useWindowSize from "../hooks/useWindowSize"
 import "../css/tourCart.css"
@@ -36,6 +37,7 @@ const TourCart = () => {
     const [equip, setEquip] = useContext(EquipContext)
     const [deco, setDeco] = useContext(DecoContext)
     const [hot, setHot] = useContext(HotContext)
+    const [deptoCon, setDeptoCon] = useContext(DeptoContext)
 
     const [depto, setDepto] = useState(null);
     const [bedSize, setBedSize] = useState('King');
@@ -155,19 +157,25 @@ const TourCart = () => {
     function onChange(value) {
         console.log(`selected antdf ${value}`);
         setDepto(value);
+        setDeptoCon(value);
 
         const newCart = [...cart];
         const highInCart = newCart.find((item) => item.category === "HIGH CHAIRS (KITCHEN)");
         const chairInCart = newCart.find((item) => item.category === "DINING CHAIRS");
+        const exteriorChairInCart = newCart.find((item) => item.category === "OUTDOOR CHAIRS");
         if(highInCart) {
             newCart.find((item) => item.category === "HIGH CHAIRS (KITCHEN)").quantity = 3;
         }
         if(chairInCart) {
             newCart.find((item) => item.category === "DINING CHAIRS").quantity = 6;
         }
+        if(exteriorChairInCart) {
+            newCart.find((item) => item.category === "OUTDOOR CHAIRS").quantity = 4;
+        }
         setCart(newCart);
     }
 
+    console.log('ECHALE ES LO ULTIMO', deptoCon)
 
     function onChangeBedSize(e) {
         console.log(`selectedBSIZE ${e.target.value}`);
@@ -189,8 +197,6 @@ const TourCart = () => {
         console.log('search:', val);
     }
 
-
-    console.log('aiydiyabsidbaihsbxs', cart.find((item) => item.category === "SUNBEDS"))
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -214,6 +220,11 @@ const TourCart = () => {
         console.log(thirdNightstand);
     }, [thirdNightstand]);
     
+
+    useEffect(() => {
+        localStorage.setItem("depto", deptoCon);
+    }, [deptoCon]);
+
 
     useEffect(() => {
         if(depto === '1'){
@@ -375,12 +386,6 @@ const TourCart = () => {
         }
     }, [depto]);
 
-    // console.log('putaaaa', firstBed)
-    // console.log(`aaaaaarghhhh: ${JSON.stringify(cart)}`)
-    // console.log('jjjjjjj', bedSize)
-    // console.log('jjjjjjj', equip)
-    console.log('jjjjjjj', secondBed)
-
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -419,19 +424,6 @@ const TourCart = () => {
                 </Select>
                 <p>*Las cantidades son determinadas dependiendo del tipo de departamento, pero si deseas puedes modificarlas.</p>
         </div>
-
-            
-            {/* {cart?.map( (cartItem, idx) => (
-                <div key={idx} className='tour-cart-product-div'>
-                    <img src={cartItem.image} alt="item-image"/>
-                    <p>{cartItem.name}</p>
-                    <input type="number" min="1" value={cartItem.quantity} onChange={(e) => setBedQuantity(cartItem, e.target.value)} />
-                    <button onClick={() => removeFromCart(cartItem)}>Remove from Cart</button>
-                    {cartItem.category === "BEDS" && (
-                        <p>Esta es una cama</p>
-                    )}
-                </div>
-            ))} */}
 
             {firstBed?.category === undefined || firstBed === null? 
             <div>
@@ -531,9 +523,7 @@ const TourCart = () => {
                     <img src={cartItem.image} alt="item-image"/>
                     <p>{cartItem.name}</p>
                     <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
-                    {cartItem.category === "BEDS" && (
-                        <p>Esta es una cama</p>
-                    )}
+                    <p>{cartItem.category}</p>
                 </div>
             ))}  
 
@@ -576,19 +566,6 @@ const TourCart = () => {
                 </Select>
                 <p>*Las cantidades son determinadas dependiendo del tipo de departamento, pero si deseas puedes modificarlas.</p>
         </div>
-
-            
-            {/* {cart?.map( (cartItem, idx) => (
-                <div key={idx} className='tour-cart-product-div'>
-                    <img src={cartItem.image} alt="item-image"/>
-                    <p>{cartItem.name}</p>
-                    <input type="number" min="1" value={cartItem.quantity} onChange={(e) => setBedQuantity(cartItem, e.target.value)} />
-                    <button onClick={() => removeFromCart(cartItem)}>Remove from Cart</button>
-                    {cartItem.category === "BEDS" && (
-                        <p>Esta es una cama</p>
-                    )}
-                </div>
-            ))} */}
 
             {firstBed?.category === undefined || firstBed === null? 
             <div>
