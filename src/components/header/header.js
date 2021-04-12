@@ -44,10 +44,6 @@ display: inline;
 a {
 text-decoration: none;
 transition: color 300ms;
-
-:hover {
-    color:  #c4132a;
-}
 }
 `
 
@@ -60,8 +56,8 @@ const menu = (
         </SubMenu>
         <SubMenu title="Cocina & Comedor">
             <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-tables">Comedores</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/">Sillas para Comedor</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/">Bancos de Cocina</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-chairs">Sillas para Comedor</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/high-chairs">Bancos de Cocina</Link></Menu.Item>
         </SubMenu>
         <SubMenu title="Sala">
             <Menu.Item className="antd-submenu-item-axess"><Link to="/sofas">Sofás</Link></Menu.Item>

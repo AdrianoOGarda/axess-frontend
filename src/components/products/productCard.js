@@ -12,6 +12,8 @@ const ProductCard = (props) => {
     const windowSize = useWindowSize();
     const [cart, setCart] = useContext(CartContext);
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isAddedVisible, setIsAddedVisible] = useState(false);
+
     const { clearCtxUser, user } = useContext(MyContext);
     let history = useHistory();
 
@@ -31,6 +33,7 @@ const ProductCard = (props) => {
             newCart.push(itemInCart);
         };
         setCart(newCart);
+        setIsAddedVisible(true);
     }
 
     const showModal = () => {
@@ -39,6 +42,7 @@ const ProductCard = (props) => {
 
     const handleCancel = () => {
         setIsModalVisible(false);
+        setIsAddedVisible(false);
     };
 
     async function eliminateFurniture(furnId) { 
@@ -86,6 +90,13 @@ const ProductCard = (props) => {
             </div>
         </Modal>
 
+        <Modal 
+        visible={isAddedVisible} 
+        onCancel={handleCancel} 
+        >
+            <p style={{fontFamily: 'L Bold'}}>El producto fue agregado al carrito</p>
+        </Modal>
+
         </div>
     ) : (
         
@@ -124,6 +135,13 @@ const ProductCard = (props) => {
             )}
                 </div>
             </div>
+        </Modal>
+
+        <Modal 
+        visible={isAddedVisible} 
+        onCancel={handleCancel} 
+        >
+            <p style={{fontFamily: 'L Bold'}}>El producto fue agregado al carrito</p>
         </Modal>
 
         </div>

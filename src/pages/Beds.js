@@ -27,7 +27,7 @@ function Beds() {
     console.log(`WAT: ${furnitures}`)
 
     return (
-        <div className='one-b-main-div'>
+        <div className='one-b-main-div' style={{minHeight: '90vh'}}>
 
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
@@ -38,7 +38,8 @@ function Beds() {
         </div>
 
         <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '80vw', alignSelf: 'center', marginTop: '5vw'}}>
-            {furnitures?.filter(furniture => furniture?.category?.en === "BEDS").map(filteredFurniture => (
+            {furnitures?.filter(furniture => furniture?.category?.en === "BEDS").map((filteredFurniture, idx) => (
+                <div style={{marginBottom: '5vw'}} key={idx}>
                 <ProductCard 
                 name={filteredFurniture.name.en} 
                 key={filteredFurniture._id} 
@@ -50,6 +51,7 @@ function Beds() {
                 size={filteredFurniture.size.es}
                 id={filteredFurniture._id}
                 />
+                </div>
             ))}
         </div>
 

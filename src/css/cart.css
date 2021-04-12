@@ -45,6 +45,9 @@
 
 .cart-product-div input {
     width: 4vw;
+    color: #8c857e;
+    background-color: #f7f4ed;
+    border: 2px solid #8c857e;
 }
 
 .cart-product-div p {
@@ -56,4 +59,114 @@
 
 .main-cart-div {
     min-height: 90vh;
+}
+
+.cart-bed-select {
+    height: 3vw;
+    align-self: center;
+    font-family: 'L Regular';
+    color: #8c857e;
+    border: 2px solid #8c857e;
+    font-size: 1.5vw;
+    margin-top: -1.5%;
+    background-color: #f7f4ed;
+}
+
+.cart-continue-button {
+    border: 2px solid #8c857e;
+    font-family: 'L Regular';
+    font-size: 2.5vw;
+    padding: 1vw;
+}
+
+@media only screen and (max-width: 480px) {
+    .cart-product-mobile-name-div {
+        display: flex;
+    }
+    .cart-product-mobile-name-div p {
+        align-self: start !important;
+    }
+    .cart-mobile-size-div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .cart-title-inside-div {
+        display: flex;
+        margin-top: 4%;
+        margin-bottom: 10vw;
+    }
+    .cart-title-inside-div h1 {
+        font-family: 'L Regular';
+        font-size: 7vw;
+        color: #8c857e;
+        margin: 0 3.5vw 0 3.5vw;
+    }
+    .cart-title-divider {
+        border-top: .6vw solid #8c857e;
+        width: 8vw;
+        align-self: center;
+        margin-top: -.01vw;
+    }
+    .cart-title-div {
+        display: flex;
+        justify-content: center;
+    }
+    .cart-product-div {
+        display: flex;
+        flex-direction: column;
+        border-bottom: .1vw solid #8c857e;
+        margin: 0 10vw 10vw 10vw;
+        justify-content: space-between;
+        padding-bottom: 2%;
+    }
+    .cart-product-div img {
+        width: 30vw;
+    }
+    .cart-product-div input,
+    .cart-product-div button {
+        height: 2.5vw;
+        align-self: center;
+        margin-top: -1.5vw;
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 1.5vw;
+    }
+    .cart-product-div input {
+        width: 7vw;
+        height: 6vw;
+        border: 1px solid #8c857e;
+        font-size: 4vw;
+        align-self: flex-start;
+        margin-top: 2vw;
+    }
+    .cart-product-div p {
+        align-self: center;
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 4vw;
+        text-align: start;
+        margin-left: 3vw;
+    }
+    .main-cart-div {
+        min-height: 90vh;
+    }
+    .cart-bed-select {
+        height: 7vw;
+        align-self: flex-start;
+        font-family: 'L Regular';
+        margin-left: 3vw;
+        color: #8c857e;
+        border: 2px solid #8c857e;
+        font-size: 3.5vw;
+        margin-top: -1.5%;
+        background-color: #f7f4ed;
+    }
+    .cart-continue-button {
+        border: 2px solid #8c857e;
+        font-family: 'L Regular';
+        font-size: 6vw;
+        padding: 2vw;
+    }
 }

@@ -50,6 +50,7 @@
     color: #8c857e;
     font-size: 1.2vw;
     margin-top: -.8vw;
+    margin-left: 0 !important;
 }
 
 .ant-modal-header {
@@ -153,7 +154,7 @@
     .price-tag {
         font-family: 'L Black';
         color: #8c857e;
-        margin-left: -.05vw !important;
+        margin-left: 0 !important;
         font-size: 3.5vw !important;
         margin-top: -.8vw;
     }

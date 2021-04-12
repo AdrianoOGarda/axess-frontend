@@ -9,14 +9,20 @@ import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
 import {EquipContext} from "../productsContext/EquipContext"
 import {DecoContext} from "../productsContext/DecContext"
 import {HotContext} from "../productsContext/HotContext"
+import {useHistory} from 'react-router-dom'
+import useWindowSize from "../hooks/useWindowSize"
 import "../css/tourCart.css"
 import "../css/typography.css"
+import "../css/oneBedroom.css"
 import { Select } from 'antd';
 
 const { Option } = Select;
 
 
 const TourCart = () => {
+    let history = useHistory();
+    const windowSize = useWindowSize();
+
     const [cart, setCart] = useContext(CartContext);
 
     const [firstBed, setFirstBed] = useContext(FirstBedContext);
@@ -39,10 +45,17 @@ const TourCart = () => {
     const deptoNumbers = ['1', '1A', '2', '2A', '2B', '3', '3A', '3B', '4A/5A', '5', '6', '7', '8']
     const bedSizes = ['King', 'Queen', 'Matrimonial']
 
+    const goBack = async () => {
+        await localStorage.clear();
+        history.push('/tour-select')
+    }
+    const goForward = () => {
+        history.push('/tour-checkout')
+    }
+
     const clearLocalCart = () => {
         setCart([]);
     }
-
     const clearLocalBed = () => {
         setFirstBed({});
         localStorage.clear()
@@ -175,6 +188,7 @@ const TourCart = () => {
     function onSearch(val) {
         console.log('search:', val);
     }
+
 
     console.log('aiydiyabsidbaihsbxs', cart.find((item) => item.category === "SUNBEDS"))
 
@@ -374,7 +388,7 @@ const TourCart = () => {
         });
     }, []);
 
-    return (
+    return (windowSize > 480) ?  (
         <div className='tour-main-cart-div'>
 
         <div className='tour-cart-title-div'>
@@ -385,9 +399,10 @@ const TourCart = () => {
             </div> 
         </div>
 
-        <div>
+        <div className='depto-select-div'>
             <p>¿Qué tipo de departamento tienes?</p>
             <Select
+                className='depto-select-select'
                 showSearch
                 style={{ width: 200 }}
                 placeholder="Departamento X"
@@ -402,6 +417,7 @@ const TourCart = () => {
                 <Option key={idx} value={number}>{number}</Option>
             ))}
                 </Select>
+                <p>*Las cantidades son determinadas dependiendo del tipo de departamento, pero si deseas puedes modificarlas.</p>
         </div>
 
             
@@ -426,9 +442,8 @@ const TourCart = () => {
                 <img src={firstBed?.image} alt="item-image"/>
                 <p>{firstBed?.name}</p>
                 <input type="number" min="0" value={firstBed?.quantity} onChange={(e) => setBedQuantity(firstBed, e.target.value)} />
-                <button onClick={() => removeFirstBed(firstBed)}>Remove from Cart</button>
                 {firstBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSize} value={bedSize}>
+                    <select onChange={onChangeBedSize} value={bedSize} className='tour-cart-bed-select'>
                     {bedSizes.map((number, idx) => (
                         <option key={idx} value={number}>{number}</option>
                     ))}
@@ -445,10 +460,9 @@ const TourCart = () => {
             <div className='tour-cart-product-div'>
                 <img src={secondBed?.image} alt="item-image"/>
                 <p>{secondBed?.name}</p>
-                <input type="number" min="0" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} />
-                <button onClick={() => removeFirstBed(secondBed)}>Remove from Cart</button>
+                <input type="number" min="0" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} className='tour-cart-number-input'/>
                 {secondBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSizeTwo} value={bedSizeTwo}>
+                    <select onChange={onChangeBedSizeTwo} value={bedSizeTwo} className='tour-cart-bed-select'>
                     {bedSizes.map((number, idx) => (
                         <option key={idx} value={number}>{number}</option>
                     ))}
@@ -466,9 +480,8 @@ const TourCart = () => {
                 <img src={thirdBed?.image} alt="item-image"/>
                 <p>{thirdBed?.name}</p>
                 <input type="number" min="0" value={thirdBed?.quantity} onChange={(e) => setBedQuantityThree(thirdBed, e.target.value)} />
-                <button onClick={() => removeFirstBed(thirdBed)}>Remove from Cart</button>
                 {thirdBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSizeThree} value={bedSizeThree}>
+                    <select onChange={onChangeBedSizeThree} value={bedSizeThree} className='tour-cart-bed-select'>
                     {bedSizes.map((number, idx) => (
                         <option key={idx} value={number}>{number}</option>
                     ))}
@@ -486,8 +499,6 @@ const TourCart = () => {
                 <img src={firstNightstand?.image} alt="item-image"/>
                 <p>{firstNightstand?.name}</p>
                 <input type="number" min="0" value={firstNightstand?.quantity} onChange={(e) => setNightstandQuantity(firstNightstand, e.target.value)} />
-                <button onClick={() => removeFirstNightstand(firstNightstand)}>Remove from Cart</button>
-                <p>{firstNightstand?.quantity}</p>
             </div>
         }  
 
@@ -500,8 +511,6 @@ const TourCart = () => {
                 <img src={secondNightstand?.image} alt="item-image"/>
                 <p>{secondNightstand?.name}</p>
                 <input type="number" min="0" value={secondNightstand?.quantity} onChange={(e) => setNightstandQuantityTwo(secondNightstand, e.target.value)} />
-                <button onClick={() => removeFirstNightstand(secondNightstand)}>Remove from Cart</button>
-                <p>{secondNightstand?.quantity}</p>
             </div>
     } 
 
@@ -514,8 +523,6 @@ const TourCart = () => {
                 <img src={thirdNightstand?.image} alt="item-image"/>
                 <p>{thirdNightstand?.name}</p>
                 <input type="number" min="0" value={thirdNightstand?.quantity} onChange={(e) => setNightstandQuantityThree(thirdNightstand, e.target.value)} />
-                <button onClick={() => removeFirstNightstand(thirdNightstand)}>Remove from Cart</button>
-                <p>{thirdNightstand?.quantity}</p>
             </div>
     }
 
@@ -524,23 +531,194 @@ const TourCart = () => {
                     <img src={cartItem.image} alt="item-image"/>
                     <p>{cartItem.name}</p>
                     <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
-                    <button onClick={() => removeFromCart(cartItem)}>Remove from Cart</button>
                     {cartItem.category === "BEDS" && (
                         <p>Esta es una cama</p>
                     )}
                 </div>
             ))}  
+
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+                <div className='one-bedroom-buttons-div'>
+                    <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
+                    <button className='one-bedroom-continue-button' onClick={goForward}>Continuar</button> 
+                </div>
+            </div>
+
+        </div>
+    ) : (
+        <div className='tour-main-cart-div'>
+
+        <div className='tour-cart-title-div'>
+            <div className='tour-cart-title-inside-div'>
+                <div className='tour-cart-title-divider'></div>
+                <h1>Checkout</h1>
+                <div className='tour-cart-title-divider'></div>
+            </div> 
+        </div>
+
+        <div className='depto-select-div'>
+            <p>¿Qué tipo de departamento tienes?</p>
+            <Select
+                className='depto-select-select'
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Departamento X"
+                optionFilterProp="children"
+                onChange={onChange}
+                onSearch={onSearch}
+                filterOption={(input, option) =>
+                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                            }
+            >
+            {deptoNumbers.map((number, idx) => (
+                <Option key={idx} value={number}>{number}</Option>
+            ))}
+                </Select>
+                <p>*Las cantidades son determinadas dependiendo del tipo de departamento, pero si deseas puedes modificarlas.</p>
+        </div>
+
+            
+            {/* {cart?.map( (cartItem, idx) => (
+                <div key={idx} className='tour-cart-product-div'>
+                    <img src={cartItem.image} alt="item-image"/>
+                    <p>{cartItem.name}</p>
+                    <input type="number" min="1" value={cartItem.quantity} onChange={(e) => setBedQuantity(cartItem, e.target.value)} />
+                    <button onClick={() => removeFromCart(cartItem)}>Remove from Cart</button>
+                    {cartItem.category === "BEDS" && (
+                        <p>Esta es una cama</p>
+                    )}
+                </div>
+            ))} */}
+
+            {firstBed?.category === undefined || firstBed === null? 
+            <div>
+
+            </div>
+            :
+            <div className='tour-cart-product-div'>
+                <div className='tour-cart-product-mobile-name-div'>
+                    <img src={firstBed?.image} alt="item-image"/>
+                    <div className='tour-cart-mobile-size-div'>
+                        <p>{firstBed?.name}</p>
+                        {firstBed?.category === "BEDS" && (
+                        <select onChange={onChangeBedSize} value={bedSize} className='tour-cart-bed-select'>
+                            {bedSizes.map((number, idx) => (
+                            <option key={idx} value={number}>{number}</option>
+                        ))}
+                        </select>
+                        )}
+                    </div>
+                </div>
+                <input type="number" min="0" value={firstBed?.quantity} onChange={(e) => setBedQuantity(firstBed, e.target.value)} />
+            </div>
+        }
+
+        {secondBed?.category === undefined || secondBed === null ? 
+            <div>
+
+            </div>
+            :
+            <div className='tour-cart-product-div'>
+                <div className='tour-cart-product-mobile-name-div'> 
+                    <img src={secondBed?.image} alt="item-image"/>
+                    <div className='tour-cart-mobile-size-div'> 
+                        <p>{secondBed?.name}</p>
+                        {secondBed?.category === "BEDS" && (
+                        <select onChange={onChangeBedSizeTwo} value={bedSizeTwo} className='tour-cart-bed-select'>
+                            {bedSizes.map((number, idx) => (
+                                <option key={idx} value={number}>{number}</option>
+                            ))}
+                        </select>
+                        )}
+                    </div>
+                </div>
+                <input type="number" min="0" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} className='tour-cart-number-input'/>
+            </div>
+        }   
+
+        {thirdBed?.category === undefined || thirdBed === null ? 
+            <div>
+
+            </div>
+            :
+            <div className='tour-cart-product-div'>
+                <div className='tour-cart-product-mobile-name-div'> 
+                    <img src={thirdBed?.image} alt="item-image"/>
+                    <div className='tour-cart-mobile-size-div'> 
+                        <p>{thirdBed?.name}</p>
+                        {thirdBed?.category === "BEDS" && (
+                        <select onChange={onChangeBedSizeThree} value={bedSizeThree} className='tour-cart-bed-select'>
+                            {bedSizes.map((number, idx) => (
+                            <option key={idx} value={number}>{number}</option>
+                            ))}
+                        </select>
+                        )}
+                    </div>
+                </div>
+                <input type="number" min="0" value={thirdBed?.quantity} onChange={(e) => setBedQuantityThree(thirdBed, e.target.value)} />
+            </div>
+        } 
+
+        {firstNightstand?.category === undefined || firstNightstand === null ? 
+            <div>
+
+            </div>
+            :
+            <div className='tour-cart-product-div'>
+                <div className='tour-cart-product-mobile-name-div'> 
+                    <img src={firstNightstand?.image} alt="item-image"/>
+                    <p>{firstNightstand?.name}</p>
+                </div>
+                <input type="number" min="0" value={firstNightstand?.quantity} onChange={(e) => setNightstandQuantity(firstNightstand, e.target.value)} />
+            </div>
+        }  
+
+    {secondNightstand?.category === undefined || secondNightstand === null ? 
+            <div>
+
+            </div>
+            :
+            <div className='tour-cart-product-div'>
+                <div className='tour-cart-product-mobile-name-div'>
+                    <img src={secondNightstand?.image} alt="item-image"/>
+                    <p>{secondNightstand?.name}</p>
+                </div>
+                <input type="number" min="0" value={secondNightstand?.quantity} onChange={(e) => setNightstandQuantityTwo(secondNightstand, e.target.value)} />
+            </div>
+    } 
+
+    {thirdNightstand?.category === undefined || thirdNightstand === null ? 
+            <div>
+
+            </div>
+            :
+            <div className='tour-cart-product-div'>
+                <div className='tour-cart-product-mobile-name-div'>
+                    <img src={thirdNightstand?.image} alt="item-image"/>
+                    <p>{thirdNightstand?.name}</p>
+                </div>
+                <input type="number" min="0" value={thirdNightstand?.quantity} onChange={(e) => setNightstandQuantityThree(thirdNightstand, e.target.value)} />
+            </div>
+    }
+
+    {cart?.filter(product => product.category  !== undefined).map( (cartItem, idx) => (
+                <div key={idx} className='tour-cart-product-div'>
+                    <div className='tour-cart-product-mobile-name-div'> 
+                        <img src={cartItem.image} alt="item-image"/>
+                        <p>{cartItem.name}</p>
+                    </div>
+                    <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                </div>
+            ))}  
             
 
-        <button onClick={clearLocalCart}>Clear Cart</button>
-        <button onClick={clearLocalBed}>Clear Bed</button>
-        
-        {hot === true ? (
-            <p>True</p>
-        ) : (
-            <p>False</p>
-        )}
-        {/* <p>Aver: {firstBed?.firstBedSize}</p> */}
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+                <div className='one-bedroom-buttons-div'>
+                    <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
+                    <button className='one-bedroom-continue-button' onClick={goForward}>Continuar</button> 
+                </div>
+            </div>
+
         </div>
     )
 }

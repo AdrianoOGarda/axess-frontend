@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Select, InputNumber } from 'antd';
 import { Link } from "react-router-dom"
 import "../css/tourConfig.css"
@@ -18,6 +18,13 @@ function TourConfig() {
     function onChangeBedrooms(value) {
         setBedrooms(value);
     }
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     return (
         <>

@@ -23,9 +23,9 @@
 
 .tour-cart-product-div {
     display: flex;
+    justify-content: space-between;
     border-bottom: .1vw solid #8c857e;
     margin: 0 10vw 5vw 10vw;
-    justify-content: space-between;
     padding-bottom: 2%;
 }
 
@@ -45,6 +45,9 @@
 
 .tour-cart-product-div input {
     width: 4vw;
+    color: #8c857e;
+    background-color: #f7f4ed;
+    border: 2px solid #8c857e;
 }
 
 .tour-cart-product-div p {
@@ -56,6 +59,63 @@
 
 .tour-main-cart-div {
     min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* SELECT */
+
+.depto-select-div {
+    align-self: flex-start;
+    margin-left: 10vw;
+    margin-bottom: 4vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.depto-select-div p {
+    margin-bottom: -.05vw;
+    font-family: 'L Regular';
+    font-size: 1.8vw;
+    color: #8c857e;
+    align-self: flex-start;
+}
+
+.depto-select-div p:nth-child(3) {
+    font-family: 'L Regular';
+    font-size: 1.4vw;
+    color: #8c857e;
+    align-self: flex-start;
+    text-align: start;
+    margin-top: 1vw;
+}
+
+.depto-select-select {
+    margin-top: .5vw !important;
+    align-self: flex-start !important;
+    width: 28vw !important;
+}
+
+.depto-select-select>div {
+    height: 3vw !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: #f7f4ed !important;
+    color: #8c857e !important;
+    font-size: 1vw !important;
+    border: 2px solid #8c857e !important;
+}
+
+.tour-cart-bed-select {
+    height: 3vw;
+    align-self: center;
+    font-family: 'L Regular';
+    color: #8c857e;
+    border: 2px solid #8c857e;
+    font-size: 1.5vw;
+    margin-top: -1.5%;
+    background-color: #f7f4ed;
 }
 
 @media only screen and (max-width: 480px) {
@@ -83,11 +143,23 @@
         display: flex;
         border-bottom: .1vw solid #8c857e;
         margin: 0 10vw 5vw 10vw;
-        justify-content: space-between;
+        flex-direction: column;
         padding-bottom: 2%;
     }
+    .tour-cart-product-mobile-name-div {
+        display: flex;
+    }
+    .tour-cart-product-mobile-name-div p {
+        align-self: start !important;
+    }
+    .tour-cart-mobile-size-div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
     .tour-cart-product-div img {
-        width: 13vw;
+        width: 30vw;
     }
     .tour-cart-product-div input,
     .tour-cart-product-div button {
@@ -99,15 +171,74 @@
         font-size: 1.5vw;
     }
     .tour-cart-product-div input {
-        width: 4vw;
+        width: 7vw;
+        height: 6vw;
+        border: 1px solid #8c857e;
+        font-size: 4vw;
+        align-self: flex-start;
+        margin-top: 2vw;
     }
     .tour-cart-product-div p {
         align-self: center;
         font-family: 'L Regular';
         color: #8c857e;
-        font-size: 1.5vw;
+        font-size: 4vw;
+        text-align: start;
+        margin-left: 3vw;
     }
     .tour-main-cart-div {
         min-height: 90vh;
+    }
+    .depto-select-div {
+        align-self: flex-start;
+        margin-left: 10vw;
+        margin-bottom: 4vw;
+        margin-top: 3vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .depto-select-div p {
+        margin-bottom: 0;
+        font-family: 'L Regular';
+        font-size: 4vw;
+        color: #8c857e;
+        align-self: flex-start;
+    }
+    .depto-select-div p:nth-child(3) {
+        font-family: 'L Regular';
+        font-size: 3vw;
+        color: #8c857e;
+        align-self: flex-start;
+        text-align: start;
+        margin-top: 1vw;
+        margin-bottom: 3vw;
+        width: 80vw;
+    }
+    .depto-select-select {
+        margin-top: 2vw !important;
+        align-self: flex-start !important;
+        width: 70vw !important;
+        margin-bottom: 2vw !important;
+    }
+    .depto-select-select>div {
+        height: 8vw !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        background-color: #f7f4ed !important;
+        color: #8c857e !important;
+        font-size: 4vw !important;
+        border: 2px solid #8c857e !important;
+    }
+    .tour-cart-bed-select {
+        height: 7vw;
+        align-self: flex-start;
+        font-family: 'L Regular';
+        margin-left: 3vw;
+        color: #8c857e;
+        border: 2px solid #8c857e;
+        font-size: 3.5vw;
+        margin-top: -1.5%;
+        background-color: #f7f4ed;
     }
 }

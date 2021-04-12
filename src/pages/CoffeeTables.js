@@ -4,20 +4,20 @@ import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
 import "../css/oneBedroom.css"
 
-function Nightstands() {
+
+function CoffeeTables() {
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
 
     useEffect(() => {
-        async function fetchNightstands(){
+        async function fetchTVStands(){
             const {
                 data: {furniture}
             } = await getFurnitures()
         setFurnitures(furniture)
-        console.log(furniture)
         }
-        fetchNightstands()
+        fetchTVStands()
     }, [])
 
     useEffect(() => {
@@ -32,13 +32,13 @@ function Nightstands() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Burós</h1>
+                <h1>Mesas de centro</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>
 
         <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '80vw', alignSelf: 'center', marginTop: '5vw'}}>
-            {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS").map((filteredFurniture, idx) => (
+            {furnitures?.filter(furniture => furniture?.category?.en === "COFFEE TABLES").map((filteredFurniture, idx) => (
                 <div style={{marginBottom: '5vw'}} key={idx}>
                 <ProductCard 
                 name={filteredFurniture.name.en} 
@@ -59,5 +59,5 @@ function Nightstands() {
     )
 }
 
-export default Nightstands
+export default CoffeeTables
 
