@@ -197,36 +197,38 @@ const CartList = () => {
                 </div>
             </div> 
         
-        <Modal title="Paquete de equipamiento" visible={isModalVisible} onCancel={handleCancel}>
+        <Modal title="Paquete de equipamiento" visible={isEquipVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
                 <p>Centro de lavado</p>
                 <p>Refrigerador</p>
                 <p>Colchón</p>
                 <p>Televisión</p>
-                <p>(Te contactaremos para determinar las cantidades de colchones y televisores)</p>
-            </div>
-        </Modal>
-        <Modal visible={isEquipVisible} onCancel={handleCancel}>
-            <div className='equipamiento-modal'>
-                <h2>Incluye:</h2>
-                <p>Centro de lavado</p>
-                <p>Refrigerador</p>
-                <p>Colchón</p>
-                <p>Televisión</p>
-                <p>(Te contactaremos para determinar las cantidades de colchones y televisores)</p>
+                <p>(El detalle se le enviará en la cotización)</p>
             </div>
         </Modal>
         <Modal title="Paquete decorativo" visible={isSecondModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
-                <p></p>
+                <p>Tapetes</p>
+                <p>Lámparas de mesa, de techo y de piso</p>
+                <p>Papel tapiz</p>
+                <p>Cojines decorativos</p>
+                <p>Cuadros decorativos</p>
+                <p>(El detalle se le enviará en la cotización)</p>
             </div>
         </Modal>
         <Modal title="Paquete de hotelería" visible={isThirdModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
-                <p></p>
+                <p>Blancos para recámaras</p>
+                <p>Toallas para baños</p>
+                <p>Batería de cocina</p>
+                <p>Vajilla</p>
+                <p>Accesorios de cocina</p>
+                <p>Artículos de servicio</p>
+                <p>Caja fuerte</p>
+                <p>(El detalle se le enviará en la cotización)</p>
             </div>
         </Modal>
 

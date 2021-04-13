@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import emailjs, { init, sendForm } from 'emailjs-com';
 import { useHistory } from 'react-router-dom'
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 import "../css/contact.css"
 import "../css/typography.css"
 import "../css/oneBedroom.css"
@@ -16,6 +16,9 @@ const Contact = () => {
         setIsModalVisible(false);
     };
 
+    const setIs = () => {
+        setIsModalVisible(true)
+    }
 
     function sendEmail(e) {
         e.preventDefault();
@@ -58,9 +61,15 @@ const Contact = () => {
     
             </form>
 
-            <Modal title='¡Gracias!' visible={isModalVisible} onCancel={handleCancel}>
+            <Modal visible={isModalVisible} onCancel={handleCancel} className='normal-contact-modal'
+            footer={[
+                <Button key="back" onClick={handleCancel}>
+                    ¡De acuerdo!
+                </Button>,
+            ]}
+            >
                 <div>
-                    <p style={{fontFamily: 'L Regular'}}>Nos pondremos en contacto contigo</p>
+                    <p className='contact-modal-p'><span className='contact-modal-span'>¡Gracias por comunicarte con nosotros! </span>Nos pondremos en contacto contigo.</p>
                 </div>
             </Modal>
         </div>

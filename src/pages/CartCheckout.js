@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import {CartContext} from "../CartContext";
 import emailjs, { init, sendForm } from 'emailjs-com';
 import { useHistory } from 'react-router-dom'
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 import "../css/cartCheckout.css"
 import "../css/typography.css"
 import "../css/oneBedroom.css"
@@ -69,9 +69,15 @@ const CartChekout = () => {
     
             </form>
 
-            <Modal title='¡Gracias!' visible={isModalVisible} onCancel={handleCancel}>
+            <Modal title='¡Gracias!' visible={isModalVisible} onCancel={handleCancel} className="cart-checkout-modal"
+            footer={[
+                <Button key="back" onClick={handleCancel}>
+                    ¡De acuerdo!
+                </Button>,
+            ]}
+            >
                 <div>
-                    <p style={{fontFamily: 'L Regular'}}>Nos pondremos en contacto contigo</p>
+                    <p style={{fontFamily: 'L Regular', color: '#8c857e', fontSize: '1.5vw', marginTop: '-2vw'}} className='cart-checkout-modal-div-p'>Nos pondremos en contacto contigo</p>
                 </div>
             </Modal>
         </div>

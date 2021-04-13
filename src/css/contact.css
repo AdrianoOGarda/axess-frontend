@@ -70,6 +70,36 @@
     font-size: 1vw;
 }
 
+.contact-modal-p {
+    font-family: 'L Regular';
+    color: #8c857e;
+    font-size: 1.5vw;
+    margin-top: 1.5vw;
+}
+
+.contact-modal-span {
+    font-family: 'L Bold';
+}
+
+.normal-contact-modal div:nth-child(2) div:nth-child(3) {
+    display: inline-block;
+    border: none;
+}
+
+.normal-contact-modal div:nth-child(2) div:nth-child(3) button:nth-child(2) {
+    display: none;
+}
+
+.normal-contact-modal div:nth-child(2) div:nth-child(3) button:nth-child(1) {
+    font-family: 'L Regular';
+    color: #8c857e;
+    margin-top: -2vw;
+    border: 2px solid #8c857e;
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (max-width: 480px) {
     .contact-main-div {
         display: flex;
@@ -136,5 +166,30 @@
         margin-bottom: 2vw;
         font-family: 'L Regular';
         font-size: 4vw;
+    }
+    .contact-modal-p {
+        font-family: 'L Regular';
+        color: #8c857e;
+        font-size: 4vw;
+        margin-top: 5vw;
+    }
+    .contact-modal-span {
+        font-family: 'L Bold';
+    }
+    .normal-contact-modal div:nth-child(2) div:nth-child(3) {
+        display: inline-block;
+        border: none;
+    }
+    .normal-contact-modal div:nth-child(2) div:nth-child(3) button:nth-child(2) {
+        display: none;
+    }
+    .normal-contact-modal div:nth-child(2) div:nth-child(3) button:nth-child(1) {
+        font-family: 'L Regular';
+        color: #8c857e;
+        margin-top: -2vw;
+        border: 2px solid #8c857e;
+        font-size: 4vw;
+        display: flex;
+        align-items: center;
     }
 }

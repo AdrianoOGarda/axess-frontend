@@ -78,6 +78,21 @@
     height: 3.5vw !important;
 }
 
+.cart-checkout-modal div:nth-child(2) div:nth-child(4) {
+    display: inline-block !important;
+    border: none;
+}
+
+.cart-checkout-modal div:nth-child(2) div:nth-child(4) button:nth-child(1) {
+    font-family: 'L Regular';
+    color: #8c857e;
+    margin-top: -4vw;
+    border: 2px solid #8c857e;
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (max-width: 480px) {
     .cart-checkout-main-div {
         display: flex;
@@ -151,5 +166,21 @@
         font-size: 5vw !important;
         height: 10vw !important;
         width: 17vw;
+    }
+    .cart-checkout-modal div:nth-child(2) div:nth-child(4) button:nth-child(2) {
+        display: none;
+    }
+    .cart-checkout-modal div:nth-child(2) div:nth-child(4) button:nth-child(1) {
+        font-family: 'L Regular';
+        color: #8c857e;
+        margin-top: -5vw;
+        border: 2px solid #8c857e;
+        font-size: 4vw;
+        display: flex;
+        align-items: center;
+    }
+    .cart-checkout-modal-div-p {
+        font-size: 4vw !important;
+        margin-top: -5vw;
     }
 }

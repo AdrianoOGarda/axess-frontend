@@ -12,7 +12,7 @@ import {HotContext} from "../productsContext/HotContext"
 import {DeptoContext} from "../deptoContext"
 import emailjs, { init, sendForm } from 'emailjs-com';
 import { useHistory } from 'react-router-dom'
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 import "../css/tourCheckout.css"
 import "../css/typography.css"
 import "../css/oneBedroom.css"
@@ -47,7 +47,6 @@ const TourCheckout = () => {
         await localStorage.clear();
         history.push('tour-select')
     }
-
 
     function sendEmail(e) {
         e.preventDefault();
@@ -125,9 +124,15 @@ const TourCheckout = () => {
     
             </form>
 
-            <Modal title='¡Gracias!' visible={isModalVisible} onCancel={handleCancel}>
+            <Modal title='¡Gracias!' visible={isModalVisible} onCancel={handleCancel} className='tour-checkout-modal'
+            footer={[
+                <Button key="back" onClick={handleCancel}>
+                    ¡De acuerdo!
+                </Button>,
+            ]}
+            >
                 <div>
-                    <p style={{fontFamily: 'L Regular'}}>Nos pondremos en contacto contigo</p>
+                    <p style={{fontFamily: 'L Regular', color: '#8c857e', fontSize: '1.5vw', marginTop: '-2vw'}} className='tour-checkout-modal-div-p'>Nos pondremos en contacto contigo</p>
                 </div>
             </Modal>
         </div>
