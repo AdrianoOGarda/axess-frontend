@@ -197,7 +197,7 @@ const CartList = () => {
                 </div>
             </div> 
         
-        <Modal title="Paquete de equipamiento" visible={isEquipVisible} onCancel={handleCancel}>
+        <Modal visible={isEquipVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
                 <p>Centro de lavado</p>
@@ -207,7 +207,7 @@ const CartList = () => {
                 <p>(El detalle se le enviará en la cotización)</p>
             </div>
         </Modal>
-        <Modal title="Paquete decorativo" visible={isSecondModalVisible} onCancel={handleCancel}>
+        <Modal visible={isSecondModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
                 <p>Tapetes</p>
@@ -218,7 +218,7 @@ const CartList = () => {
                 <p>(El detalle se le enviará en la cotización)</p>
             </div>
         </Modal>
-        <Modal title="Paquete de hotelería" visible={isThirdModalVisible} onCancel={handleCancel}>
+        <Modal visible={isThirdModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
                 <h2>Incluye:</h2>
                 <p>Blancos para recámaras</p>

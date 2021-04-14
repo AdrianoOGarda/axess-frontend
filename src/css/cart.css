@@ -123,6 +123,7 @@
     }
     .cart-product-div img {
         width: 30vw;
+        height: 30vw;
     }
     .cart-product-div input,
     .cart-product-div button {
@@ -135,7 +136,7 @@
     }
     .cart-product-div input {
         width: 7vw;
-        height: 6vw;
+        height: 8vw;
         border: 1px solid #8c857e;
         font-size: 4vw;
         align-self: flex-start;

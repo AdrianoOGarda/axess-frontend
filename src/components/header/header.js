@@ -123,7 +123,8 @@ position: relative;
 
 const MobileMenuLinks = styled.div`
 position: absolute;
-top: 13%;
+z-index: 9;
+top: 30vw;
 transform: ${({nav}) => (nav ? "translateX(0)" : "translateX(100%)")};
 display: flex;
 

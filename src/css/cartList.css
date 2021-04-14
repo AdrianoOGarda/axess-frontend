@@ -120,7 +120,6 @@
     font-family: 'L Black';
     color: #8c857e;
     font-size: 1.8vw;
-    margin-top: -3vw;
 }
 
 .equipamiento-modal p {
@@ -146,6 +145,7 @@
     }
     .cart-list-product-div img {
         width: 35vw;
+        height: 35vw;
     }
     .cart-list-product-div {
         display: flex;
@@ -165,7 +165,7 @@
     }
     .list-cart-title-inside-div {
         display: flex;
-        margin-top: 3vw;
+        margin-top: 7vw;
         margin-bottom: 5vw;
         justify-self: start;
     }

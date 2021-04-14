@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {CartContext} from "../CartContext";
 import {FirstBedContext} from "../productsContext/FirstBedContext"
 import {SecondBedContext} from "../productsContext/SecondBedContext"
@@ -60,6 +60,13 @@ const TourCheckout = () => {
 
         setIsModalVisible(true);
     }
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     return (
         <div className="tour-checkout-main-div">

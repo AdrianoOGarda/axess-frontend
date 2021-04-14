@@ -18,9 +18,9 @@ const Footer = () => {
                     <div className="footer-icons-text-div">
                         <p>SÍGUENOS EN REDES SOCIALES</p>
                         <div className='footer-icons-div'>
-                            <a href="dsfda"><img src={WhatsApp} alt="whatsapp"/></a>
-                            <a href="adf"><img src={Instagram} alt="instagram"/></a>
-                            <a href="adf"><img src={Facebook} alt="facebook"/></a>
+                            <a href="https://wa.me/+523310519153"><img src={WhatsApp} alt="whatsapp"/></a>
+                            <a href="https://www.instagram.com/axessdesign/?hl=es-la"><img src={Instagram} alt="instagram"/></a>
+                            <a href="https://www.facebook.com/AxessDesign"><img src={Facebook} alt="facebook"/></a>
                         </div>
                     </div>
                 </div>
@@ -35,9 +35,9 @@ const Footer = () => {
                     <div className="footer-icons-text-div-mobile">
                         <p>SÍGUENOS EN REDES SOCIALES</p>
                         <div className='footer-icons-div-mobile'>
-                            <a href="dsfda"><img src={WhatsApp} alt="whatsapp"/></a>
-                            <a href="adf"><img src={Instagram} alt="instagram"/></a>
-                            <a href="adf"><img src={Facebook} alt="facebook"/></a>
+                            <a href="https://wa.me/+523310519153"><img src={WhatsApp} alt="whatsapp"/></a>
+                            <a href="https://www.instagram.com/axessdesign/?hl=es-la"><img src={Instagram} alt="instagram"/></a>
+                            <a href="https://www.facebook.com/AxessDesign"><img src={Facebook} alt="facebook"/></a>
                         </div>
                     </div>
                 </div>
