@@ -45,7 +45,7 @@ const TourCart = () => {
     const [bedSizeThree, setBedSizeThree] = useState('King');
 
     const deptoNumbers = ['1', '1A', '2', '2A', '2B', '3', '3A', '3B', '4A/5A', '5', '6', '7', '8']
-    const bedSizes = ['King', 'Queen', 'Matrimonial']
+    const bedSizes = ['King', 'Queen', 'Matrimonial', 'Individual']
 
     const goBack = async () => {
         await localStorage.clear();

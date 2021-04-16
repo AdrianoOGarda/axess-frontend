@@ -47,7 +47,7 @@ const Cart = () => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    const bedSizes = ['King', 'Queen', 'Matrimonial']
+    const bedSizes = ['King', 'Queen', 'Matrimonial', 'Individual']
 
     console.log(`aaaaaarghhhh: ${JSON.stringify(cart)}`)
 
