@@ -523,7 +523,6 @@ const TourCart = () => {
                     <img src={cartItem.image} alt="item-image"/>
                     <p>{cartItem.name}</p>
                     <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
-                    <p>{cartItem.category}</p>
                 </div>
             ))}  
 
