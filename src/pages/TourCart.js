@@ -432,15 +432,25 @@ const TourCart = () => {
             :
             <div className='tour-cart-product-div'>
                 <img src={firstBed?.image} alt="item-image"/>
-                <p>{firstBed?.name}</p>
-                <input type="number" min="0" value={firstBed?.quantity} onChange={(e) => setBedQuantity(firstBed, e.target.value)} />
-                {firstBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSize} value={bedSize} className='tour-cart-bed-select'>
-                    {bedSizes.map((number, idx) => (
-                        <option key={idx} value={number}>{number}</option>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                    <p>{firstBed?.name}</p>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                    <input type="number" min="0" value={firstBed?.quantity} onChange={(e) => setBedQuantity(firstBed, e.target.value)} />
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
+                    {firstBed?.category === "BEDS" && (
+                        <select onChange={onChangeBedSize} value={bedSize} className='tour-cart-bed-select new-tour-cart-bed-select'>
+                        {bedSizes.map((number, idx) => (
+                            <option key={idx} value={number}>{number}</option>
                     ))}
-                    </select>
-                )}
+                        </select>
+                    )}
+                </div>
+                
             </div>
         }
 
@@ -451,15 +461,25 @@ const TourCart = () => {
             :
             <div className='tour-cart-product-div'>
                 <img src={secondBed?.image} alt="item-image"/>
-                <p>{secondBed?.name}</p>
-                <input type="number" min="0" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} className='tour-cart-number-input'/>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                    <p>{secondBed?.name}</p>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                    <input type="number" min="0" value={secondBed?.quantity} onChange={(e) => setBedQuantityTwo(secondBed, e.target.value)} className='tour-cart-number-input'/>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
                 {secondBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSizeTwo} value={bedSizeTwo} className='tour-cart-bed-select'>
+                    <select onChange={onChangeBedSizeTwo} value={bedSizeTwo} className='tour-cart-bed-select new-tour-cart-bed-select'>
                     {bedSizes.map((number, idx) => (
                         <option key={idx} value={number}>{number}</option>
                     ))}
                     </select>
                 )}
+                </div>
+                
             </div>
         }   
 
@@ -470,8 +490,16 @@ const TourCart = () => {
             :
             <div className='tour-cart-product-div'>
                 <img src={thirdBed?.image} alt="item-image"/>
-                <p>{thirdBed?.name}</p>
-                <input type="number" min="0" value={thirdBed?.quantity} onChange={(e) => setBedQuantityThree(thirdBed, e.target.value)} />
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                    <p>{thirdBed?.name}</p>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                    <input type="number" min="0" value={thirdBed?.quantity} onChange={(e) => setBedQuantityThree(thirdBed, e.target.value)} />
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
                 {thirdBed?.category === "BEDS" && (
                     <select onChange={onChangeBedSizeThree} value={bedSizeThree} className='tour-cart-bed-select'>
                     {bedSizes.map((number, idx) => (
@@ -479,6 +507,7 @@ const TourCart = () => {
                     ))}
                     </select>
                 )}
+                </div>
             </div>
         } 
 
@@ -489,8 +518,16 @@ const TourCart = () => {
             :
             <div className='tour-cart-product-div'>
                 <img src={firstNightstand?.image} alt="item-image"/>
-                <p>{firstNightstand?.name}</p>
-                <input type="number" min="0" value={firstNightstand?.quantity} onChange={(e) => setNightstandQuantity(firstNightstand, e.target.value)} />
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                    <p>{firstNightstand?.name}</p>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                    <input type="number" min="0" value={firstNightstand?.quantity} onChange={(e) => setNightstandQuantity(firstNightstand, e.target.value)} />
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '25vw'}}></div>
             </div>
         }  
 
@@ -501,8 +538,16 @@ const TourCart = () => {
             :
             <div className='tour-cart-product-div'>
                 <img src={secondNightstand?.image} alt="item-image"/>
-                <p>{secondNightstand?.name}</p>
-                <input type="number" min="0" value={secondNightstand?.quantity} onChange={(e) => setNightstandQuantityTwo(secondNightstand, e.target.value)} />
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                    <p>{secondNightstand?.name}</p>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                    <input type="number" min="0" value={secondNightstand?.quantity} onChange={(e) => setNightstandQuantityTwo(secondNightstand, e.target.value)} />
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '25vw'}}></div>
             </div>
     } 
 
@@ -513,16 +558,32 @@ const TourCart = () => {
             :
             <div className='tour-cart-product-div'>
                 <img src={thirdNightstand?.image} alt="item-image"/>
-                <p>{thirdNightstand?.name}</p>
-                <input type="number" min="0" value={thirdNightstand?.quantity} onChange={(e) => setNightstandQuantityThree(thirdNightstand, e.target.value)} />
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                    <p>{thirdNightstand?.name}</p>
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                    <input type="number" min="0" value={thirdNightstand?.quantity} onChange={(e) => setNightstandQuantityThree(thirdNightstand, e.target.value)} />
+                </div>
+                <div style={{display: 'flex', 
+                alignItems: 'center', justifyContent: 'start', width: '25vw'}}></div>
             </div>
     }
 
     {cart?.filter(product => product.category  !== undefined).map( (cartItem, idx) => (
                 <div key={idx} className='tour-cart-product-div'>
                     <img src={cartItem.image} alt="item-image"/>
-                    <p>{cartItem.name}</p>
-                    <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                    <div style={{display: 'flex', 
+                    alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                        <p>{cartItem.name}</p>
+                    </div>
+                    <div style={{display: 'flex', 
+                    alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                        <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                    </div>
+                    <div style={{display: 'flex', 
+                    alignItems: 'center', justifyContent: 'start', width: '25vw'}}></div>
                 </div>
             ))}  
 
