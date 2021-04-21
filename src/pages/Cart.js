@@ -4,10 +4,12 @@ import {Link} from 'react-router-dom'
 import useWindowSize from '../hooks/useWindowSize'
 import "../css/cart.css"
 import "../css/typography.css"
+import useTrans, { TransCtx } from "../hooks/useTrans"
 
 
 const Cart = () => {
     const windowSize = useWindowSize();
+    const {t} = useContext(TransCtx)
 
     const [cart, setCart] = useContext(CartContext);
 
@@ -47,7 +49,11 @@ const Cart = () => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    const bedSizes = ['King', 'Queen', 'Matrimonial', 'Individual']
+    const bedSizes = {
+        es: ['King', 'Queen', 'Matrimonial', 'Individual'],
+        en: ['King', 'Queen', 'Double', 'Single']
+    }
+
 
     console.log(`aaaaaarghhhh: ${JSON.stringify(cart)}`)
 
@@ -69,9 +75,9 @@ const Cart = () => {
                     <p>{cartItem.name}</p>
                     <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
                     {cartItem.category === "BEDS" && (
-                        <select onChange={e => onChangeBedSize(e, cartItem)} className='cart-bed-select'>
-                            {bedSizes.map((number, idx) => (
-                                <option key={idx} value={number}>{number}</option>
+                        <select onChange={e => onChangeBedSize(e, cartItem)} value={cartItem.bedSize}  className='cart-bed-select'>
+                            {bedSizes[t.lang].map((name, idx) => (
+                                <option key={idx} value={idx}>{name}</option>
                             ))}
                         </select>
                     )}
@@ -101,9 +107,9 @@ const Cart = () => {
                         <div className='cart-mobile-size-div'>
                             <p>{cartItem.name}</p>
                             {cartItem.category === "BEDS" && (
-                            <select onChange={e => onChangeBedSize(e, cartItem)} className='cart-bed-select'>
-                                {bedSizes.map((number, idx) => (
-                                    <option key={idx} value={number}>{number}</option>
+                            <select onChange={e => onChangeBedSize(e, cartItem)} value={cartItem.bedSize} className='cart-bed-select'>
+                                {bedSizes[t.lang].map((name, idx) => (
+                                    <option key={idx} value={idx}>{name}</option>
                                 ))}
                             </select>
                             )}

@@ -39,8 +39,6 @@ const CartList = () => {
 
 
     let history = useHistory()
-    console.log('iiiii', cart)
-    console.log('ooooo', cart.filter(product => product.category  !== undefined))
 
     const showModal = () => {
         setIsModalVisible(true);

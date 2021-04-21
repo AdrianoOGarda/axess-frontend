@@ -6,10 +6,18 @@ import { Modal, Button } from 'antd';
 import "../css/cartCheckout.css"
 import "../css/typography.css"
 import "../css/oneBedroom.css"
+import useTrans, { TransCtx } from "../hooks/useTrans"
 init("user_9nJB02h6LGqHX2fbUhkuP");
+
+const bedSizes = {
+    es: ['King', 'Queen', 'Matrimonial', 'Individual'],
+    en: ['King', 'Queen', 'Double', 'Single']
+}
 
 const CartChekout = () => {
     let history = useHistory();
+    const {t} = useContext(TransCtx)
+
 
     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -39,6 +47,7 @@ const CartChekout = () => {
         });
     }, []);
 
+
     return (
         <div className="cart-checkout-main-div">
 
@@ -60,7 +69,7 @@ const CartChekout = () => {
                 <label>Teléfono</label>
                 <input type="text" name="user_phone" />
                 {cart?.map((item, idx) => (
-                    <input key={idx} type="hidden" name={`normal_product_${idx}`} value={`Nombre: ${item.name} / Cantidad: ${item.quantity} / Tamaño: ${item.bedSize}`}/>
+                    <input key={idx} type="hidden" name={`normal_product_${idx}`} value={`Nombre: ${item.name} / Cantidad: ${item.quantity} / Tamaño: ${bedSizes[t.lang][item?.bedSize]}`}/>
                 ))}
 
                 <div className='cart-checkout-buttons-div'>

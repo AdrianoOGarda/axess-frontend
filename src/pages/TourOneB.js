@@ -7,11 +7,15 @@ import {CartContext} from "../CartContext"
 import {FirstBedContext} from "../productsContext/FirstBedContext"
 import {FirstNightstandContext} from "../productsContext/FirstNightstandContext"
 import {Link, useHistory} from 'react-router-dom'
+import { TransCtx } from "../hooks/useTrans"
+
 import "../css/oneBedroom.css"
 import '../css/typography.css'
 
 
 function TourOneB() {
+    const {t} = useContext(TransCtx)
+
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
     const [firstBed, setFirstBed] = useContext(FirstBedContext);
@@ -130,12 +134,12 @@ function TourOneB() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Recámara</h1>
+                <h1>{t.tourBedroom.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>
 
-        <p>Selecciona las camas:</p>
+        <p>{t.tourBedroom.textBed}</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <FirstBedCard 
@@ -159,7 +163,7 @@ function TourOneB() {
             <div></div>
         </div>  
 
-        <p>Selecciona los burós:</p>
+        <p>{t.tourBedroom.textNight}</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <FirstNightstandCard 
@@ -183,7 +187,7 @@ function TourOneB() {
             <div ref={goToNightstandRef}></div>
         </div>
 
-        <p>Selecciona los muebles de TV:</p>
+        <p>{t.tourBedroom.textTV}</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
@@ -208,8 +212,8 @@ function TourOneB() {
         </div>
 
         <div className='one-bedroom-buttons-div'>
-                <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
+                <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                <button className='one-bedroom-continue-button' onClick={addF}>{t.tourBedroom.continueBtn}</button> 
         </div>
 
         <div ref={continueRef}></div>

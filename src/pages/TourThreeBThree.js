@@ -7,9 +7,13 @@ import {CartContext} from "../CartContext"
 import {ThirdBedContext} from "../productsContext/ThirdBedContext"
 import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
 import {useHistory} from "react-router-dom"
+import { TransCtx } from "../hooks/useTrans"
+
 
 
 function TourThreeB() {
+    const {t} = useContext(TransCtx)
+
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
     const [thirdBed, setThirdBed] = useContext(ThirdBedContext);

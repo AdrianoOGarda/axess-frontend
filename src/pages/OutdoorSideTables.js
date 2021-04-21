@@ -3,9 +3,10 @@ import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
 import "../css/oneBedroom.css"
-
+import useTrans, { TransCtx } from "../hooks/useTrans"
 
 function OutdoorSideTables() {
+    const {t} = useContext(TransCtx)
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
@@ -32,7 +33,7 @@ function OutdoorSideTables() {
         <div className='one-bedroom-title-div out-side-tables-title-div'>
             <div className='one-bedroom-title-inside-div out-tables-title-inside-div'>
                 <div className='one-bedroom-title-divider out-tables-title-divider'></div>
-                <h1>Mesas laterales de exterior</h1>
+                <h1>{t.outdoorSideTables.title}</h1>
                 <div className='one-bedroom-title-divider out-tables-title-divider'></div>
             </div> 
         </div>

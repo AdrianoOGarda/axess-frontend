@@ -3,8 +3,10 @@ import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
 import "../css/oneBedroom.css"
+import useTrans, { TransCtx } from "../hooks/useTrans"
 
 function Nightstands() {
+    const {t} = useContext(TransCtx)
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
@@ -32,7 +34,7 @@ function Nightstands() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Burós</h1>
+                <h1>{t.nightstands.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>

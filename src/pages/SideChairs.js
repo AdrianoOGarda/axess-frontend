@@ -3,9 +3,10 @@ import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
 import "../css/oneBedroom.css"
-
+import useTrans, { TransCtx } from "../hooks/useTrans"
 
 function SideChairs() {
+    const {t} = useContext(TransCtx)
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
@@ -32,7 +33,7 @@ function SideChairs() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Sillas laterales</h1>
+                <h1>{t.sideChairs.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>

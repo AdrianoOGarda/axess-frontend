@@ -16,11 +16,15 @@ import "../css/tourCart.css"
 import "../css/typography.css"
 import "../css/oneBedroom.css"
 import { Select } from 'antd';
+import useTrans, { TransCtx } from "../hooks/useTrans"
+
 
 const { Option } = Select;
 
 
 const TourCart = () => {
+    const {t} = useContext(TransCtx)
+
     let history = useHistory();
     const windowSize = useWindowSize();
 
@@ -40,12 +44,15 @@ const TourCart = () => {
     const [deptoCon, setDeptoCon] = useContext(DeptoContext)
 
     const [depto, setDepto] = useState(null);
-    const [bedSize, setBedSize] = useState('King');
-    const [bedSizeTwo, setBedSizeTwo] = useState('King');
-    const [bedSizeThree, setBedSizeThree] = useState('King');
+    const [bedSize, setBedSize] = useState(0);
+    const [bedSizeTwo, setBedSizeTwo] = useState(0);
+    const [bedSizeThree, setBedSizeThree] = useState(0);
 
     const deptoNumbers = ['1', '1A', '2', '2A', '2B', '3', '3A', '3B', '4A/5A', '5', '6', '7', '8']
-    const bedSizes = ['King', 'Queen', 'Matrimonial', 'Individual']
+    const bedSizes = {
+        es: ['King', 'Queen', 'Matrimonial', 'Individual'],
+        en: ['King', 'Queen', 'Double', 'Single']
+    }
 
     const goBack = async () => {
         await localStorage.clear();
@@ -228,20 +235,20 @@ const TourCart = () => {
 
     useEffect(() => {
         if(depto === '1'){
-            setBedSize('King')
-            setBedSizeTwo('King')
-            setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
-            setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
+            setBedSize(0)
+            setBedSizeTwo(0)
+            setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSizes.es[bedSize]});
+            setSecondBed({...secondBed, quantity: 1, secondBedSize:  bedSizes.es[bedSizeTwo]});
             setFirstNightstand({...firstNightstand, quantity: 2})
             setSecondNightstand({...secondNightstand, quantity: 2})
         } else if(depto === '1A'){
-            setBedSize('King')
+            setBedSize(0)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setFirstNightstand({...firstNightstand, quantity: 2})
         } else if(depto === '2'){
-            setBedSize('King')
-            setBedSizeTwo('King')
-            setBedSizeThree('King')
+            setBedSize(0)
+            setBedSizeTwo(0)
+            setBedSizeThree(0)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setThirdBed({...thirdBed, quantity: 1, thirdBedSize: bedSizeThree});
@@ -261,8 +268,8 @@ const TourCart = () => {
             setCart(newCart);
 
         } else if(depto === '2A'){
-            setBedSize('King')
-            setBedSizeTwo('King')
+            setBedSize(0)
+            setBedSizeTwo(0)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 2})
@@ -279,8 +286,8 @@ const TourCart = () => {
             }
             setCart(newCart);
         } else if(depto === '2B'){
-            setBedSize('King')
-            setBedSizeTwo('King')
+            setBedSize(0)
+            setBedSizeTwo(0)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 2})
@@ -297,9 +304,9 @@ const TourCart = () => {
             }
             setCart(newCart);
         } else if(depto === '3'){
-            setBedSize('Matrimonial')
-            setBedSizeTwo('King')
-            setBedSizeThree('King')
+            setBedSize(2)
+            setBedSizeTwo(0)
+            setBedSizeThree(0)
             setFirstBed({...firstBed, quantity: 2, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setThirdBed({...thirdBed, quantity: 1, thirdBedSize: bedSizeThree});
@@ -307,34 +314,34 @@ const TourCart = () => {
             setSecondNightstand({...secondNightstand, quantity: 2})
             setThirdNightstand({...thirdNightstand, quantity: 2})
         } else if(depto === '3A'){
-            setBedSize('Matrimonial')
-            setBedSizeTwo('King')
+            setBedSize(2)
+            setBedSizeTwo(0)
             setFirstBed({...firstBed, quantity: 2, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 1})
             setSecondNightstand({...secondNightstand, quantity: 2})
         } else if(depto === '3B'){
-            setBedSize('Matrimonial')
-            setBedSizeTwo('King')
+            setBedSize(2)
+            setBedSizeTwo(0)
             setFirstBed({...firstBed, quantity: 2, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 1})
             setSecondNightstand({...secondNightstand, quantity: 2})
         } else if(depto === '4A/5A'){
-            setBedSize('Queen')
+            setBedSize(1)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setFirstNightstand({...firstNightstand, quantity: 2})
         } else if(depto === '5'){
-            setBedSize('Queen')
-            setBedSizeTwo('King')
+            setBedSize(1)
+            setBedSizeTwo(0)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setFirstNightstand({...firstNightstand, quantity: 2})
             setSecondNightstand({...secondNightstand, quantity: 2})
         } else if(depto === '6'){
-            setBedSize('Matrimonial')
-            setBedSizeTwo('Queen')
-            setBedSizeThree('King')
+            setBedSize(2)
+            setBedSizeTwo(1)
+            setBedSizeThree(0)
             setFirstBed({...firstBed, quantity: 2, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setThirdBed({...thirdBed, quantity: 1, thirdBedSize: bedSizeThree});
@@ -342,9 +349,9 @@ const TourCart = () => {
             setSecondNightstand({...secondNightstand, quantity: 2})
             setThirdNightstand({...thirdNightstand, quantity: 2})
         } else if(depto === '7'){
-            setBedSize('King')
-            setBedSizeTwo('King')
-            setBedSizeThree('King')
+            setBedSize(0)
+            setBedSizeTwo(0)
+            setBedSizeThree(0)
             setFirstBed({...firstBed, quantity: 1, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setThirdBed({...thirdBed, quantity: 1, thirdBedSize: bedSizeThree});
@@ -363,9 +370,9 @@ const TourCart = () => {
             }
             setCart(newCart);
         } else if(depto === '8'){
-            setBedSize('Matrimonial')
-            setBedSizeTwo('King')
-            setBedSizeThree('King')
+            setBedSize(2)
+            setBedSizeTwo(0)
+            setBedSizeThree(0)
             setFirstBed({...firstBed, quantity: 2, firstBedSize: bedSize});
             setSecondBed({...secondBed, quantity: 1, secondBedSize: bedSizeTwo});
             setThirdBed({...thirdBed, quantity: 1, thirdBedSize: bedSizeThree});
@@ -384,7 +391,7 @@ const TourCart = () => {
             }
             setCart(newCart);
         }
-    }, [depto]);
+    }, [depto, bedSize]);
 
     useEffect(() => {
         window.scrollTo({
@@ -443,10 +450,11 @@ const TourCart = () => {
                 <div style={{display: 'flex', 
                 alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
                     {firstBed?.category === "BEDS" && (
-                        <select onChange={onChangeBedSize} value={bedSize} className='tour-cart-bed-select new-tour-cart-bed-select'>
-                        {bedSizes.map((number, idx) => (
-                            <option key={idx} value={number}>{number}</option>
-                    ))}
+                        <select onChange={onChangeBedSize} value={firstBed.firstBedSize || bedSize} className='tour-cart-bed-select new-tour-cart-bed-select'>
+                        {bedSizes[t.lang].map((name, idx) => (
+                            <option key={idx} value={idx}>{name}</option>
+                            )
+                    )}
                         </select>
                     )}
                 </div>
@@ -472,9 +480,9 @@ const TourCart = () => {
                 <div style={{display: 'flex', 
                 alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
                 {secondBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSizeTwo} value={bedSizeTwo} className='tour-cart-bed-select new-tour-cart-bed-select'>
-                    {bedSizes.map((number, idx) => (
-                        <option key={idx} value={number}>{number}</option>
+                    <select onChange={onChangeBedSizeTwo} value={secondBed.secondBedSize || bedSizeTwo} className='tour-cart-bed-select new-tour-cart-bed-select'>
+                    {bedSizes[t.lang].map((name, idx) => (
+                        <option key={idx} value={idx}>{name}</option>
                     ))}
                     </select>
                 )}
@@ -501,9 +509,9 @@ const TourCart = () => {
                 <div style={{display: 'flex', 
                 alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
                 {thirdBed?.category === "BEDS" && (
-                    <select onChange={onChangeBedSizeThree} value={bedSizeThree} className='tour-cart-bed-select'>
-                    {bedSizes.map((number, idx) => (
-                        <option key={idx} value={number}>{number}</option>
+                    <select onChange={onChangeBedSizeThree} value={thirdBed.thirdBedSize || bedSizeThree} className='tour-cart-bed-select'>
+                    {bedSizes[t.lang].map((name, idx) => (
+                        <option key={idx} value={idx}>{name}</option>
                     ))}
                     </select>
                 )}
@@ -638,9 +646,9 @@ const TourCart = () => {
                     <div className='tour-cart-mobile-size-div'>
                         <p>{firstBed?.name}</p>
                         {firstBed?.category === "BEDS" && (
-                        <select onChange={onChangeBedSize} value={bedSize} className='tour-cart-bed-select'>
-                            {bedSizes.map((number, idx) => (
-                            <option key={idx} value={number}>{number}</option>
+                        <select onChange={onChangeBedSize} value={firstBed.firstBedSize || bedSize} className='tour-cart-bed-select'>
+                            {bedSizes[t.lang].map((name, idx) => (
+                            <option key={idx} value={idx}>{name}</option>
                         ))}
                         </select>
                         )}
@@ -661,9 +669,9 @@ const TourCart = () => {
                     <div className='tour-cart-mobile-size-div'> 
                         <p>{secondBed?.name}</p>
                         {secondBed?.category === "BEDS" && (
-                        <select onChange={onChangeBedSizeTwo} value={bedSizeTwo} className='tour-cart-bed-select'>
-                            {bedSizes.map((number, idx) => (
-                                <option key={idx} value={number}>{number}</option>
+                        <select onChange={onChangeBedSizeTwo} value={secondBed.secondBedSize || bedSizeTwo} className='tour-cart-bed-select'>
+                            {bedSizes[t.lang].map((name, idx) => (
+                                <option key={idx} value={idx}>{name}</option>
                             ))}
                         </select>
                         )}
@@ -684,9 +692,9 @@ const TourCart = () => {
                     <div className='tour-cart-mobile-size-div'> 
                         <p>{thirdBed?.name}</p>
                         {thirdBed?.category === "BEDS" && (
-                        <select onChange={onChangeBedSizeThree} value={bedSizeThree} className='tour-cart-bed-select'>
-                            {bedSizes.map((number, idx) => (
-                            <option key={idx} value={number}>{number}</option>
+                        <select onChange={onChangeBedSizeThree} value={thirdBed.thirdBedSize || bedSizeThree} className='tour-cart-bed-select'>
+                            {bedSizes[t.lang].map((name, idx) => (
+                            <option key={idx} value={idx}>{name}</option>
                             ))}
                         </select>
                         )}

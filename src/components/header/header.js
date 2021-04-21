@@ -13,6 +13,8 @@ import {useHistory} from 'react-router-dom'
 import {Link} from "react-router-dom"
 import {CartContext} from "../../CartContext"
 import {MyContext} from "../../context"
+import useTrans, { TransCtx } from "../../hooks/useTrans"
+import Flags from 'country-flag-icons/react/3x2'
 
 const { SubMenu } = Menu;
 
@@ -47,35 +49,6 @@ text-decoration: none;
 transition: color 300ms;
 }
 `
-
-const menu = (
-    <Menu style={{width: '25vw', marginTop: '2vw', marginRight: '-20vw', backgroundColor: '#8C857E'}}>
-        <SubMenu title="Recámara">
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/beds">Camas</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/nightstands">Burós</Link></Menu.Item>
-            <MenuItem className="antd-submenu-item-axess"><Link to="/tv-stands">Mubles de TV</Link></MenuItem>
-        </SubMenu>
-        <SubMenu title="Cocina & Comedor">
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-tables">Comedores</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-chairs">Sillas para Comedor</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/high-chairs">Bancos de Cocina</Link></Menu.Item>
-        </SubMenu>
-        <SubMenu title="Sala">
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/sofas">Sofás</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/side-chairs">Sillas Laterales</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/coffee-tables">Mesas de Centro</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/credenzas">Credenzas</Link></Menu.Item>
-        </SubMenu>
-        <SubMenu title="Exterior">
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-side-tables">Mesas Laterales de Exterior</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-chairs">Sillas de Exterior</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-dining-tables">Comedores de Exterior</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/lounge-chairs">Sillas Lounge</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/sunbeds">Camastros</Link></Menu.Item>
-            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-sofas">Salas de Exterior</Link></Menu.Item>
-        </SubMenu>
-    </Menu>
-);
 
 const MobileHeader = styled.header`
 background: #8C857E;
@@ -157,7 +130,8 @@ font-size: 5vw;
 `
 
 
-const Header = () => {
+const Header = ({toggleLang}) => {
+const {t} = useContext(TransCtx)
 
 const windowSize = useWindowSize();
 const [nav, setNav] = useState(false)
@@ -168,29 +142,77 @@ const [exteriorNav, setExteriorNav] = useState(false)
 const [cart, setCart] = useContext(CartContext);
 const { clearCtxUser, user } = useContext(MyContext);
 
+
+const menu = (
+    <Menu style={{width: '25vw', marginTop: '2vw', marginRight: '-20vw', backgroundColor: '#8C857E'}}>
+        <SubMenu title={t.header.products.items[0].title}>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/beds">{t.header.products.items[0].items[0]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/nightstands">{t.header.products.items[0].items[1]}</Link></Menu.Item>
+            <MenuItem className="antd-submenu-item-axess"><Link to="/tv-stands">{t.header.products.items[0].items[2]}</Link></MenuItem>
+        </SubMenu>
+        <SubMenu title={t.header.products.items[1].title}>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-tables">{t.header.products.items[1].items[0]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/dining-chairs">{t.header.products.items[1].items[1]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/high-chairs">{t.header.products.items[1].items[2]}</Link></Menu.Item>
+        </SubMenu>
+        <SubMenu title={t.header.products.items[2].title}>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/sofas">{t.header.products.items[2].items[0]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/side-chairs">{t.header.products.items[2].items[1]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/coffee-tables">{t.header.products.items[2].items[2]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/credenzas">{t.header.products.items[2].items[3]}</Link></Menu.Item>
+        </SubMenu>
+        <SubMenu title="Exterior">
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-side-tables">{t.header.products.items[3].items[0]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-chairs">{t.header.products.items[3].items[1]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-dining-tables">{t.header.products.items[3].items[2]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/lounge-chairs">{t.header.products.items[3].items[3]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/sunbeds">{t.header.products.items[3].items[4]}</Link></Menu.Item>
+            <Menu.Item className="antd-submenu-item-axess"><Link to="/outdoor-sofas">{t.header.products.items[3].items[5]}</Link></Menu.Item>
+        </SubMenu>
+    </Menu>
+);
+
+
 let history = useHistory();
 
 return (windowSize > 480) ? (
 
 <DesktopHeader className="desktop-header">
-    <div className="logo-header-link">
+    <div 
+        style={{
+            width: '3vw', 
+            zIndex: 99, 
+            position: "fixed",
+            top: '7vw',
+            right: 10, 
+            cursor: 'pointer'
+            }} 
+        onClick={toggleLang}    
+    >
+        {t.lang === 'en' ? (
+        <Flags.US title="United States" className="..."/>
+        ) : (
+            <Flags.MX title="United States" className="..."/>
+            )}
+        </div>
+<div className="logo-header-link">
         <Link to="/"><img src={AxessIcon} alt='Logo' className="header-axess-icon-desktop"/></Link>
     </div>
     <MenuLinks>
         <ul className="menu-list">
             <li>
-                <Link to="/">Inicio</Link>
+                <Link to="/">{t.header.home}</Link>
             </li>
             <li>
             <Dropdown overlay={menu} placement="bottomRight">
                 <a className="antd-dropdown-link" onClick={e => e.preventDefault()}>
-                    Productos
+                    {t.header.products.title}
                     <DownOutlined />
                 </a>
             </Dropdown>
             </li>
             <li>
-                <Link to="/contact">Contacto</Link>
+                <Link to="/contact">{t.header.contact}</Link>
             </li>
         </ul>
     </MenuLinks>
@@ -212,6 +234,23 @@ return (windowSize > 480) ? (
 ) : (
 <>
 <MobileHeader nav={nav}>
+<div 
+        style={{
+            width: '8vw', 
+            zIndex: 99, 
+            position: "fixed",
+            top: '33vw',
+            right: 10, 
+            cursor: 'pointer'
+            }} 
+        onClick={toggleLang}    
+    >
+        {t.lang === 'en' ? (
+        <Flags.US title="United States" className="..."/>
+        ) : (
+            <Flags.MX title="United States" className="..."/>
+            )}
+        </div>
     <div className="mobile-header-first-div">
         <div className="mobile-menu-div">
             <MenuIcon nav={nav} onClick={() => setNav(!nav)}>
@@ -245,65 +284,65 @@ return (windowSize > 480) ? (
                     setNav(!nav);
                     history.push('/')
                 }}
-                >Inicio</p>
+                >{t.header.home}</p>
             </li>
             <li>
-                <a href="#" className="mobile-header-products-anchor">Productos</a>
+                <a href="#" className="mobile-header-products-anchor">{t.header.products.title}</a>
                 <div className="mobile-menu-products-div">
-                    <p roomNav={roomNav} onClick={() => setRoomNav(!roomNav)} className="mobile-header-product-category">Recámara<DownOutlined style={{fontSize: '2.5vw', marginLeft: '.5vw'}}/></p>
+                    <p roomNav={roomNav} onClick={() => setRoomNav(!roomNav)} className="mobile-header-product-category">{t.header.products.items[0].title}<DownOutlined style={{fontSize: '2.5vw', marginLeft: '.5vw'}}/></p>
                         {roomNav ? 
                             <nav roomNav={roomNav} className="room-nav-links">
                                 <ul>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/beds')
-                                    }}>Camas</li>
+                                    }}>{t.header.products.items[0].items[0]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/nightstands')
-                                    }}>Burós</li>
+                                    }}>{t.header.products.items[0].items[1]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/tv-stands')
-                                    }}>Muebles de TV</li>
+                                    }}>{t.header.products.items[0].items[2]}</li>
                                 </ul>
                             </nav>
                         : null}
-                    <p kitchenNav={kitchenNav} onClick={() => setKitchenNav(!kitchenNav)} className="mobile-header-product-kitchen mobile-header-product-category">Cocina & Comedor<DownOutlined style={{fontSize: '2.5vw', marginLeft: '.5vw', marginTop: '5%'}}/></p>
+                    <p kitchenNav={kitchenNav} onClick={() => setKitchenNav(!kitchenNav)} className="mobile-header-product-kitchen mobile-header-product-category">{t.header.products.items[1].title}<DownOutlined style={{fontSize: '2.5vw', marginLeft: '.5vw', marginTop: '5%'}}/></p>
                         {kitchenNav ? 
                             <nav kitchenNav={kitchenNav} className="kitchen-nav-links">
                                 <ul>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/dining-tables')
-                                    }}>Comedores</li>
+                                    }}>{t.header.products.items[1].items[0]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/dining-chairs')
-                                    }}>Sillas para Comedor</li>
+                                    }}>{t.header.products.items[1].items[1]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/high-chairs')
-                                    }}>Bancos de Cocina</li>
+                                    }}>{t.header.products.items[1].items[2]}</li>
                                 </ul>
                             </nav>
                         : null}
-                    <p livingNav={livingNav} onClick={() => setLivingNav(!livingNav)} className="mobile-header-product-category">Sala<DownOutlined style={{fontSize: '2.5vw', marginLeft: '.5vw'}}/></p>
+                    <p livingNav={livingNav} onClick={() => setLivingNav(!livingNav)} className="mobile-header-product-category">{t.header.products.items[2].title}<DownOutlined style={{fontSize: '2.5vw', marginLeft: '.5vw'}}/></p>
                         {livingNav ? 
                             <nav livingNav={livingNav} className="living-nav-links">
                                 <ul>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/sofas')
-                                    }}>Sofás</li>
+                                    }}>{t.header.products.items[2].items[0]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/side-chairs')
-                                    }}>Sillas Laterales</li>
+                                    }}>{t.header.products.items[2].items[1]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/coffee-tables')
-                                    }}>Mesas de Centro</li>
+                                    }}>{t.header.products.items[2].items[2]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/credenzas')
@@ -318,27 +357,27 @@ return (windowSize > 480) ? (
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/outdoor-side-tables')
-                                    }}>Mesas Laterales</li>
+                                    }}>{t.header.products.items[3].items[0]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/outdoor-chairs')
-                                    }}>Sillas de Exterior</li>
+                                    }}>{t.header.products.items[3].items[1]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/outdoor-dining-tables')
-                                    }}>Comedores de Exterior</li>
+                                    }}>{t.header.products.items[3].items[2]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/lounge-chairs')
-                                    }}>Sillas Lounge</li>
+                                    }}>{t.header.products.items[3].items[3]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/sunbeds')
-                                    }}>Camastros</li>
+                                    }}>{t.header.products.items[3].items[4]}</li>
                                     <li onClick={() => {
                                         setNav(!nav);
                                         history.push('/outdoor-sofas')
-                                    }}>Salas de Exterior</li>
+                                    }}>{t.header.products.items[3].items[5]}</li>
                                 </ul>
                             </nav>
                         : null}
@@ -348,7 +387,7 @@ return (windowSize > 480) ? (
                 <p onClick={() => {
                     setNav(!nav);
                     history.push('/contact')
-                    }}>Contacto</p>
+                    }}>{t.header.contact}</p>
             </li>
         </ul>
     </nav>
@@ -361,7 +400,6 @@ return (windowSize > 480) ? (
     
 </MobileMenuLinks>
 : null}
-
 </>
 );
 }

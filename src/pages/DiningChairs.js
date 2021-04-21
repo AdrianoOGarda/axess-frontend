@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState }  from 'react'
 import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
+import useTrans, { TransCtx } from "../hooks/useTrans"
 import "../css/oneBedroom.css"
 
 
 function DiningChairs() {
+    const {t} = useContext(TransCtx)
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
@@ -32,7 +34,7 @@ function DiningChairs() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Sillas para comedor</h1>
+                <h1>{t.diningChairs.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>

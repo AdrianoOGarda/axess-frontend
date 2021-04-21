@@ -3,9 +3,11 @@ import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
 import "../css/oneBedroom.css"
+import useTrans, { TransCtx } from "../hooks/useTrans"
 
 
 function OutdoorDiningTables() {
+    const {t} = useContext(TransCtx)
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
@@ -32,7 +34,7 @@ function OutdoorDiningTables() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Comedores de exterior</h1>
+                <h1>{t.outdoorDiningTables.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>

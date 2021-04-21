@@ -4,6 +4,8 @@ import styled from "styled-components"
 import "../css/typography.css"
 import {useHistory} from 'react-router-dom'
 import { MyContext } from '../context'
+import useTrans, { TransCtx } from "../hooks/useTrans"
+
 
 const HomeDiv = styled.div`
     min-height: 90vh;
@@ -57,7 +59,7 @@ const HomeDiv = styled.div`
     h1 {
         font-family: 'L Light';
         color: white;
-        font-size: 15vw;
+        font-size: 13vw;
         border-bottom: 2px solid white;
         line-height: 100%;
         margin-bottom: -.5vw;
@@ -83,6 +85,8 @@ const HomeDiv = styled.div`
 `
 
 function Home() {
+    const {t} = useContext(TransCtx)
+
     let history = useHistory();
     const { clearCtxUser, user } = useContext(MyContext);
 
@@ -93,9 +97,9 @@ function Home() {
     return (
         <HomeDiv style={{backgroundImage: `url(${Banner})`}}>
             <div>
-                <h1>Crea tu oasis</h1>
-                <p>¡Empieza a decorar tu hogar!</p>
-                <button onClick={buttonClick}>Iniciar recorrido</button>
+                <h1>{t.home.title}</h1>
+                <p>{t.home.subtitle}</p>
+                <button onClick={buttonClick}>{t.home.button}</button>
                 {user && (
                     <button style={{marginTop: '5vw'}} onClick={() => history.push('/create-furniture-hhvc3an28yu21okq32wzs')}>Crear Mueble</button>
                 )}

@@ -16,10 +16,17 @@ import { Modal, Button } from 'antd';
 import "../css/tourCheckout.css"
 import "../css/typography.css"
 import "../css/oneBedroom.css"
+import useTrans, { TransCtx } from "../hooks/useTrans"
 init("user_9nJB02h6LGqHX2fbUhkuP");
+
+const bedSizes = {
+    es: ['King', 'Queen', 'Matrimonial', 'Individual'],
+    en: ['King', 'Queen', 'Double', 'Single']
+}
 
 const TourCheckout = () => {
     let history = useHistory();
+    const {t} = useContext(TransCtx)
 
     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -90,10 +97,13 @@ const TourCheckout = () => {
                 <input type="text" name="user_phone" />
                 <input type="hidden" name="firstbed_name" value={firstBed?.name}/>
                 <input type="hidden" name="firstbed_quantity" value={firstBed?.quantity}/>
+                <input type="hidden" name="firstbed_size" value={bedSizes[t.lang][firstBed?.firstBedSize]}/>
                 <input type="hidden" name="secondbed_name" value={secondBed?.name}/>
                 <input type="hidden" name="secondbed_quantity" value={secondBed?.quantity}/>
+                <input type="hidden" name="secondbed_size" value={bedSizes[t.lang][secondBed?.secondBedSize]}/>
                 <input type="hidden" name="thirdbed_name" value={thirdBed?.name}/>
                 <input type="hidden" name="thirdbed_quantity" value={thirdBed?.quantity}/>
+                <input type="hidden" name="thirdbed_size" value={bedSizes[t.lang][thirdBed?.thirdBedSize]}/>
                 <input type="hidden" name="firstnight_name" value={firstNightstand?.name}/>
                 <input type="hidden" name="firstnight_quantity" value={firstNightstand?.quantity}/>
                 <input type="hidden" name="secondnight_name" value={secondNightstand?.name}/>
