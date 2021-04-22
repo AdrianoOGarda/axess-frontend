@@ -3,11 +3,14 @@ import TourCard from '../components/products/tourCard'
 import { getFurnitures } from "../services/furnitures"
 import {CartContext} from "../CartContext"
 import {Link, useHistory} from 'react-router-dom'
+import { TransCtx } from "../hooks/useTrans"
 import "../css/oneBedroom.css"
 import '../css/typography.css'
 
 
 function TourExterior() {
+    const {t} = useContext(TransCtx)
+
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
     const [selectedDiningTable, setSelectedDiningTable] = useState(null)
@@ -202,7 +205,7 @@ function TourExterior() {
 
 
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR DINING TABLES" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona la mesa:</p>
+            <p>{t.tourExterior.table}</p>
         ): (
             <></>
         )}
@@ -231,7 +234,7 @@ function TourExterior() {
         
 
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR CHAIRS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona las sillas:</p>
+            <p>{t.tourExterior.chairs}</p>
         ): (
             <></>
         )}
@@ -260,7 +263,7 @@ function TourExterior() {
 
 
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SOFAS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona el sillón:</p>
+            <p>{t.tourExterior.sofa}</p>
         ): (
             <></>
         )}
@@ -289,7 +292,7 @@ function TourExterior() {
 
 
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SIDE TABLES" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona la mesa lateral:</p>
+            <p>{t.tourExterior.sideTable}</p>
         ): (
             <></>
         )}
@@ -318,7 +321,7 @@ function TourExterior() {
 
 
         {furnitures?.filter(furniture => furniture?.category?.en === "LOUNGE CHAIRS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona la silla lounge:</p>
+            <p>{t.tourExterior.lounge}</p>
         ): (
             <></>
         )}
@@ -346,7 +349,7 @@ function TourExterior() {
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "SUNBEDS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona el camastro:</p>
+            <p>{t.tourExterior.sunbed}</p>
         ): (
             <></>
         )}
@@ -375,8 +378,8 @@ function TourExterior() {
         
 
         <div className='one-bedroom-buttons-div'>
-                <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
+                <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                <button className='one-bedroom-continue-button' onClick={addF}>{t.tourBedroom.continueBtn}</button> 
         </div>
             
             <div ref={continueRef}></div>

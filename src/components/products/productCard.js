@@ -7,8 +7,11 @@ import './productCard.css';
 import {Link, useHistory} from "react-router-dom"
 import useWindowSize from "../../hooks/useWindowSize"
 import { deleteFurniture } from "../../services/furnitures"
+import { TransCtx } from "../../hooks/useTrans"
 
 const ProductCard = (props) => {
+    const {t} = useContext(TransCtx)
+
     const windowSize = useWindowSize();
     const [cart, setCart] = useContext(CartContext);
     const [isModalVisible, setIsModalVisible] = useState(false);

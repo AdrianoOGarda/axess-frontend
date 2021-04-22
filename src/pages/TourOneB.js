@@ -143,15 +143,15 @@ function TourOneB() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <FirstBedCard 
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id}
                 idx={i}  
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selected}
                 onSelectImage={() => {
                     addToCart(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -167,15 +167,15 @@ function TourOneB() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <FirstNightstandCard 
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id}
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNight}
                 onSelectImage={() => {
                     addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -191,15 +191,15 @@ function TourOneB() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
                     normalAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);

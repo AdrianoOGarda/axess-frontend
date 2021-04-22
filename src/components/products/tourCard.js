@@ -4,10 +4,12 @@ import "./tourCard.css"
 import Info from "../../icons/info.svg"
 import { Modal } from 'antd';
 import useWindowSize from "../../hooks/useWindowSize"
-
+import { TransCtx } from "../../hooks/useTrans"
 
 
 function TourCard(props) {
+    const {t} = useContext(TransCtx)
+
     const windowSize = useWindowSize();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [cart, setCart] = useContext(CartContext);
@@ -71,11 +73,11 @@ function TourCard(props) {
             <div className="tour-modal-div">
                 <img src={props.image} alt="modal-tour-img"/>
                 <div className='tour-modal-info-div'>
-                    <h4>Precio</h4>
+                    <h4>{t.firstBedCardModal.price}</h4>
                     <p>${props.price}</p>
-                    <h4>Descripción</h4>
+                    <h4>{t.firstBedCardModal.description}</h4>
                     <p>{props.description}</p>
-                    <h4>Tamaño</h4>
+                    <h4>{t.firstBedCardModal.size}</h4>
                     <p>{props.size}</p>
                     <h4>Material</h4>
                     <p>{props.material}</p>
@@ -103,11 +105,11 @@ function TourCard(props) {
             <div className="tour-modal-div">
                 <img src={props.image} alt="modal-tour-img"/>
                 <div className='tour-modal-info-div'>
-                    <h4>Precio</h4>
+                    <h4>{t.firstBedCardModal.price}</h4>
                     <p>${props.price}</p>
-                    <h4>Descripción</h4>
+                    <h4>{t.firstBedCardModal.description}</h4>
                     <p>{props.description}</p>
-                    <h4>Tamaño</h4>
+                    <h4>{t.firstBedCardModal.size}</h4>
                     <p>{props.size}</p>
                     <h4>Material</h4>
                     <p>{props.material}</p>

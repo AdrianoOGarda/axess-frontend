@@ -86,14 +86,14 @@ const TourCheckout = () => {
             </div> 
         </div>
 
-            <h2>Ingresa tus datos para que podamos contactarte</h2>
+            <h2>{t.tourCheckout.text}</h2>
             <form className="contact-form" onSubmit={sendEmail} className='tour-checkout-form'>
                 <input type="hidden" name="contact_number" />
-                <label>Nombre</label>
+                <label>{t.tourCheckout.name}</label>
                 <input type="text" name="user_name" />
                 <label>Email</label>
                 <input type="email" name="user_email" />
-                <label>Teléfono</label>
+                <label>{t.tourCheckout.phone}</label>
                 <input type="text" name="user_phone" />
                 <input type="hidden" name="firstbed_name" value={firstBed?.name}/>
                 <input type="hidden" name="firstbed_quantity" value={firstBed?.quantity}/>
@@ -135,21 +135,21 @@ const TourCheckout = () => {
                 ))}
 
                 <div className='tour-checkout-buttons-div'>
-                    <button className='tour-checkout-cancel-button' onClick={goWayBack}>Atrás</button>
-                    <input type="submit" value="Enviar" className='tour-checkout-continue-button' />
+                    <button className='tour-checkout-cancel-button' onClick={goWayBack}>{t.tourBedroom.backBtn}</button>
+                    <input type="submit" value={t.tourCheckout.send} className='tour-checkout-continue-button' />
                 </div>
     
             </form>
 
-            <Modal title='¡Gracias!' visible={isModalVisible} onCancel={handleCancel} className='tour-checkout-modal'
+            <Modal title={t.tourCheckout.modalTitle} visible={isModalVisible} onCancel={handleCancel} className='tour-checkout-modal'
             footer={[
                 <Button key="back" onClick={handleCancel}>
-                    ¡De acuerdo!
+                    {t.tourCheckout.modalBtn}
                 </Button>,
             ]}
             >
                 <div>
-                    <p style={{fontFamily: 'L Regular', color: '#8c857e', fontSize: '1.5vw', marginTop: '-2vw'}} className='tour-checkout-modal-div-p'>Nos pondremos en contacto contigo</p>
+                    <p style={{fontFamily: 'L Regular', color: '#8c857e', fontSize: '1.5vw', marginTop: '-2vw'}} className='tour-checkout-modal-div-p'>{t.tourCheckout.modalText}</p>
                 </div>
             </Modal>
         </div>

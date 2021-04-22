@@ -135,25 +135,25 @@ function TourThreeB() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Tercera Recámara</h1>
+                <h1>{t.tourBedroomThree.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>   
 
 
-        <p>Selecciona las camas:</p>
+        <p>{t.tourBedroom.textBed}</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "BEDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <ThirdBedCard 
-                name={filteredFurniture.name.es} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selected}
                 onSelectImage={() => {
                     addToCartBed(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -165,19 +165,19 @@ function TourThreeB() {
             <div></div>
         </div>
 
-        <p>Selecciona los burós:</p>
+        <p>{t.tourBedroom.textNight}</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "NIGHTSTANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <ThirdNightstandCard 
-                name={filteredFurniture.name.es} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 idx={i}
                 image={filteredFurniture.image}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNight}
                 onSelectImage={() => {
                     addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -189,19 +189,19 @@ function TourThreeB() {
             <div ref={goToNightstandRef}></div>
         </div>
 
-        <p>Selecciona los muebles de TV:</p>
+        <p>{t.tourBedroom.textTV}</p>
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
                     normalAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -215,8 +215,8 @@ function TourThreeB() {
 
 
         <div className='one-bedroom-buttons-div'>
-                <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
+                <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                <button className='one-bedroom-continue-button' onClick={addF}>{t.tourBedroom.continueBtn}</button> 
         </div>
 
             <div ref={continueRef}></div>

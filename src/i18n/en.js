@@ -33,7 +33,13 @@ export default {
         title: 'FOLLOW US ON SOCIAL NETWORKS'
     },
     contact: {
-        title: 'Contact'
+        title: 'Contact', 
+        question: '¿Tienes alguna duda, sugerencia o comentario? ¡Contáctanos!',
+        name: 'Nombre', 
+        phone: 'Teléfono',
+        email: 'Correo', 
+        message: 'Mensaje',
+        button: 'Enviar'
     }, 
     beds: {
         title: 'Beds'
@@ -100,5 +106,77 @@ export default {
     },
     tourBedroomThree: {
         title: 'Third Bedroom'
+    },
+    tourKitchen: {
+        title: 'Kitchen & Dining Room ', 
+        tables: 'Select the dining table:', 
+        chairs: 'SSelect the dining chairs:', 
+        high: 'Select the high chairs:',
+        
+    },
+    firstBedCardModal: {
+        price: 'Price', 
+        description: 'Description', 
+        size: 'Size'
+    },
+    tourLiving: {
+        title: 'Living Room', 
+        sofa: 'Select the sofa:', 
+        sideChairs: 'Select the side chairs:',
+        sideTables: 'Select the side tables:',
+        tv: 'Select the TV stands:'
+    },
+    tourExterior: {
+        table: 'Select the table:',
+        chairs: 'Select the chairs:',
+        sofa: 'Select the sofa:',
+        sideTable: 'Select the side table:',
+        lounge: 'Select the lounge chair:', 
+        sunbed: 'Select the sunbed:'
+    },
+    cartList: {
+        title: 'Cart overview',
+        accessories: 'Accessories',
+        equip: '¿Do you want to add an equipment package?',
+        deco: '¿Do you want to add a decorative package?', 
+        hot: '¿Do you want to add a hotel package?', 
+        equipModal: {
+            title: 'Includes:', 
+            first: 'Washing machine', 
+            second: 'Refrigerator',
+            third: 'Mattress',
+            fourth: 'Television',
+            parenthesis: '(The details will be sent to you)'
+        }, 
+        decoModal: {
+            first: 'Carpets', 
+            second: 'Table, ceiling and floor lamps',
+            third: 'Wallpaper',
+            fourth: 'Decorative pillows',
+            fifth: 'Decorative paintings',
+        }, 
+        hotModal: {
+            first: 'Bed sheets',
+            second: 'bath towels',
+            third: 'Cookware',
+            fourth: 'Crockery',
+            fifth: 'Kitchen accessories',
+            sixth: 'Service items',
+            seventh: 'Safe'
+        }
+    },
+    tourCart: {
+        question: 'What kind of apartment do you own?',
+        placeholder: 'Apartment X',
+        warning: '*The quantites are determined depending on the apartment type, but they can be modified.'
+    },
+    tourCheckout: {
+        text: 'Input your information so we can get back to you',
+        name: 'Name', 
+        phone: 'Phone',
+        send: 'Submit',
+        modalTitle: 'Thanks!', 
+        modalText: "We'll get back to you",
+        modalBtn: 'Ok!'
     }
 }

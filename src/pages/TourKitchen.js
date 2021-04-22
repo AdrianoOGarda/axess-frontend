@@ -3,11 +3,14 @@ import TourCard from '../components/products/tourCard'
 import { getFurnitures } from "../services/furnitures"
 import {CartContext} from "../CartContext"
 import {Link, useHistory} from 'react-router-dom'
+import { TransCtx } from "../hooks/useTrans"
 import "../css/oneBedroom.css"
 import '../css/typography.css'
 
 
 function TourKitchen() {
+    const {t} = useContext(TransCtx)
+
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
     const [selectedDiningTable, setSelectedDiningTable] = useState(null)
@@ -126,28 +129,28 @@ function TourKitchen() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Cocina & Comedor</h1>
+                <h1>{t.tourKitchen.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "DINING TABLES" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona la mesa de comedor:</p>
+            <p>{t.tourKitchen.tables}</p>
         ): (
             <></>
         )}
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "DINING TABLES" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
                     diningAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -160,22 +163,22 @@ function TourKitchen() {
         </div>
         
         {furnitures?.filter(furniture => furniture?.category?.en === "DINING CHAIRS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona las sillas de comedor:</p>
+            <p>{t.tourKitchen.chairs}</p>
         ): (
             <></>
         )}
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "DINING CHAIRS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
                     chairAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -188,22 +191,22 @@ function TourKitchen() {
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "HIGH CHAIRS (KITCHEN)" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona los bancos de cocina:</p>
+            <p>{t.tourKitchen.high}</p>
         ): (
             <></>
         )}
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "HIGH CHAIRS (KITCHEN)" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalHigh}
                 normalProductAdd={() => {
                     highAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
@@ -217,8 +220,8 @@ function TourKitchen() {
         
 
         <div className='one-bedroom-buttons-div'>
-                <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
+                <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                <button className='one-bedroom-continue-button' onClick={addF}>{t.tourBedroom.continueBtn}</button> 
         </div>
 
             <div ref={continueRef}></div>

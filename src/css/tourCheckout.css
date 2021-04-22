@@ -146,7 +146,7 @@
         color: #8c857e;
         font-size: 5vw;
         padding: .1vw;
-        width: 17vw;
+        width: 20vw;
         cursor: pointer;
         height: 10vw;
         display: flex;
@@ -164,7 +164,7 @@
         font-family: 'L Regular' !important;
         font-weight: 500;
         font-size: 5vw !important;
-        width: 17vw;
+        width: 20vw;
         height: 10vw !important;
         margin-top: .5vw;
     }

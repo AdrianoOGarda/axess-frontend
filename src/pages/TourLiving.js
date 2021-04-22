@@ -3,11 +3,14 @@ import TourCard from '../components/products/tourCard'
 import { getFurnitures } from "../services/furnitures"
 import {CartContext} from "../CartContext"
 import {Link, useHistory} from 'react-router-dom'
+import { TransCtx } from "../hooks/useTrans"
 import "../css/oneBedroom.css"
 import '../css/typography.css'
 
 
 function TourKitchen() {
+    const {t} = useContext(TransCtx)
+
     const [furnitures, setFurnitures] = useState(null);
     const [cart, setCart] = useContext(CartContext);
     const [selectedSofa, setSelectedSofa] = useState(null);
@@ -144,13 +147,13 @@ function TourKitchen() {
         <div className='one-bedroom-title-div'>
             <div className='one-bedroom-title-inside-div'>
                 <div className='one-bedroom-title-divider'></div>
-                <h1>Sala</h1>
+                <h1>{t.tourLiving.title}</h1>
                 <div className='one-bedroom-title-divider'></div>
             </div> 
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "SOFAS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona el sillón:</p>
+            <p>{t.tourLiving.sofa}</p>
         ): (
             <></>
         )}
@@ -178,7 +181,7 @@ function TourKitchen() {
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "SIDE CHAIRS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona las sillas laterales:</p>
+            <p>{t.tourLiving.sideChairs}</p>
         ): (
             <></>
         )}
@@ -207,7 +210,7 @@ function TourKitchen() {
 
 
         {furnitures?.filter(furniture => furniture?.category?.en === "COFFEE TABLES" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona las mesas laterales:</p>
+            <p>{t.tourLiving.sideTables}</p>
         ): (
             <></>
         )}
@@ -235,7 +238,7 @@ function TourKitchen() {
         </div>
 
         {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").length > 0 ? (
-            <p>Selecciona los muebles de TV:</p>
+            <p>{t.tourLiving.tv}</p>
         ): (
             <></>
         )}

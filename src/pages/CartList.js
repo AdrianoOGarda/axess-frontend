@@ -12,6 +12,7 @@ import {ThirdNightstandContext} from "../productsContext/ThirdNightstandContext"
 import { Checkbox, Modal } from 'antd';
 import Info from "../icons/info.svg"
 import {useHistory} from 'react-router-dom'
+import { TransCtx } from "../hooks/useTrans"
 import "../css/typography.css"
 import "../css/cartList.css"
 import "../css/oneBedroom.css"
@@ -19,6 +20,8 @@ import "../css/oneBedroom.css"
 
 
 const CartList = () => {
+    const {t} = useContext(TransCtx)
+
     const [firstBed, setFirstBed] = useContext(FirstBedContext);
     const [secondBed, setSecondBed] = useContext(SecondBedContext);
     const [thirdBed, setThirdBed] = useContext(ThirdBedContext);
@@ -103,7 +106,7 @@ const CartList = () => {
             <div className='list-cart-title-div'>
                 <div className='list-cart-title-inside-div'>
                     <div className='list-cart-title-divider'></div>
-                    <h1>Resumen del carrito</h1>
+                    <h1>{t.cartList.title}</h1>
                     <div className='list-cart-title-divider'></div>
                 </div> 
             </div>    
@@ -177,19 +180,19 @@ const CartList = () => {
 
 
             <div className='cart-list-packages-select'>
-                <p>Accesorios</p>
+                <p>{t.cartList.accessories}</p>
                 <div className="packages-select-inside-div">
-                    <p>¿Quieres agregar un paquete de equipamiento?</p>
+                    <p>{t.cartList.equip}</p>
                     <img onClick={showEquipModal} src={Info} alt="info-icon"/>
                     <Checkbox onChange={onChangeEq} className='package-checkbox'></Checkbox>
                 </div>
                 <div className="packages-select-inside-div">
-                    <p>¿Quieres agregar un paquete decorativo?</p>
+                    <p>{t.cartList.deco}</p>
                     <img onClick={showSecondModal} src={Info} alt="info-icon"/>
                     <Checkbox onChange={onChangeDec} className='package-checkbox'></Checkbox>
                 </div>
                 <div className="packages-select-inside-div">
-                    <p>¿Quieres agregar un paquete de hotelería?</p>
+                    <p>{t.cartList.hot}</p>
                     <img onClick={showThirdModal} src={Info} alt="info-icon"/>
                     <Checkbox onChange={onChangeHot} className='package-checkbox'></Checkbox>
                 </div>
@@ -197,44 +200,44 @@ const CartList = () => {
         
         <Modal visible={isEquipVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
-                <h2>Incluye:</h2>
-                <p>Centro de lavado</p>
-                <p>Refrigerador</p>
-                <p>Colchón</p>
-                <p>Televisión</p>
-                <p>(El detalle se le enviará en la cotización)</p>
+                <h2>{t.cartList.equipModal.title}</h2>
+                <p>{t.cartList.equipModal.first}</p>
+                <p>{t.cartList.equipModal.second}</p>
+                <p>{t.cartList.equipModal.third}</p>
+                <p>{t.cartList.equipModal.fourth}</p>
+                <p>{t.cartList.equipModal.parenthesis}</p>
             </div>
         </Modal>
         <Modal visible={isSecondModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
-                <h2>Incluye:</h2>
-                <p>Tapetes</p>
-                <p>Lámparas de mesa, de techo y de piso</p>
-                <p>Papel tapiz</p>
-                <p>Cojines decorativos</p>
-                <p>Cuadros decorativos</p>
-                <p>(El detalle se le enviará en la cotización)</p>
+                <h2>{t.cartList.equipModal.title}</h2>
+                <p>{t.cartList.decoModal.first}</p>
+                <p>{t.cartList.decoModal.second}</p>
+                <p>{t.cartList.decoModal.third}</p>
+                <p>{t.cartList.decoModal.fourth}</p>
+                <p>{t.cartList.decoModal.fifth}</p>
+                <p>{t.cartList.equipModal.parenthesis}</p>
             </div>
         </Modal>
         <Modal visible={isThirdModalVisible} onCancel={handleCancel}>
             <div className='equipamiento-modal'>
-                <h2>Incluye:</h2>
-                <p>Blancos para recámaras</p>
-                <p>Toallas para baños</p>
-                <p>Batería de cocina</p>
-                <p>Vajilla</p>
-                <p>Accesorios de cocina</p>
-                <p>Artículos de servicio</p>
-                <p>Caja fuerte</p>
-                <p>(El detalle se le enviará en la cotización)</p>
+                <h2>{t.cartList.equipModal.title}</h2>
+                <p>{t.cartList.hotModal.first}</p>
+                <p>{t.cartList.hotModal.second}</p>
+                <p>{t.cartList.hotModal.third}</p>
+                <p>{t.cartList.hotModal.fourth}</p>
+                <p>{t.cartList.hotModal.fifth}</p>
+                <p>{t.cartList.hotModal.sixth}</p>
+                <p>{t.cartList.hotModal.seventh}</p>
+                <p>{t.cartList.equipModal.parenthesis}</p>
             </div>
         </Modal>
 
             {/* <button onClick={() => localStorage.clear()}>Borrar</button> */}
 
             <div className='one-bedroom-buttons-div'>
-                <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                <button className='one-bedroom-continue-button' onClick={addF}>Continuar</button> 
+                <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                <button className='one-bedroom-continue-button' onClick={addF}>{t.tourBedroom.continueBtn}</button> 
             </div>
 
         </div>

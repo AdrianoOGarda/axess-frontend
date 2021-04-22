@@ -412,12 +412,12 @@ const TourCart = () => {
         </div>
 
         <div className='depto-select-div'>
-            <p>¿Qué tipo de departamento tienes?</p>
+            <p>{t.tourCart.question}</p>
             <Select
                 className='depto-select-select'
                 showSearch
                 style={{ width: 200 }}
-                placeholder="Departamento X"
+                placeholder={t.tourCart.placeholder}
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
@@ -429,7 +429,7 @@ const TourCart = () => {
                 <Option key={idx} value={number}>{number}</Option>
             ))}
                 </Select>
-                <p>*Las cantidades son determinadas dependiendo del tipo de departamento, pero si deseas puedes modificarlas.</p>
+                <p>{t.tourCart.warning}</p>
         </div>
 
             {firstBed?.category === undefined || firstBed === null? 
@@ -597,8 +597,8 @@ const TourCart = () => {
 
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <div className='one-bedroom-buttons-div'>
-                    <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                    <button className='one-bedroom-continue-button' onClick={goForward}>Continuar</button> 
+                    <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                    <button className='one-bedroom-continue-button' onClick={goForward}>{t.tourBedroom.continueBtn}</button> 
                 </div>
             </div>
 
@@ -615,12 +615,12 @@ const TourCart = () => {
         </div>
 
         <div className='depto-select-div'>
-            <p>¿Qué tipo de departamento tienes?</p>
+            <p>{t.tourCart.question}</p>
             <Select
                 className='depto-select-select'
                 showSearch
                 style={{ width: 200 }}
-                placeholder="Departamento X"
+                placeholder={t.tourCart.placeholder}
                 optionFilterProp="children"
                 onChange={onChange}
                 onSearch={onSearch}
@@ -632,7 +632,7 @@ const TourCart = () => {
                 <Option key={idx} value={number}>{number}</Option>
             ))}
                 </Select>
-                <p>*Las cantidades son determinadas dependiendo del tipo de departamento, pero si deseas puedes modificarlas.</p>
+                <p>{t.tourCart.warning}</p>
         </div>
 
             {firstBed?.category === undefined || firstBed === null? 
@@ -759,8 +759,8 @@ const TourCart = () => {
 
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <div className='one-bedroom-buttons-div'>
-                    <button className='one-bedroom-cancel-button' onClick={goBack}>Atrás</button>
-                    <button className='one-bedroom-continue-button' onClick={goForward}>Continuar</button> 
+                    <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>
+                    <button className='one-bedroom-continue-button' onClick={goForward}>{t.tourBedroom.continueBtn}</button> 
                 </div>
             </div>
 
