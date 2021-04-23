@@ -38,7 +38,10 @@ export default {
         phone: 'Teléfono',
         email: 'Correo', 
         message: 'Mensaje',
-        button: 'Enviar'
+        button: 'Enviar', 
+        modalButton: '¡De acuerdo!', 
+        modalSpan: 'Thank you for writing!', 
+        modalP: "We'll get back to you"
     },
     beds: {
         title: 'Camas'
@@ -177,5 +180,16 @@ export default {
         modalTitle: '¡Gracias!', 
         modalText: 'Nos pondremos en contacto contigo',
         modalBtn: '¡De acuerdo!'
+    }, 
+    cart: {
+        title: 'Carrito', 
+        button: 'Continuar'
+    }, 
+    cartCheckout: {
+        text: 'Ingresa tus datos para que podamos contactarte', 
+        name: 'Nombre', 
+        email: 'Email', 
+        phone: 'Teléfono', 
+        button: 'Enviar'
     }
 }

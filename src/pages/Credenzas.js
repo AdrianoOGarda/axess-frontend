@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState }  from 'react'
 import { getFurnitures } from "../services/furnitures"
 import ProductCard from '../components/products/productCard'
 import {CartContext} from "../CartContext"
+import { TransCtx } from "../hooks/useTrans"
 import "../css/oneBedroom.css"
 
 
 function Credenzas() {
+    const {t} = useContext(TransCtx)
 
     const [furnitures, setFurnitures] = useState(null)
     const [cart, setCart] = useContext(CartContext);
@@ -41,14 +43,14 @@ function Credenzas() {
             {furnitures?.filter(furniture => furniture?.category?.en === "CREDENZAS").map((filteredFurniture, idx) => (
                 <div style={{marginBottom: '5vw'}} key={idx}>
                 <ProductCard 
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 category={filteredFurniture.category.en}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
-                size={filteredFurniture.size.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
+                size={filteredFurniture.size[t.lang]}
                 id={filteredFurniture._id}
                 />
                 </div>

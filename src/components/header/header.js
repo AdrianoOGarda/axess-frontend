@@ -239,7 +239,7 @@ return (windowSize > 480) ? (
             width: '8vw', 
             zIndex: 99, 
             position: "fixed",
-            top: '33vw',
+            top: '45vw',
             right: 10, 
             cursor: 'pointer'
             }} 

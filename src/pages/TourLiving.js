@@ -160,18 +160,18 @@ function TourKitchen() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "SOFAS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    sofaAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    sofaAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormal(i);
                     goToChair(goToChairRef);
                 }}
@@ -188,18 +188,18 @@ function TourKitchen() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "SIDE CHAIRS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
-                    chairAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalChair(i);
                     goToCoffee(goToCoffeeRef);
                 }}
@@ -217,18 +217,18 @@ function TourKitchen() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "COFFEE TABLES" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalCoffee}
                 normalProductAdd={() => {
-                    highAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    highAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalCoffee(i);
                     goToTV(goToTVRef);
                 }}
@@ -245,18 +245,18 @@ function TourKitchen() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "TV STANDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalTV}
                 normalProductAdd={() => {
-                    tvAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    tvAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalTV(i);
                     goToContinue(continueRef);
                 }}

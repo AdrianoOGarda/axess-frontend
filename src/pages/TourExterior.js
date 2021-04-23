@@ -212,18 +212,18 @@ function TourExterior() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR DINING TABLES" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    diningAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    diningAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormal(i);
                     goToChair(goToChairRef);
                 }}
@@ -241,18 +241,18 @@ function TourExterior() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR CHAIRS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
-                    chairAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalChair(i);
                     goToSofa(goToSofaRef);
                 }}
@@ -270,18 +270,18 @@ function TourExterior() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SOFAS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalSofa}
                 normalProductAdd={() => {
-                    sofaAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    sofaAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalSofa(i);
                     goToTable(goToTableRef)
                 }}
@@ -299,18 +299,18 @@ function TourExterior() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SIDE TABLES" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalTable}
                 normalProductAdd={() => {
-                    tableAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    tableAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalTable(i);
                     goToLounge(goToLoungeRef)
                 }}
@@ -328,18 +328,18 @@ function TourExterior() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "LOUNGE CHAIRS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalLounge}
                 normalProductAdd={() => {
-                    loungeAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    loungeAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalLounge(i);
                     goToSunbed(goToSunbedRef);
                 }}
@@ -356,18 +356,18 @@ function TourExterior() {
         <div className='one-b-beds-div'>
         {furnitures?.filter(furniture => furniture?.category?.en === "SUNBEDS" && furniture?.project === "AWA").map((filteredFurniture, i) => (
                 <TourCard
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 idx={i}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
                 category={filteredFurniture.category.en}
-                size={filteredFurniture.size.es}
+                size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalSunbed}
                 normalProductAdd={() => {
-                    sunbedAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    sunbedAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalSunbed(i);
                     goToContinue(continueRef);
                 }}

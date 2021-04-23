@@ -34,12 +34,15 @@ export default {
     },
     contact: {
         title: 'Contact', 
-        question: '¿Tienes alguna duda, sugerencia o comentario? ¡Contáctanos!',
-        name: 'Nombre', 
-        phone: 'Teléfono',
-        email: 'Correo', 
-        message: 'Mensaje',
-        button: 'Enviar'
+        question: '¿Do you have any questions? Contact us!',
+        name: 'Name', 
+        phone: 'Phone number',
+        email: 'Email', 
+        message: 'Message',
+        button: 'Send', 
+        modalButton: '¡Ok!', 
+        modalSpan: 'Thanks!', 
+        modalP: 'Nos pondremos en contacto contigo.'
     }, 
     beds: {
         title: 'Beds'
@@ -178,5 +181,16 @@ export default {
         modalTitle: 'Thanks!', 
         modalText: "We'll get back to you",
         modalBtn: 'Ok!'
+    }, 
+    cart: {
+        title: 'Cart', 
+        button: 'Continue'
+    },
+    cartCheckout: {
+        text: 'Input your data so we can get back to you', 
+        name: 'Name', 
+        email: 'Email', 
+        phone: 'Phone number',
+        button: 'Submit'
     }
 }

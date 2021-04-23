@@ -153,7 +153,7 @@ function TourKitchen() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    diningAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    diningAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormal(i);
                     goToChair(goToChairRef);
                 }}
@@ -181,7 +181,7 @@ function TourKitchen() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
-                    chairAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalChair(i);
                     goToHigh(goToHighRef);
                 }}
@@ -209,7 +209,7 @@ function TourKitchen() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalHigh}
                 normalProductAdd={() => {
-                    highAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    highAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormalHigh(i);
                     goToContinue(continueRef);
                 }}

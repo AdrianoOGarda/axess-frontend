@@ -43,14 +43,14 @@ function OutdoorSofas() {
             {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SOFAS").map((filteredFurniture, idx) => (
                 <div style={{marginBottom: '5vw'}} key={idx}>
                 <ProductCard 
-                name={filteredFurniture.name.en} 
+                name={filteredFurniture.name[t.lang]} 
                 key={filteredFurniture._id} 
                 price={filteredFurniture.price} 
                 image={filteredFurniture.image}
                 category={filteredFurniture.category.en}
-                description={filteredFurniture.description.es}
-                material={filteredFurniture.material.es}
-                size={filteredFurniture.size.es}
+                description={filteredFurniture.description[t.lang]}
+                material={filteredFurniture.material[t.lang]}
+                size={filteredFurniture.size[t.lang]}
                 id={filteredFurniture._id}
                 />
                 </div>

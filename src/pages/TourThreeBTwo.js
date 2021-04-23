@@ -150,7 +150,7 @@ function TourTwoB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selected}
                 onSelectImage={() => {
-                    addToCartBed(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    addToCartBed(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelected(i);
                     goToNightstand(goToNightstandRef);
                 }}
@@ -174,7 +174,7 @@ function TourTwoB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNight}
                 onSelectImage={() => {
-                    addToCartNight(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    addToCartNight(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNight(i);
                     goToTV(goToTVRef);
                 }}
@@ -198,7 +198,7 @@ function TourTwoB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    normalAdd(filteredFurniture.name.es, filteredFurniture.image, filteredFurniture.category.en);
+                    normalAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
                     setSelectedNormal(i);
                     goToContinue(continueRef);
                 }}

@@ -63,7 +63,7 @@ const Cart = () => {
         <div className='cart-title-div'>
             <div className='cart-title-inside-div'>
                 <div className='cart-title-divider'></div>
-                <h1>Carrito</h1>
+                <h1>{t.cart.title}</h1>
                 <div className='cart-title-divider'></div>
             </div> 
         </div>
@@ -72,8 +72,16 @@ const Cart = () => {
             {cart?.filter(product => product.category  !== undefined).map( (cartItem, idx) => (
                 <div key={idx} className='cart-product-div'>
                     <img src={cartItem.image} alt="item-image"/>
-                    <p>{cartItem.name}</p>
-                    <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                    <div style={{display: 'flex', 
+                    alignItems: 'center', justifyContent: 'start', width: '23vw'}}>
+                        <p>{cartItem.name}</p>
+                    </div>
+                    <div style={{display: 'flex', 
+                    alignItems: 'center', justifyContent: 'start', width: '15vw'}}>
+                        <input type="number" min="0" value={cartItem.quantity} onChange={(e) => setQuantity(cartItem, e.target.value)} />
+                    </div>
+                    <div style={{display: 'flex', 
+                    alignItems: 'center', justifyContent: 'start', width: '25vw'}}>
                     {cartItem.category === "BEDS" && (
                         <select onChange={e => onChangeBedSize(e, cartItem)} value={cartItem.bedSize}  className='cart-bed-select'>
                             {bedSizes[t.lang].map((name, idx) => (
@@ -81,11 +89,12 @@ const Cart = () => {
                             ))}
                         </select>
                     )}
+                    </div>
                 </div>
             ))}
             
             <div style={{marginTop: '10vw', marginBottom: '10vw'}}>
-                <Link to='/cart-checkout' style={{color: '#8c857e'}} className='cart-continue-button'>Continuar</Link>
+                <Link to='/cart-checkout' style={{color: '#8c857e'}} className='cart-continue-button'>{t.cart.button}</Link>
             </div>
         </div>
     ) : (
@@ -94,7 +103,7 @@ const Cart = () => {
         <div className='cart-title-div'>
             <div className='cart-title-inside-div'>
                 <div className='cart-title-divider'></div>
-                <h1>Carrito</h1>
+                <h1>{t.cart.title}</h1>
                 <div className='cart-title-divider'></div>
             </div> 
         </div>
@@ -119,8 +128,8 @@ const Cart = () => {
                 </div>
             ))}
         
-        <div style={{marginTop: '30vw'}}>
-            <Link to='/' style={{color: '#8c857e'}} className='cart-continue-button'>Continuar</Link>
+        <div style={{marginTop: '15vw', marginBottom: '15vw'}}>
+            <Link to='/' style={{color: '#8c857e'}} className='cart-continue-button'>{t.cart.button}</Link>
         </div>
 
         </div>

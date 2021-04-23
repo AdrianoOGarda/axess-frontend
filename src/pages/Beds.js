@@ -49,8 +49,8 @@ function Beds() {
                 image={filteredFurniture.image}
                 category={filteredFurniture.category.en}
                 description={filteredFurniture.description[t.lang]}
-                material={filteredFurniture.material.es}
-                size={filteredFurniture.size.es}
+                material={filteredFurniture.material[t.lang]}
+                size={filteredFurniture.size[t.lang]}
                 id={filteredFurniture._id}
                 />
                 </div>
