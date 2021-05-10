@@ -51,11 +51,11 @@ const Contact = () => {
             <form className="contact-form" onSubmit={sendEmail} className='contact-form'>
                 <input type="hidden" name="contact_number" />
                 <label>{t.contact.name}</label>
-                <input type="text" name="user_name" />
+                <input type="text" required name="user_name" />
                 <label>{t.contact.phone}</label>
-                <input type="text" name="user_phone" />
+                <input type="text" required name="user_phone" />
                 <label>{t.contact.email}</label>
-                <input type="email" name="user_email" />
+                <input type="email" required name="user_email" />
                 <label>{t.contact.message}</label>
                 <textarea  name="user_message" className='contact-textarea'/>
                 <div className='contact-buttons-div'>

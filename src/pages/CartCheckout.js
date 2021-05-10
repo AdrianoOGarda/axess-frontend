@@ -63,11 +63,11 @@ const CartChekout = () => {
             <form className="contact-form" onSubmit={sendEmail} className='cart-checkout-form'>
                 <input type="hidden" name="contact_number" />
                 <label>{t.cartCheckout.name}</label>
-                <input type="text" name="user_name" />
+                <input type="text" required name="user_name" />
                 <label>{t.cartCheckout.email}</label>
-                <input type="email" name="user_email" />
+                <input type="email" required name="user_email" />
                 <label>{t.cartCheckout.phone}</label>
-                <input type="text" name="user_phone" />
+                <input type="text" required name="user_phone" />
                 {cart?.map((item, idx) => (
                     <input key={idx} type="hidden" name={`normal_product_${idx}`} value={`Nombre: ${item.name} / Cantidad: ${item.quantity} / Tamaño: ${bedSizes[t.lang][item?.bedSize]}`}/>
                 ))}

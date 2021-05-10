@@ -42,16 +42,16 @@ function TourKitchen() {
         });
     }, []);
 
-    const diningAdd = (fName, fImage, fCategory) => {
-        setSelectedDiningTable({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const diningAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedDiningTable({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
-    const chairAdd = (fName, fImage, fCategory) => {
-        setSelectedDiningChair({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const chairAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedDiningChair({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
-    const highAdd = (fName, fImage, fCategory) => {
-        setSelectedHigh({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const highAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedHigh({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
 
@@ -153,7 +153,7 @@ function TourKitchen() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    diningAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    diningAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormal(i);
                     goToChair(goToChairRef);
                 }}
@@ -181,7 +181,7 @@ function TourKitchen() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
-                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalChair(i);
                     goToHigh(goToHighRef);
                 }}
@@ -209,7 +209,7 @@ function TourKitchen() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalHigh}
                 normalProductAdd={() => {
-                    highAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    highAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalHigh(i);
                     goToContinue(continueRef);
                 }}

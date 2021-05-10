@@ -90,9 +90,9 @@ const TourCheckout = () => {
             <form className="contact-form" onSubmit={sendEmail} className='tour-checkout-form'>
                 <input type="hidden" name="contact_number" />
                 <label>{t.tourCheckout.name}</label>
-                <input type="text" name="user_name" />
+                <input type="text" required name="user_name" />
                 <label>Email</label>
-                <input type="email" name="user_email" />
+                <input type="email" required name="user_email" />
                 <label>{t.tourCheckout.phone}</label>
                 <input type="text" name="user_phone" />
                 <input type="hidden" name="firstbed_name" value={firstBed?.name}/>

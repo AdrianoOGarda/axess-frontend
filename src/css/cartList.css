@@ -7,7 +7,8 @@
 .cart-list-div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: left;
+    padding-left: 3%;
     width: 100vw;
 }
 
@@ -22,6 +23,15 @@
     padding-bottom: 2%;
     width: 35vw;
     margin: 0 5vw 4vw 5vw;
+}
+
+.cart-list-product-info {
+    width: 1.6vw !important;
+    display: inline;
+    align-self: flex-start;
+    margin-left: 1vw;
+    margin-top: .3vw;
+    cursor: pointer;
 }
 
 .cart-list-product-div p {
@@ -60,8 +70,8 @@
 
 .cart-list-packages-select {
     align-self: flex-start;
-    margin-left: 5vw;
     margin-top: 3vw;
+    margin-left: 8%;
 }
 
 .cart-list-packages-select>p {

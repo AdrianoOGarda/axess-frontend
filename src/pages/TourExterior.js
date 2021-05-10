@@ -48,23 +48,23 @@ function TourExterior() {
         fetchBeds()
     }, [])
 
-    const diningAdd = (fName, fImage, fCategory) => {
-        setSelectedDiningTable({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const diningAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedDiningTable({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
-    const chairAdd = (fName, fImage, fCategory) => {
-        setSelectedDiningChair({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const chairAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedDiningChair({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
-    const sofaAdd = (fName, fImage, fCategory) => {
-        setSelectedSofa({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const sofaAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedSofa({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
-    const tableAdd = (fName, fImage, fCategory) => {
-        setSelectedTable({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const tableAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedTable({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
-    const loungeAdd = (fName, fImage, fCategory) => {
-        setSelectedLounge({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const loungeAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedLounge({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
-    const sunbedAdd = (fName, fImage, fCategory) => {
-        setSelectedSunbed({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const sunbedAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedSunbed({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
 
@@ -190,7 +190,7 @@ function TourExterior() {
     };
     
 
-    
+    //SOFAS DE EXTERIOR
 
     return (
         <div className='one-b-main-div'>
@@ -223,7 +223,7 @@ function TourExterior() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    diningAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    diningAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormal(i);
                     goToChair(goToChairRef);
                 }}
@@ -252,17 +252,17 @@ function TourExterior() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalChair}
                 normalProductAdd={() => {
-                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    chairAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalChair(i);
-                    goToSofa(goToSofaRef);
+                    goToLounge(goToLoungeRef);
                 }}
                 />
             ))}
             <div ref={goToChairRef}></div>
         </div>
 
-
-        {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SOFAS" && furniture?.project === "AWA").length > 0 ? (
+        
+        {/* {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SOFAS" && furniture?.project === "AWA").length > 0 ? (
             <p>{t.tourExterior.sofa}</p>
         ): (
             <></>
@@ -281,17 +281,17 @@ function TourExterior() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalSofa}
                 normalProductAdd={() => {
-                    sofaAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    sofaAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalSofa(i);
                     goToTable(goToTableRef)
                 }}
                 />
             ))}
             <div ref={goToSofaRef}></div>
-        </div>
+        </div> */}
 
 
-        {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SIDE TABLES" && furniture?.project === "AWA").length > 0 ? (
+        {/* {furnitures?.filter(furniture => furniture?.category?.en === "OUTDOOR SIDE TABLES" && furniture?.project === "AWA").length > 0 ? (
             <p>{t.tourExterior.sideTable}</p>
         ): (
             <></>
@@ -310,14 +310,14 @@ function TourExterior() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalTable}
                 normalProductAdd={() => {
-                    tableAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    tableAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalTable(i);
                     goToLounge(goToLoungeRef)
                 }}
                 />
             ))}
             <div ref={goToTableRef}></div>
-        </div>
+        </div> */}
 
 
         {furnitures?.filter(furniture => furniture?.category?.en === "LOUNGE CHAIRS" && furniture?.project === "AWA").length > 0 ? (
@@ -339,16 +339,16 @@ function TourExterior() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalLounge}
                 normalProductAdd={() => {
-                    loungeAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    loungeAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalLounge(i);
-                    goToSunbed(goToSunbedRef);
+                    goToContinue(continueRef);
                 }}
                 />
             ))}
             <div ref={goToLoungeRef}></div>
         </div>
 
-        {furnitures?.filter(furniture => furniture?.category?.en === "SUNBEDS" && furniture?.project === "AWA").length > 0 ? (
+        {/* {furnitures?.filter(furniture => furniture?.category?.en === "SUNBEDS" && furniture?.project === "AWA").length > 0 ? (
             <p>{t.tourExterior.sunbed}</p>
         ): (
             <></>
@@ -367,7 +367,7 @@ function TourExterior() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormalSunbed}
                 normalProductAdd={() => {
-                    sunbedAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    sunbedAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormalSunbed(i);
                     goToContinue(continueRef);
                 }}
@@ -375,7 +375,7 @@ function TourExterior() {
             ))}
             <div ref={goToSunbedRef}></div>
         </div>
-        
+         */}
 
         <div className='one-bedroom-buttons-div'>
                 <button className='one-bedroom-cancel-button' onClick={goBack}>{t.tourBedroom.backBtn}</button>

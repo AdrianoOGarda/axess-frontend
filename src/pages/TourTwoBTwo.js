@@ -30,16 +30,16 @@ function TourTwoB() {
 
     let history = useHistory();
 
-    const addToCartBed = (fName, fImage, fCategory) => {
-        setBedTwo({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const addToCartBed = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setBedTwo({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
-    const addToCartNight = (fName, fImage, fCategory) => {
-        setNightstandTwo({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const addToCartNight = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setNightstandTwo({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
-    const normalAdd = (fName, fImage, fCategory) => {
-        setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const normalAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
     const addF = async () => {
@@ -154,7 +154,7 @@ function TourTwoB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selected}
                 onSelectImage={() => {
-                    addToCartBed(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    addToCartBed(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelected(i);
                     goToNightstand(goToNightstandRef);
                 }}
@@ -178,7 +178,7 @@ function TourTwoB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNight}
                 onSelectImage={() => {
-                    addToCartNight(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en)
+                    addToCartNight(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price)
                     setSelectedNight(i);
                     goToTV(goToTVRef);
                 }}
@@ -202,7 +202,7 @@ function TourTwoB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    normalAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    normalAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormal(i);
                     goToContinue(continueRef);
                 }}

@@ -39,7 +39,32 @@ const CartList = () => {
     const [isEquipVisible, setIsEquipVisible] = useState(false);
     const [isSecondModalVisible, setIsSecondModalVisible] = useState(false);
     const [isThirdModalVisible, setIsThirdModalVisible] = useState(false);
+    const [isInfoModalVisible, setIsInfoModalVisible] = useState(false);
+    const [isInfoModalVisibleBedTwo, setIsInfoModalVisibleBedTwo] = useState(false);
+    const [isInfoModalVisibleBedThree, setIsInfoModalVisibleBedThree] = useState(false);
+    const [isInfoModalVisibleNightOne, setIsInfoModalVisibleNightOne] = useState(false);
+    const [isInfoModalVisibleNightTwo, setIsInfoModalVisibleNightTwo] = useState(false);
+    const [isInfoModalVisibleNightThree, setIsInfoModalVisibleNightThree] = useState(false);
+    const [isInfoModalVisible0, setIsInfoModalVisible0] = useState(false);
+    const [isInfoModalVisible1, setIsInfoModalVisible1] = useState(false);
+    const [isInfoModalVisible2, setIsInfoModalVisible2] = useState(false);
+    const [isInfoModalVisible3, setIsInfoModalVisible3] = useState(false);
+    const [isInfoModalVisible4, setIsInfoModalVisible4] = useState(false);
+    const [isInfoModalVisible5, setIsInfoModalVisible5] = useState(false);
+    const [isInfoModalVisible6, setIsInfoModalVisible6] = useState(false);
+    const [isInfoModalVisible7, setIsInfoModalVisible7] = useState(false);
+    const [isInfoModalVisible8, setIsInfoModalVisible8] = useState(false);
+    const [isInfoModalVisible9, setIsInfoModalVisible9] = useState(false);
+    const [isInfoModalVisible10, setIsInfoModalVisible10] = useState(false);
+    const [isInfoModalVisible11, setIsInfoModalVisible11] = useState(false);
+    const [isInfoModalVisible12, setIsInfoModalVisible12] = useState(false);
+    const [isInfoModalVisible13, setIsInfoModalVisible13] = useState(false);
+    const [isInfoModalVisible14, setIsInfoModalVisible14] = useState(false);
+    const [isInfoModalVisible15, setIsInfoModalVisible15] = useState(false);
 
+    const [isInfoCartVisible, setIsInfoCartVisible] = useState(false);
+    const [regularDescription, setRegularDescription] = useState('');
+    const [regularPrice, setRegularPrice] = useState('');
 
     let history = useHistory()
 
@@ -55,16 +80,43 @@ const CartList = () => {
     const showThirdModal = () => {
         setIsThirdModalVisible(true);
     };
+    const showInfoModal = () => {
+        setIsInfoModalVisible(true);
+    };
+    const showInfoModalBedTwo = () => {
+        setIsInfoModalVisibleBedTwo(true);
+    };
+    const showInfoModalBedThree = () => {
+        setIsInfoModalVisibleBedThree(true);
+    };
+    const showInfoModalNightOne = () => {
+        setIsInfoModalVisibleNightOne(true);
+    };
+    const showInfoModalNightTwo = () => {
+        setIsInfoModalVisibleNightTwo(true);
+    };
+    const showInfoModalNightThree = () => {
+        setIsInfoModalVisibleNightThree(true);
+    };
+    
+    
     const handleCancel = () => {
         setIsEquipVisible(false);
         setIsSecondModalVisible(false);
         setIsThirdModalVisible(false);
+        setIsInfoModalVisible(false);
+        setIsInfoModalVisibleBedTwo(false);
+        setIsInfoModalVisibleBedThree(false);
+        setIsInfoModalVisibleNightOne(false);
+        setIsInfoModalVisibleNightTwo(false);
+        setIsInfoModalVisibleNightThree(false);
+        setIsInfoCartVisible(false);
     };
 
     function onChangeEq(e) {
         setEquip(e.target.checked);
         console.log(`checked = ${e.target.checked}`);
-        console.log(`aaaasco = ${equip}`);
+        console.log(`aaa = ${equip}`);
     }
     function onChangeDec(e) {
         setDeco(e.target.checked);
@@ -98,6 +150,7 @@ const CartList = () => {
         });
     }, []);
     
+    console.log('waaaaaat', firstNightstand)
 
 
     return (
@@ -117,9 +170,15 @@ const CartList = () => {
             {firstBed?.category === undefined || firstBed === null ? 
             <></>
             :
-            <div className='cart-list-product-div'>
+            <div className='cart-list-product-div'>                    
                 <img src={firstBed.image} alt="item-image"/>
-                <p>{firstBed.name}</p>
+                <p>{firstBed.name}</p><img onClick={showInfoModal} src={Info} alt="info-icon" className="cart-list-product-info" />
+                    <Modal visible={isInfoModalVisible} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{firstBed.description}</p>
+                            <p>{firstBed.price}</p>
+                        </div>
+                    </Modal>
             </div>
         }
 
@@ -128,7 +187,13 @@ const CartList = () => {
             :
             <div className='cart-list-product-div'>
                 <img src={secondBed.image} alt="item-image"/>
-                <p>{secondBed.name}</p>
+                <p>{secondBed.name}</p><img onClick={showInfoModalBedTwo} src={Info} alt="info-icon" className="cart-list-product-info" />
+                    <Modal visible={isInfoModalVisibleBedTwo} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{secondBed.description}</p>
+                            <p>{secondBed.price}</p>
+                        </div>
+                    </Modal>
             </div>
         }
 
@@ -137,7 +202,13 @@ const CartList = () => {
             :
             <div className='cart-list-product-div'>
                 <img src={thirdBed.image} alt="item-image"/>
-                <p>{thirdBed.name}</p>
+                <p>{thirdBed.name}</p><img onClick={showInfoModalBedThree} src={Info} alt="info-icon" className="cart-list-product-info" />
+                    <Modal visible={isInfoModalVisibleBedThree} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{thirdBed.description}</p>
+                            <p>{thirdBed.price}</p>
+                        </div>
+                    </Modal>
             </div>
         }
 
@@ -146,7 +217,13 @@ const CartList = () => {
             :
             <div className='cart-list-product-div'>
                 <img src={firstNightstand.image} alt="item-image"/>
-                <p>{firstNightstand.name}</p>
+                <p>{firstNightstand.name}</p><img onClick={showInfoModalNightOne} src={Info} alt="info-icon" className="cart-list-product-info" />
+                    <Modal visible={isInfoModalVisibleNightOne} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{firstNightstand.description}</p>
+                            <p>{firstNightstand.price}</p>
+                        </div>
+                    </Modal>
             </div>
         }
 
@@ -155,7 +232,13 @@ const CartList = () => {
             :
             <div className='cart-list-product-div'>
                 <img src={secondNightstand.image} alt="item-image"/>
-                <p>{secondNightstand.name}</p>
+                <p>{secondNightstand.name}</p><img onClick={showInfoModalNightTwo} src={Info} alt="info-icon" className="cart-list-product-info" />
+                    <Modal visible={isInfoModalVisibleNightTwo} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{secondNightstand.description}</p>
+                            <p>{secondNightstand.price}</p>
+                        </div>
+                    </Modal>
             </div>
         }
 
@@ -164,7 +247,13 @@ const CartList = () => {
             :
             <div className='cart-list-product-div'>
                 <img src={thirdNightstand.image} alt="item-image"/>
-                <p>{thirdNightstand.name}</p>
+                <p>{thirdNightstand.name}</p><img onClick={showInfoModalNightThree} src={Info} alt="info-icon" className="cart-list-product-info" />
+                    <Modal visible={isInfoModalVisibleNightThree} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{thirdNightstand.description}</p>
+                            <p>{thirdNightstand.price}</p>
+                        </div>
+                    </Modal>
             </div>
         }
         </div>
@@ -173,9 +262,19 @@ const CartList = () => {
             {cart.filter(product => product.category  !== undefined).map( (cartItem, idx) => (
                 <div key={idx} className='cart-list-product-div'>
                     <img src={cartItem.image} alt="item-image"/>
-                    <p>{cartItem.name}</p>
+                    <p>{cartItem.name}</p><img onClick={() => {
+                        setRegularDescription(cartItem.description);
+                        setRegularPrice(cartItem.price);
+                        setIsInfoCartVisible(true);
+                    }} src={Info} alt="info-icon" className="cart-list-product-info" />
                 </div>
             ))}
+            <Modal visible={isInfoCartVisible} onCancel={handleCancel}>
+                        <div className='equipamiento-modal'>
+                            <p>{regularDescription}</p>
+                            <p>{regularPrice}</p>
+                        </div>
+            </Modal>
             </div>
 
 

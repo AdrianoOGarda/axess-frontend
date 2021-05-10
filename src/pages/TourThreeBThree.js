@@ -31,12 +31,12 @@ function TourThreeB() {
 
     let history = useHistory();
 
-    const addToCartBed = (fName, fImage, fCategory) => {
-        setBedThree({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const addToCartBed = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setBedThree({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
-    const addToCartNight = (fName, fImage, fCategory) => {
-        setNightstandThree({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const addToCartNight = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setNightstandThree({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
     useEffect(() => {
@@ -66,8 +66,8 @@ function TourThreeB() {
         history.push('/tour-kitchen')
     }
 
-    const normalAdd = (fName, fImage, fCategory) => {
-        setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1})
+    const normalAdd = (fName, fImage, fCategory, fDescription, fPrice) => {
+        setSelectedTVStand({name: fName, image: fImage, category: fCategory, quantity: 1, description: fDescription, price: fPrice})
     }
 
     const goBack = () => {
@@ -156,7 +156,7 @@ function TourThreeB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selected}
                 onSelectImage={() => {
-                    addToCartBed(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    addToCartBed(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelected(i);
                     goToNightstand(goToNightstandRef);
                 }}
@@ -180,7 +180,7 @@ function TourThreeB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNight}
                 onSelectImage={() => {
-                    addToCartNight(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    addToCartNight(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNight(i);
                     goToTV(goToTVRef);
                 }}
@@ -204,7 +204,7 @@ function TourThreeB() {
                 size={filteredFurniture.size[t.lang]}
                 selectedProduct={selectedNormal}
                 normalProductAdd={() => {
-                    normalAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en);
+                    normalAdd(filteredFurniture.name[t.lang], filteredFurniture.image, filteredFurniture.category.en, filteredFurniture.description[t.lang], filteredFurniture.price);
                     setSelectedNormal(i);
                     goToContinue(continueRef);
                 }}
