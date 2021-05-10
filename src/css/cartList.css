@@ -257,4 +257,12 @@
         font-size: 3.5vw;
         text-align: start;
     }
+    .cart-list-product-info {
+        width: 4.5vw !important;
+        display: inline;
+        align-self: flex-start;
+        margin-left: 5%;
+        margin-top: -21%;
+        cursor: pointer;
+    }
 }
