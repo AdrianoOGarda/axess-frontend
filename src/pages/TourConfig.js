@@ -45,6 +45,7 @@ function TourConfig() {
                 <p className='tour-config-paragraph'>{t.tourConfig.depto}</p>
                 <Select bordered={false} defaultValue="AWA" onChange={handleChangeProject} className='tour-config-project-select'>
                     <Option value="AWA">AWA</Option>
+                    <Option value="XALET">XALET</Option>
                 </Select>
             </div>
 

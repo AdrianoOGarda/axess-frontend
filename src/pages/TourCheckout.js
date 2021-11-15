@@ -95,6 +95,11 @@ const TourCheckout = () => {
                 <input type="email" required name="user_email" />
                 <label>{t.tourCheckout.phone}</label>
                 <input type="text" name="user_phone" />
+                <label>{t.tourCheckout.projectLabel}</label>
+                <select name="project" defaultValue='Proyecto'>
+                    <option value="AWA">AWA</option>
+                    <option value="dog">XALET</option>
+                </select>
                 <input type="hidden" name="firstbed_name" value={firstBed?.name}/>
                 <input type="hidden" name="firstbed_quantity" value={firstBed?.quantity}/>
                 <input type="hidden" name="firstbed_size" value={bedSizes[t.lang][firstBed?.firstBedSize]}/>

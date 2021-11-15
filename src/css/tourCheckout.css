@@ -30,6 +30,15 @@
     font-size: 1vw;
 }
 
+.tour-checkout-form select {
+    background-color: #f7f4ed;
+    border: 3px solid #8c857e;
+    height: 3vw;
+    margin-bottom: 2vw;
+    font-family: 'L Regular';
+    font-size: 1vw;
+}
+
 .tour-checkout-form label {
     align-self: flex-start;
     color: #8c857e;
@@ -116,6 +125,14 @@
         flex-direction: column;
     }
     .tour-checkout-form input {
+        background-color: #f7f4ed;
+        border: 3px solid #8c857e;
+        height: 10vw;
+        margin-bottom: 2vw;
+        font-family: 'L Regular';
+        font-size: 4vw;
+    }
+    .tour-checkout-form select {
         background-color: #f7f4ed;
         border: 3px solid #8c857e;
         height: 10vw;
